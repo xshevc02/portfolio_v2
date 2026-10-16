@@ -1,0 +1,44 @@
+---
+/** 1px-gap grid of cells (label / title / text). Used for In short, lists, interviewees, steps. */
+interface Cell { label?: string; title?: string; text?: string; print?: boolean }
+interface Props {
+  items: Cell[];
+  min?: string;
+  /** Tighter padding for list-like cells. */
+  compact?: boolean;
+  /** Mono label without uppercase (numbers, ages). */
+  plainLabel?: boolean;
+  titleSize?: 's' | 'm' | 'l';
+  /** Solid cobalt dividers instead of hairlines. */
+  strong?: boolean;
+  /** Last cell on the blue surface (In short → Outcome). */
+  lastPrint?: boolean;
+  as?: 'div' | 'ul' | 'ol';
+}
+const { items, min = '19rem', compact = false, plainLabel = false, titleSize = 'm', strong = false, lastPrint = false, as: Tag = 'div' } = Astro.props;
+const Item = Tag === 'div' ? 'div' : 'li';
+---
+<Tag class:list={['cells', { compact, strong }]} style={`--cell-min: ${min}`}>
+  {items.map((cell, i) => (
+    <Item class:list={['cell', { print: cell.print || (lastPrint && i === items.length - 1) }]}>
+      {cell.label && <span class:list={['cell-label', { upper: !plainLabel }]}>{cell.label}</span>}
+      {cell.title && <span class:list={['cell-title head', `t-${titleSize}`]}>{cell.title}</span>}
+      {cell.text && <span class="cell-text">{cell.text}</span>}
+    </Item>
+  ))}
+</Tag>
+
+<style>
+  .cells { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .cells.strong { background: var(--print); border-color: var(--cobalt); }
+  .cell { flex: 1 1 var(--cell-min); min-width: 0; display: flex; flex-direction: column; gap: .8rem; padding: clamp(1.25rem, 2.5vw, 2rem); background-color: var(--surface); }
+  .compact .cell { gap: .6rem; padding: 1.1rem 1.2rem; }
+  .cell-label { font: 400 .72rem/1.4 var(--font-mono); color: var(--accent); }
+  .cell-label.upper { text-transform: uppercase; letter-spacing: .07em; }
+  .cell-title { line-height: 1; }
+  .t-s { font-size: 1.3rem; }
+  .t-m { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+  .t-l { font-size: clamp(1.6rem, 2.6vw, 2.2rem); }
+  .cell-text { font-size: 1rem; line-height: 1.6; color: var(--fg-body); }
+  .compact .cell-text { font-size: .95rem; line-height: 1.55; color: var(--fg); }
+</style>

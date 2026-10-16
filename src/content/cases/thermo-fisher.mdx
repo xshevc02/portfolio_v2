@@ -1,0 +1,84 @@
+---
+order: 4
+title: Thermo Fisher Scientific
+homeTitle: Instrument control at Thermo Fisher Scientific
+heroTitle: 'What I do at Thermo Fisher <em>without</em> the screens.'
+year: 2024 — now
+type: Enterprise B2B · under NDA
+heroMeta: [Enterprise B2B · Thermo Fisher Scientific]
+summary: "My day job: the software scientists and engineers use to drive electron microscopes. Interaction models, journey maps, high-fidelity prototypes and usability findings, made with Product Owners, developers, Application Specialists and domain experts across 6+ international teams."
+myPart: "I can’t publish the screens — proprietary parameters, algorithms and scientific data. I can walk you through the thinking in a call, and there is an abstracted write-up if you want the detail."
+lead: At Thermo Fisher Scientific, I work on high-tech B2B software used by scientists and engineers to control advanced electron microscopes.
+leadNote: Due to non-disclosure agreements, specific UI elements, proprietary algorithm parameters, and real scientific data stay private. This page shows the methods, the collaboration model, and the kinds of product decisions I make.
+nda: true
+# The client may still switch this page back to light paper: set print to false.
+print: true
+facts:
+  - { label: Role, value: User Experience Designer · Brno }
+  - { label: Domain, value: "Electron microscopy, scientific instrument control, material-testing scenarios, and expert-user workflows" }
+  - { label: Design outputs, value: "Interaction models, journey maps, high-fidelity prototypes, usability findings, component documentation, and handoff notes" }
+  - { label: Tools, value: "Figma, corporate design system, Jira, Confluence, usability testing, agile planning, developer handoff" }
+next: peepoint
+---
+
+<section class="wrap">
+  <NumbersRow items={[
+    { value: '2+ years', text: 'designing scientific software, from feature concept to developer handoff' },
+    { value: '7+ sessions', text: 'usability tests I planned and ran with Product Owners and domain specialists' },
+    { value: '6+ teams', text: 'international product teams, incl. France and the Netherlands' },
+  ]} />
+</section>
+
+<CaseSection n={1} label="Who I work with" title="Cross-functional planning before pixels.">
+
+Designing for scientific instrumentation requires tight integration with both business goals and technical realities. Most of my design decisions are shaped in conversation before anything is drawn.
+
+  <CollabMap slot="after"
+    left={[
+      { label: 'Application Specialists', text: 'Internal scientists who operate and test microscopes in real material-testing scenarios. Their feedback refines interaction models and catches assumptions that would not hold in expert workflows.' },
+      { label: 'Product Owners', text: 'Quarterly planning, UX requirements, and feature readiness before implementation starts. Co-running usability sessions.' },
+    ]}
+    me={{ label: 'UX designer', title: 'Me', text: 'translating domain logic into workflows people can trust' }}
+    right={[
+      { label: 'Engineering Leads & developers', text: 'Edge cases, technical constraints, and state transitions discussed early in the design phase, so handoff is shared understanding rather than static mockups.' },
+      { label: 'Adjacent teams', text: 'I act as an internal UX advisor, giving design reviews and recommendations when new functionality is initiated, to keep the wider product ecosystem consistent.' },
+    ]}
+  />
+</CaseSection>
+
+<CaseSection n={2} label="How a quarter runs" title="From roadmap to handoff, then back again.">
+  <Cells slot="after" as="ol" plainLabel titleSize="s" min="12rem" items={[
+    { label: '1 →', title: 'Planning', text: 'Quarterly sessions with Product Owners and Engineering Leads to scope features and agree what is ready.' },
+    { label: '2 →', title: 'Requirements', text: 'UX requirements written before implementation, checked against domain logic with Application Specialists.' },
+    { label: '3 →', title: 'Prototype', text: 'Interaction models and high-fidelity prototypes aligned with the corporate design system.' },
+    { label: '4 →', title: 'Testing', text: 'Usability sessions with domain specialists, findings synthesized and presented to stakeholders.' },
+    { label: '5 ↺', title: 'Handoff', text: 'Component documentation and handoff notes; what we learn feeds the next planning round.' },
+  ]} />
+</CaseSection>
+
+<CaseSection n={3} label="One project, abstracted" title="Iterating on a core system workflow.">
+
+One of my primary initiatives was a multi-month iterative design process for a core system workflow. The question underneath: how can new capabilities fit into existing application structures without cluttering the interface or breaking the mental models expert users already rely on?
+
+<Timeline items={[
+  { label: 'Phase 1', title: 'Requirements and brainstorming', text: 'Understanding what the new capabilities had to do and where they could live in the existing structure.' },
+  { label: 'Phase 2', title: 'End-to-end journey mapping', text: 'Mapping user journeys across parameter-heavy system workflows.' },
+  { label: 'Phase 3', title: 'Interaction logic', text: 'Defining how complex parameter inputs and system state changes behave.' },
+  { label: 'Phase 4', title: 'High-fidelity prototypes', text: 'Translating those decisions into prototypes testable with real domain specialists.' },
+  { label: 'Phase 5', title: 'Usability testing', text: 'Sessions with domain specialists to find points of confusion and validate assumptions.' },
+  { label: 'Phase 6 · repeat', title: 'Iterate and present findings', text: 'Feedback turned into concrete design iterations, findings presented to stakeholders.' },
+]} />
+
+</CaseSection>
+
+<CaseSection n={4} label="How I shift the work" title="Before and after, in principles.">
+  <Compare slot="after" before="Without it" after="What I push for" rows={[
+    ['Workflow assumptions made at a desk', 'Domain logic validated with Application Specialists who run the instruments'],
+    ['New capabilities added on top of the interface', 'New capabilities fitted into existing structures and users’ mental models'],
+    ['Each team solving the same pattern its own way', 'Reusable components documented and published to the central design library'],
+    ['Handoff as a set of static mockups', 'Edge cases and state transitions agreed with developers early in design'],
+    ['Usability feedback collected as a list', 'Findings synthesized, presented to stakeholders, and turned into iterations'],
+  ]} />
+</CaseSection>
+
+<TalkCard title="The details live in a conversation.">I’m happy to walk you through the reasoning behind this work in a call, within what my NDA allows.</TalkCard>

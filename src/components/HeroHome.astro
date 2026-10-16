@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import CopyEmail from './CopyEmail.astro';
+import PhotoTaped from './PhotoTaped.astro';
+---
+<section class="hero wrap">
+  <div class="auto-grid">
+    <div>
+      <p class="eyebrow label">UX for scientific and data-heavy products · Brno, open to Prague &amp; remote EU</p>
+      <h1 class="h1 head">Complex software that feels simple to use.</h1>
+      <p class="intro lead">Electron microscopes, traffic data, scientific workflows. I start with the logic underneath — what people decide, what data they trust, where mistakes get expensive.</p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="#work">See my work <Icon name="out" /></a>
+        <CopyEmail variant="line" />
+      </div>
+    </div>
+    <PhotoTaped
+      src="/images/profile/profile-courtyard.png"
+      alt="Anna Shevchenko"
+      caption="In the courtyard of FIT VUT, where I studied — on the day a friend from my year graduated."
+    />
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: clamp(2.25rem, 4vw, 4rem) clamp(2rem, 4vw, 3rem); }
+  .auto-grid { --min: 22rem; --gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .eyebrow { margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); font-size: .78rem; line-height: 1.5; letter-spacing: .09em; }
+  .h1 { max-width: 20ch; }
+  .intro { margin: clamp(1.75rem, 3vw, 2.5rem) 0 0; max-width: 42ch; }
+  .btn-row { margin-top: clamp(2rem, 4vw, 3rem); }
+</style>

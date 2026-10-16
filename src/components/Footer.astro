@@ -1,0 +1,31 @@
+---
+import { EMAIL } from '../lib/url';
+
+type Props = { variant: 'home' } | { variant: 'email'; text: string };
+const props = Astro.props;
+---
+<footer class="site-footer u">
+  {props.variant === 'home' ? (
+    <>
+      <p>© 2026 Anna Shevchenko · Brno</p>
+      <a href="#top">Back to top ↑</a>
+    </>
+  ) : (
+    <>
+      <p>{props.text}</p>
+      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+    </>
+  )}
+</footer>
+
+<style>
+  .site-footer {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+    padding: 2rem var(--gutter);
+    border-top: 1px solid var(--rule);
+    color: var(--accent);
+    font: 300 .74rem/1.5 var(--font-mono);
+  }
+  p { margin: 0; }
+  a { overflow-wrap: anywhere; }
+</style>

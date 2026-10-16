@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; background-color: #f5f7f9; background-image: linear-gradient(rgba(31,63,191,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(31,63,191,.07) 1px, transparent 1px); background-size: 24px 24px; color: #14161c; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #1f3fbf; }
+  button { color: inherit; cursor: pointer; }
+  ::selection { color: #14161c; background: #b9c6ff; }
+</style>
+</helmet>
+
+<header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem clamp(1.25rem, 4vw, 4.5rem); border-bottom: 1px solid rgba(31,63,191,.4); background: rgba(245,247,249,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+  <a href="Portfolio v2.dc.html" style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.2rem; line-height: 1; letter-spacing: -.01em;">Anna Shevchenko</a>
+  <div style="display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.5rem); font: 400 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;">
+    <a href="Portfolio v2.dc.html#about" style="display: inline-flex; align-items: center; gap: .4rem;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: .9rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M14 9H4M8 5 4 9l4 4"></path></svg>{{ t.back }}</a>
+    <div style="display: flex; border: 1px solid #1f3fbf;">
+      <button type="button" onClick="{{ setEn }}" style="{{ enStyle }}">EN</button>
+      <button type="button" onClick="{{ setCs }}" style="{{ csStyle }}">CZ</button>
+    </div>
+  </div>
+</header>
+
+<section data-screen-label="Intro" style="padding: clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(2rem, 4vw, 3.5rem);">
+  <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">{{ t.eyebrow }}</p>
+  <h1 style="margin: clamp(1.25rem, 2.5vw, 2rem) 0 0; max-width: 18ch; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: clamp(2.6rem, 6.4vw, 6.2rem); line-height: .88; letter-spacing: -.015em; text-wrap: pretty;">{{ t.title }}</h1>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; gap: clamp(2rem, 5vw, 5rem); margin-top: clamp(2rem, 4vw, 3.5rem);">
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1rem;">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem;">
+        <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">{{ t.aboutLabel }}</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0;">
+        <sc-for list="{{ prompts }}" as="p" hint-placeholder-count="4">
+          <div style="flex: 1 1 100%; display: flex; flex-direction: column; gap: .7rem; padding: 1.1rem 0 1.25rem; border-top: 1px solid rgba(31,63,191,.4);">
+            <span style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.35rem; line-height: .95;"><span style="color: #1f3fbf;">{{ p.n }}</span> {{ p.q }}</span>
+            <p style="margin: 0; max-width: 64ch; font-size: 1.02rem; line-height: 1.7; color: rgba(20,22,28,.82); text-wrap: pretty;">{{ p.a }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1rem;">
+    <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">{{ t.studyLabel }}</p>
+    <dl style="margin: 0; display: grid; border-top: 1px solid rgba(31,63,191,.4);">
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.4);"><dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">{{ t.programmeLabel }}</dt><dd style="margin: 0; font-size: .95rem; line-height: 1.55;">{{ t.programme }}</dd></div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.4);"><dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">{{ t.lengthLabel }}</dt><dd style="margin: 0; font-size: .95rem; line-height: 1.55;">{{ t.length }}</dd></div>
+    </dl>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Timeline" style="padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <p style="margin: 0 0 1.25rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #1f3fbf;">{{ t.overview }}</p>
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1rem, 2vw, 1.5rem);">
+    <sc-for list="{{ years }}" as="y" hint-placeholder-count="2">
+      <div style="flex: 1 1 22rem; min-width: 0; display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .8rem 1rem; background: #1f3fbf; color: #f2f5ff;">
+          <span style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.3rem; line-height: 1; white-space: nowrap; flex: 0 0 auto;">{{ y.label }}</span>
+          <span style="font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">{{ y.span }}</span>
+        </div>
+        <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 1px; background: rgba(31,63,191,.4); border: 1px solid rgba(31,63,191,.4); border-top: 0;">
+          <sc-for list="{{ y.semesters }}" as="s" hint-placeholder-count="2">
+            <li style="flex: 1 1 10rem; display: flex; flex-direction: column; gap: .6rem; padding: clamp(1.1rem, 2vw, 1.5rem); background: #f5f7f9;">
+              <span style="font: 400 .72rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">{{ s.n }} →</span>
+              <span style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.4rem; line-height: .9;">{{ s.name }}</span>
+              <span style="font: 400 .74rem/1.5 'IBM Plex Mono', monospace; color: rgba(20,22,28,.6);">{{ s.count }}</span>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="Subjects" style="padding: clamp(4rem, 8vw, 6rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #1f3fbf;">
+    <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: clamp(1.9rem, 3.6vw, 3.4rem); line-height: .9; letter-spacing: -.015em;">{{ t.subjects }}</h2>
+    <span style="font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">{{ t.subjectsCount }}</span>
+  </div>
+  <sc-for list="{{ subjects }}" as="sub" hint-placeholder-count="6">
+    <article style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding: clamp(2rem, 4vw, 3rem) 0; border-bottom: 1px solid rgba(31,63,191,.4);">
+      <div style="flex: 1 1 13rem; min-width: 0; display: flex; flex-direction: column; gap: .6rem;">
+        <span style="font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">{{ sub.n }}</span>
+        <span style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: .92; color: rgba(20,22,28,.35);">{{ sub.title }}</span>
+        <span style="font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; color: #1f3fbf;">{{ sub.meta }}</span>
+      </div>
+      <div style="flex: 999 1 26rem; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: clamp(1rem, 2vw, 1.5rem);">
+        <div style="grid-column: 1 / -1; min-height: 8rem; padding: 1.25rem; border: 1px dashed #1f3fbf; background: rgba(245,247,249,.7); font: 400 .8rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">{{ sub.reflection }}</div>
+        <div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; padding: 1rem; border: 1px dashed rgba(31,63,191,.5); background: #e6ebfb; font: 400 .74rem/1.5 'IBM Plex Mono', monospace; color: #1f3fbf; text-align: center;">{{ sub.artefact }}</div>
+        <div style="display: flex; flex-direction: column;">
+          <span style="padding-bottom: .6rem; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">{{ sub.linksLabel }}</span>
+          <span style="padding: .8rem 0; border-top: 1px dashed rgba(31,63,191,.5); font: 400 .8rem/1.5 'IBM Plex Mono', monospace; color: rgba(20,22,28,.45);">{{ sub.linkEmpty }}</span>
+          <span style="padding: .8rem 0; border-top: 1px dashed rgba(31,63,191,.5); border-bottom: 1px dashed rgba(31,63,191,.5); font: 400 .8rem/1.5 'IBM Plex Mono', monospace; color: rgba(20,22,28,.45);">{{ sub.linkEmpty }}</span>
+        </div>
+      </div>
+    </article>
+  </sc-for>
+</section>
+
+<section data-screen-label="Year summary" style="margin-top: clamp(4rem, 8vw, 6rem); padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 4.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem);">
+    <p style="flex: 1 1 11rem; margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">{{ t.summaryLabel }}</p>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 20ch; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: clamp(1.9rem, 3.6vw, 3.4rem); line-height: .9; letter-spacing: -.015em;">{{ t.summaryTitle }}</h2>
+      <div style="min-height: 9rem; padding: 1.25rem; border: 1px dashed rgba(242,245,255,.6); font: 400 .8rem/1.6 'IBM Plex Mono', monospace; color: #b9c6ff;">{{ t.summaryEmpty }}</div>
+    </div>
+  </div>
+</section>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; color: #1f3fbf;">
+  <span>Anna Shevchenko · KISK MUNI</span>
+  <a href="mailto:anna.shevchenko.20042015@gmail.com">anna.shevchenko.20042015@gmail.com</a>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'en' };
+  componentDidMount() {
+    const saved = localStorage.getItem('kisk-lang');
+    if (saved === 'cs' || saved === 'en') this.setState({ lang: saved });
+  }
+  setLang(lang) { localStorage.setItem('kisk-lang', lang); this.setState({ lang }); }
+  renderVals() {
+    const cs = this.state.lang === 'cs';
+    const T = {
+      en: {
+        back: 'About', eyebrow: 'KISK · Masaryk University · study reflections',
+        title: 'Two years at KISK, subject by subject.',
+        aboutLabel: 'Who I am and where I’m heading', aboutDue: 'due 30 Nov 2026',
+        q: ['Who am I?', 'Why KISK?', 'What do I expect?', 'What is my goal?'],
+        a: [
+          'I studied Information Technology at the Faculty of Information Technology, Brno University of Technology, where I built a technical foundation: application development, working with data, and designing software solutions. For the second year now I have been working as a UX designer at Thermo Fisher Scientific, designing interfaces for technically demanding applications connected to electron microscopes. My work covers interface design, usability testing of existing applications, and finding ways to make complex information accessible to the people who work with it.',
+          'During projects at FIT, I enjoyed more and more the part that was not only technical: interface design, presenting information clearly, and the relationship between people and technology. It shaped my bachelor’s thesis on the usability of an application for analysing traffic data, where I realised that interface design is not just aesthetics but mainly organising information and supporting users’ decisions. At KISK I want to go deeper in this direction; I am most interested in the Information Service Design specialisation.',
+          'I am largely self-taught, so I expect the studies to give me the theoretical and methodological base I am still missing, and I am open to everything the field has to offer. In my first three weeks I have started to see design more broadly: not only as applications, but as something that makes people’s lives easier and better, including people with special needs. Designing physical things and services is completely new to me, so I look forward to learning new things and becoming a better designer overall.',
+          'I want to keep working in UX, usability and the design of digital services, but not only “drawing screens”. I want to understand better how people actually work with information systems: how they look for information, how they make decisions, where they run into problems and what helps them find their way. I am interested in user research, information behaviour, accessibility and working with complex data. I want to connect my technical IT background with a deeper understanding of users. Compared to my bachelor’s thesis, I would like my diploma thesis to focus less on implementation and more on the research and analytical side of the problem.',
+        ],
+        aboutNote: 'KISK asks every student to start with these four questions, so the school knows who you are and where you’re heading, and can go through the studies with you.',
+        studyLabel: 'About the studies', programmeLabel: 'Programme', programme: 'Information Studies and Librarianship (KISK), Faculty of Arts, Masaryk University',
+        lengthLabel: 'Length', length: '2 years · 4 semesters', empty: '[ to be written ]',
+        deadlinesLabel: 'Deadlines', dl1: '30 Nov 2026 — portfolio + introduction', dl2: '17 Jan 2027 — first reflections, after exams',
+        years: ['Year 1', 'Year 2'], spans: ['2026 / 2027', '2027 / 2028'], dueFirst: 'reflections due 17 Jan 2027',
+        overview: 'Semester overview', subjects: 'Subjects', subjectsCount: '6 slots · added as I go',
+        subjectTitle: 'Subject name', subjectMeta: 'Semester · code', reflection: '[ reflection — to be written ]',
+        artefact: '[ photo or artefact ]', linksLabel: 'Assignments', linkEmpty: '[ link ]',
+        summaryLabel: 'Year summary', summaryTitle: 'Looking back on the year.', summaryEmpty: '[ summary — written at the end of the year ]',
+        sem: ['Autumn 2026', 'Spring 2027', 'Autumn 2027', 'Spring 2028'], semEmpty: 'subjects to be added',
+      },
+      cs: {
+        back: 'O mně', eyebrow: 'KISK · Masarykova univerzita · studijní reflexe',
+        title: 'Dva roky na KISKu, předmět po předmětu.',
+        aboutLabel: 'Kdo jsem a kam směřuji', aboutDue: 'do 30. 11. 2026',
+        q: ['Kdo jsem?', 'Proč KISK?', 'Jaká mám očekávání?', 'Jaký je můj cíl?'],
+        a: [
+          'Vystudovala jsem Informační technologie na Fakultě informačních technologií VUT v Brně, kde jsem získala technický základ: vývoj aplikací, práci s daty a návrh softwarových řešení. Už druhým rokem pracuji jako UX designerka ve firmě Thermo Fisher Scientific, kde navrhuji uživatelská rozhraní pro technicky náročné aplikace spojené s elektronovými mikroskopy. Věnuji se návrhu rozhraní, usability testování existujících aplikací a hledání způsobů, jak složité informace zpřístupnit lidem, kteří s nimi pracují.',
+          'Během projektů na FIT mě čím dál víc bavila část, která nebyla jen technická: návrh uživatelského rozhraní, srozumitelné zobrazení informací a vztah mezi člověkem a technologií. To ovlivnilo i mou bakalářskou práci o uživatelské přívětivosti aplikace pro analýzu dopravy, při které jsem si uvědomila, že návrh rozhraní není jen estetika, ale hlavně organizace informací a podpora rozhodování uživatele. Na KISKu chci tento směr prohloubit, nejvíc mě zajímá profilace Design informačních služeb.',
+          'Jsem z velké části samouk, takže čekám, že mi studium doplní teoretický a metodický základ, který mi zatím chybí, a jsem otevřená všemu, co obor nabízí. Za první tři týdny jsem začala vnímat design šířeji: ne jen jako aplikace, ale jako něco, co lidem usnadňuje a zlepšuje život, včetně lidí se specifickými potřebami. Design fyzických věcí a služeb je pro mě úplně nový, takže se těším, že se v něm naučím nové věci a celkově se v designu zlepším.',
+          'V oboru se chci dál věnovat UX, použitelnosti a designu digitálních služeb, ale ne jen „kreslení obrazovek“. Chci lépe porozumět tomu, jak lidé s informačními systémy skutečně pracují: jak hledají informace, jak se rozhodují, kde narážejí na problémy a co jim pomáhá v orientaci. Zajímá mě uživatelský výzkum, informační chování, přístupnost a práce s komplexními daty. Svůj technický základ z IT chci propojit s hlubším porozuměním uživatelům a jejich informačním potřebám. U diplomové práce se chci oproti bakalářce soustředit méně na implementaci a víc na výzkumnou a analytickou část problému.',
+        ],
+        aboutNote: 'KISK chce na začátku vědět, kdo jsem a kam směřuji, aby mohl jít mým studiem společně se mnou.',
+        studyLabel: 'O studiu', programmeLabel: 'Obor', programme: 'Informační studia a knihovnictví (KISK), Filozofická fakulta, Masarykova univerzita',
+        lengthLabel: 'Délka', length: '2 roky · 4 semestry', empty: '[ doplním ]',
+        deadlinesLabel: 'Termíny', dl1: '30. 11. 2026 — portfolio + představení', dl2: '17. 1. 2027 — první reflexe, po zkouškách',
+        years: ['1. ročník', '2. ročník'], spans: ['2026 / 2027', '2027 / 2028'], dueFirst: 'reflexe do 17. 1. 2027',
+        overview: 'Přehled semestrů', subjects: 'Předměty', subjectsCount: '6 míst · doplňuji průběžně',
+        subjectTitle: 'Název předmětu', subjectMeta: 'Semestr · kód', reflection: '[ reflexe — doplním ]',
+        artefact: '[ fotka nebo výstup ]', linksLabel: 'Úkoly', linkEmpty: '[ odkaz ]',
+        summaryLabel: 'Shrnutí roku', summaryTitle: 'Ohlédnutí za rokem.', summaryEmpty: '[ shrnutí — napíšu na konci roku ]',
+        sem: ['Podzim 2026', 'Jaro 2027', 'Podzim 2027', 'Jaro 2028'], semEmpty: 'předměty doplním',
+      },
+    };
+    const t = cs ? T.cs : T.en;
+    const on = "padding: .45rem .7rem; border: 0; background: #1f3fbf; color: #fff; font: 500 .72rem/1 'IBM Plex Mono', monospace;";
+    const off = "padding: .45rem .7rem; border: 0; background: transparent; color: #1f3fbf; font: 500 .72rem/1 'IBM Plex Mono', monospace;";
+    return {
+      t,
+      enStyle: cs ? off : on, csStyle: cs ? on : off,
+      setEn: () => this.setLang('en'), setCs: () => this.setLang('cs'),
+      prompts: t.q.map((q, i) => ({ n: i + 1, q, a: t.a[i] })),
+      years: t.years.map((label, y) => ({
+        label, span: t.spans[y],
+        semesters: [0, 1].map((k) => { const i = y * 2 + k; return { n: i + 1, name: t.sem[i], count: t.semEmpty, due: i === 0 ? t.dueFirst : '' }; }),
+      })),
+      subjects: Array.from({ length: 6 }, (_, i) => ({
+        n: i + 1, title: t.subjectTitle, meta: t.subjectMeta, reflection: t.reflection,
+        artefact: t.artefact, linksLabel: t.linksLabel, linkEmpty: t.linkEmpty,
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

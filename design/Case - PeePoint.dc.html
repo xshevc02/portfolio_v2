@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; background-color: #f5f7f9; background-image: linear-gradient(rgba(31,63,191,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(31,63,191,.07) 1px, transparent 1px); background-size: 24px 24px; color: #14161c; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; cursor: pointer; }
+  a:hover { color: #1f3fbf; }
+  ::selection { color: #14161c; background: #b9c6ff; }
+</style>
+</helmet>
+
+<header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem clamp(1.25rem, 4vw, 4.5rem); border-bottom: 1px solid rgba(31,63,191,.30); background: rgba(245,247,249,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+  <a href="Portfolio v2.dc.html" style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.2rem; line-height: 1; letter-spacing: -.01em;">Anna Shevchenko</a>
+  <nav style="display: flex; flex-wrap: wrap; gap: clamp(1.25rem, 3.5vw, 3.5rem); font: 400 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;">
+    <a href="Portfolio v2.dc.html#work" style="display: inline-flex; align-items: center; gap: .4rem;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: .9rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M14 9H4M8 5 4 9l4 4"></path></svg>All work</a>
+    <a href="#next">Back to start</a>
+  </nav>
+</header>
+
+<section data-screen-label="Case hero" style="padding: clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(2rem, 4vw, 3.5rem);">
+  <div style="display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span>5</span><span>2024</span><span>UX research &amp; product concept</span><span>Team project</span></div>
+  <h1 style="margin: clamp(1.25rem, 2.5vw, 2rem) 0 0; font-size: clamp(3rem, 8vw, 8rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">PeePoint</h1>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; gap: clamp(2rem, 5vw, 5rem); margin-top: clamp(2rem, 4vw, 3.5rem);">
+    <p style="margin: 0; max-width: 44ch; font-size: clamp(1.1rem, 1.6vw, 1.4rem); line-height: 1.6; color: rgba(20,22,28,.78); text-wrap: pretty;">A web and mobile app concept helping travelers quickly find public restrooms, plan toilet stops in advance, and transfer saved locations from desktop to mobile.</p>
+    <dl style="margin: 0; display: grid; border-top: 1px solid rgba(31,63,191,.30);">
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Research inputs</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Survey questions, affinity mapping, competitor analysis, personas, and travel-context assumptions</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">User groups</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Families with children, tourists, public transport users, outdoor walkers, and road-trip travelers</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">My part</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Research synthesis, persona definition, competitive analysis, mobile UI concepts, and functional product specification</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Tools</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Miro, Figma</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section data-screen-label="Survey numbers" style="padding: 0 clamp(1.25rem, 4vw, 4.5rem);">
+  <div style="display: flex; flex-wrap: wrap; gap: 1px; background: #1c3aa9; border: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 16rem; display: flex; flex-direction: column; gap: 1rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: #f5f7f9;">
+      <span style="font-size: clamp(3.5rem, 7vw, 6.5rem);  line-height: .9; letter-spacing: -.015em; color: #1f3fbf; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">85%</span>
+      <span style="font-size: 1rem; line-height: 1.55;">of respondents considered easy access to public restrooms very important for the travel experience.</span>
+    </div>
+    <div style="flex: 1 1 16rem; display: flex; flex-direction: column; gap: 1rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: #f5f7f9;">
+      <span style="font-size: clamp(3.5rem, 7vw, 6.5rem);  line-height: .9; letter-spacing: -.015em; color: #1f3fbf; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">65%</span>
+      <span style="font-size: 1rem; line-height: 1.55;">preferred planning on a laptop, but wanted saved information available on mobile during travel.</span>
+    </div>
+    <div style="flex: 1 1 16rem; display: flex; flex-direction: column; gap: 1rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: #f5f7f9;">
+      <span style="font-size: clamp(3.5rem, 7vw, 6.5rem);  line-height: .9; letter-spacing: -.015em; color: #1f3fbf; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">75%</span>
+      <span style="font-size: 1rem; line-height: 1.55;">liked the idea of using a QR code to transfer routes from laptop to mobile app.</span>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="01 Topic" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">1</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Topic</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">A basic need that becomes stressful in unfamiliar places.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">PeePoint is a product concept for a web and mobile app that helps users find public restrooms quickly and plan toilet stops before and during travel. The idea came from a simple but often ignored need: when people are in an unfamiliar city, park, museum area, or transport hub, they want reassurance that a restroom is nearby if needed.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">This need becomes especially important for families with children, seniors, people with health-related requirements, tourists moving between landmarks, and travelers who cannot rely on private facilities. The concept therefore focuses not only on finding the nearest toilet, but also on cleanliness, accessibility, opening hours, ratings, and route planning.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="02 User research" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">2</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">User research</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 24ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Survey findings turned a small inconvenience into a product opportunity.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The research explored how people think about public restroom access when visiting new places. Respondents considered easy access very important and described poor signage, lack of public toilets near landmarks, and difficulty locating standalone toilets not connected to large facilities as common issues.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.6; font-weight: 500;">The strongest finding was that users wanted different modes for planning and travel. Many preferred planning on a laptop because it gives a larger overview, but wanted to access saved information on a mobile device while already outside.</p>
+      <ul style="margin: .25rem 0 0; padding: 0; list-style: none; display: flex; flex-direction: column;">
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Top priorities were 24/7 availability, cleanliness, and accessibility.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); border-bottom: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Families requested changing tables, comfort ratings, and reliable opening/access information.</li>
+      </ul>
+    </div>
+  </div>
+  <figure style="margin: clamp(2rem, 4vw, 3.5rem) 0 0;">
+    <img src="public/images/peepoint/survey-insights.png" alt="Sticky-note survey findings for public restroom finder app" loading="lazy" style="width: 100%; display: block; border: 1px solid rgba(31,63,191,.26);" />
+    <figcaption style="margin-top: .8rem; max-width: 76ch; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Survey synthesis</span>Key survey questions and findings covering restroom importance, travel mode, planning preferences, QR-code transfer, and feature priorities.</figcaption>
+  </figure>
+</section>
+
+<section data-screen-label="03 Personas" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">3</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Personas</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0;">
+      <h2 style="margin: 0; max-width: 24ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Different travelers need restrooms in very different contexts.</h2>
+    </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(1.5rem, 4vw, 3rem); margin-top: clamp(2rem, 4vw, 3rem);">
+    <div style="flex: 1 1 22rem; min-width: 0; display: flex; flex-wrap: wrap; gap: 1px; background: rgba(31,63,191,.30); border: 1px solid rgba(31,63,191,.30);">
+      <div style="flex: 1 1 13rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.25rem; background: #f5f7f9;"><span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Families by car</span><span style="font-size: .95rem; line-height: 1.55;">Gas stations and rest stops, with cleanliness, accessibility, changing tables, and 24/7 availability.</span></div>
+      <div style="flex: 1 1 13rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.25rem; background: #f5f7f9;"><span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Culture-seeking tourists</span><span style="font-size: .95rem; line-height: 1.55;">Museums, landmarks, transport hubs, and walking zones, reached by public transport.</span></div>
+      <div style="flex: 1 1 13rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.25rem; background: #f5f7f9;"><span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Outdoor walkers</span><span style="font-size: .95rem; line-height: 1.55;">Parks, public gardens, hiking routes, and pedestrian zones.</span></div>
+      <div style="flex: 1 1 13rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.25rem; background: #f5f7f9;"><span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Passive recreation</span><span style="font-size: .95rem; line-height: 1.55;">Beaches, promenades, shopping centers, and leisure areas.</span></div>
+    </div>
+    <figure style="flex: 1 1 22rem; min-width: 0; margin: 0;">
+      <div style="padding: clamp(1rem, 2vw, 1.5rem); background: #ffffff; border: 1px solid rgba(31,63,191,.24);"><img src="public/images/peepoint/personas-map.png" alt="Mind map of PeePoint user personas based on responses" loading="lazy" style="width: 100%; display: block;" /></div>
+      <figcaption style="margin-top: .8rem; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Persona map</span>Persona mapping based on survey responses, grouped by travel behaviour and restroom expectations.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="04 Competitive analysis" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">4</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Competitive analysis</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 24ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Existing apps solve parts of the problem, but rarely the whole journey.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">We reviewed several existing restroom, map, and travel products, including Where is the Toilet, Toilet Finder, WC Toilet and Restroom Finder, Ivie – Vienna Guide, Google Maps, TripAdvisor, WC Kompas, and Flush Public Toilet/Restrooms.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The analysis showed useful patterns such as distance-based lists, user ratings, GPS navigation, offline functionality, and large toilet databases. At the same time, many tools had distracting ads, unclear filters, limited coverage, no offline mode, missing information about accessibility or changing tables, or poor support for trip planning.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 1px; margin-top: .5rem; background: rgba(31,63,191,.30); border: 1px solid rgba(31,63,191,.30);">
+        <div style="flex: 1 1 15rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.1rem 1.2rem; background: #f5f7f9;"><span style="font: 400 .72rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">Keep</span><span style="font-size: .95rem; line-height: 1.55;">Distance-based toilet listing helps users act quickly.</span></div>
+        <div style="flex: 1 1 15rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.1rem 1.2rem; background: #f5f7f9;"><span style="font: 400 .72rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">Keep</span><span style="font-size: .95rem; line-height: 1.55;">Ratings and reviews provide trust signals about cleanliness and reliability.</span></div>
+        <div style="flex: 1 1 15rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.1rem 1.2rem; background: #f5f7f9;"><span style="font: 400 .72rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">Keep</span><span style="font-size: .95rem; line-height: 1.55;">Location categories such as restaurant, shopping mall, gas station, park, or landmark improve filtering.</span></div>
+        <div style="flex: 1 1 15rem; display: flex; flex-direction: column; gap: .6rem; padding: 1.1rem 1.2rem; background: #1c3aa9; color: #f2f5ff;"><span style="font: 400 .72rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">Gap</span><span style="font-size: .95rem; line-height: 1.55;">Many existing tools do not support specific needs such as changing tables, accessibility, or planned route transfer.</span></div>
+      </div>
+    </div>
+  </div>
+  <figure style="margin: clamp(2rem, 4vw, 3.5rem) 0 0;">
+    <img src="public/images/peepoint/app-analysis.png" alt="PeePoint competitor app analysis board" loading="lazy" style="width: 100%; display: block; border: 1px solid rgba(31,63,191,.26);" />
+    <figcaption style="margin-top: .8rem; max-width: 76ch; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">App analysis</span>Competitor review comparing advantages and disadvantages across restroom finder, map, and travel applications.</figcaption>
+  </figure>
+</section>
+
+<section data-screen-label="05 Product specification" style="margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 4.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem);">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: rgba(242,245,255,.45);">5</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">Product specification</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">A connected web and mobile experience.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(242,245,255,.8);">The target application is designed as an intuitive web and mobile app. The web version supports comfortable trip planning on a larger screen, while the mobile version supports quick access during travel. A QR-code transfer lets users move saved restroom locations from desktop planning into the mobile app without repeating the same work.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: .75rem; margin-top: .75rem;">
+        <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .5rem; padding: 1.25rem; border: 1px solid rgba(242,245,255,.25);"><span style="font: 400 .72rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">Before travel · laptop</span><span style="font-size: 1.25rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Plan &amp; save</span></div>
+        <div style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 0 .25rem; font: 400 1.2rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">→</div>
+        <div style="flex: 1 1 9rem; display: flex; flex-direction: column; gap: .5rem; padding: 1.25rem; background: #b9c6ff; color: #14161c;"><span style="font: 400 .72rem/1 'IBM Plex Mono', monospace;">Handover</span><span style="font-size: 1.25rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Scan QR</span></div>
+        <div style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 0 .25rem; font: 400 1.2rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">→</div>
+        <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .5rem; padding: 1.25rem; border: 1px solid rgba(242,245,255,.25);"><span style="font: 400 .72rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">During travel · phone</span><span style="font-size: 1.25rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Find &amp; navigate</span></div>
+      </div>
+      <p style="margin: .75rem 0 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(242,245,255,.8);">The core frontend components are an interactive map, search and filtering, reviews and ratings, a personal saved list, and QR-code data transfer. Together, these functions support both immediate needs and planned travel behaviour.</p>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column;">
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: .98rem; line-height: 1.55; color: rgba(242,245,255,.88);">Interactive map with current location and nearby restroom markers.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: .98rem; line-height: 1.55; color: rgba(242,245,255,.88);">Search and filters for cleanliness, accessibility, opening hours, price/access restrictions, and location type.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: .98rem; line-height: 1.55; color: rgba(242,245,255,.88);">Reviews and ratings to support quick decision-making.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: .98rem; line-height: 1.55; color: rgba(242,245,255,.88);">My List for saving preferred restroom locations across web and mobile.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(242,245,255,.16); border-bottom: 1px solid rgba(242,245,255,.16); font-size: .98rem; line-height: 1.55; color: rgba(242,245,255,.88);">QR-code transfer for moving planned locations from laptop to phone.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06 Mobile mockups" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">6</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Mobile mockups · 2024</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Translating the concept into mobile screens.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The mobile app mockups focus on fast on-the-go use: a map-first interface, switchable list view, toilet detail bottom sheet, filters, adding a toilet, ratings, saved list, and QR-based connection with locations planned on desktop.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The interface keeps key actions close to the map. Users can navigate to a selected restroom, save changes, filter by practical criteria such as price, accessibility, changing table, location type, and review stars, or add missing toilet information to improve the database.</p>
+    </div>
+  </div>
+  <figure style="margin: clamp(2rem, 4vw, 3.5rem) 0 0;">
+    <img src="public/images/peepoint/mobile-screens-overview.png" alt="PeePoint mobile app screens overview" loading="lazy" style="width: 100%; display: block; border: 1px solid rgba(31,63,191,.26);" />
+    <figcaption style="margin-top: .8rem; max-width: 76ch; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Mobile app screen set</span>Screen overview showing map and list modes, filter drawer, toilet detail sheet, add-toilet flow, saved list, and QR connection state.</figcaption>
+  </figure>
+</section>
+
+<section data-screen-label="07 AI-assisted update" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">7</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">AI-assisted update · 2026</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Reworking two-year-old mockups into cleaner mobile screens.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">I later used Claude to rework my earlier PeePoint mockups from about two years ago into cleaner, more realistic mobile screens for this case study.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The goal was not to let AI decide the product direction, but to use it as a fast prototyping tool: I kept the original research logic, core flows, and feature priorities, then refined the screens into a more consistent map, list, filter, and add-toilet experience.</p>
+    </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1rem, 2vw, 1.5rem); margin-top: clamp(2rem, 4vw, 3.5rem); padding: clamp(1.5rem, 3vw, 2.5rem); background: #e6ebfb; border: 1px solid rgba(31,63,191,.24);">
+    <figure style="flex: 1 1 11rem; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: .8rem;">
+      <img src="public/images/peepoint/ai-prototype/map-detail-1.png" alt="PeePoint AI-assisted map detail mobile screen" loading="lazy" style="width: 100%; max-width: 15rem; display: block; margin: 0 auto;" />
+      <figcaption style="font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Map detail</span>Map-first toilet detail screen with navigation, save action, amenities, rating, and missing-place feedback.</figcaption>
+    </figure>
+    <figure style="flex: 1 1 11rem; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: .8rem;">
+      <img src="public/images/peepoint/ai-prototype/list-view.png" alt="PeePoint AI-assisted list view mobile screen" loading="lazy" style="width: 100%; max-width: 15rem; display: block; margin: 0 auto;" />
+      <figcaption style="font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">List view</span>List mode for comparing nearby toilets by distance, opening hours, payment, and accessibility.</figcaption>
+    </figure>
+    <figure style="flex: 1 1 11rem; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: .8rem;">
+      <img src="public/images/peepoint/ai-prototype/filters.png" alt="PeePoint AI-assisted filters mobile screen" loading="lazy" style="width: 100%; max-width: 15rem; display: block; margin: 0 auto;" />
+      <figcaption style="font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Filters</span>Filter screen organized around price, location type, services, and review stars.</figcaption>
+    </figure>
+    <figure style="flex: 1 1 11rem; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: .8rem;">
+      <img src="public/images/peepoint/ai-prototype/add-toilet.png" alt="PeePoint AI-assisted add toilet mobile screen" loading="lazy" style="width: 100%; max-width: 15rem; display: block; margin: 0 auto;" />
+      <figcaption style="font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Add toilet</span>Contribution flow for adding missing toilet information, rating the place, and confirming details.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="08 Next steps" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px dashed #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">8</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Next steps</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">From research specification to interface prototype.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The next step would be to translate the specification into low-fidelity web and mobile flows: planning a route on desktop, saving restroom stops, transferring the list by QR code, and opening the same route on mobile while traveling.</p>
+      <p style="margin: 0; max-width: 62ch; padding-left: 1.25rem; border-left: 1px solid #1f3fbf; font-family: 'IBM Plex Sans', sans-serif; font-style: italic; font-size: clamp(1.3rem, 2vw, 1.75rem); line-height: 1.35; color: #1f3fbf;">The most important validation point would be whether users understand the relationship between planning mode and travel mode, and whether filters such as accessibility, changing tables, cleanliness, and opening hours are visible without overwhelming the map interface.</p>
+    </div>
+  </div>
+</section>
+
+<a id="next" href="Case - Analyticity.dc.html" data-screen-label="Back to start" style="display: block; margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf;">
+  <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Back to the start · 1</p>
+  <p style="margin: 1rem 0 0; display: flex; align-items: center; gap: .3em; font-size: clamp(2.2rem, 5vw, 4.6rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Analyticity platform overhaul <svg viewBox="0 0 18 18" aria-hidden="true" style="width: .8em; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></p>
+</a>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid rgba(31,63,191,.30); font: 400 .72rem/1.4 'IBM Plex Mono', monospace; color: #1f3fbf;">
+  <span>Anna Shevchenko · 2024</span>
+  <a href="mailto:anna.shevchenko.20042015@gmail.com">anna.shevchenko.20042015@gmail.com</a>
+</footer>
+</x-dc>
+</body>
+</html>

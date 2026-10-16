@@ -1,0 +1,24 @@
+---
+import { url } from '../lib/url';
+
+/** Two screenshots in a 1px-gap pair with mono labels underneath. */
+interface Shot { src: string; alt: string; label: string }
+interface Props { before: Shot; after: Shot }
+const { before, after } = Astro.props;
+---
+<div class="pair">
+  {[before, after].map((shot) => (
+    <figure>
+      <div class="mat"><img src={url(shot.src)} alt={shot.alt} loading="lazy" /></div>
+      <figcaption class="label">{shot.label}</figcaption>
+    </figure>
+  ))}
+</div>
+
+<style>
+  .pair { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  figure { margin: 0; display: flex; flex-direction: column; background: var(--surface); }
+  .mat { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 14rem; padding: 1rem; background: var(--matte); }
+  img { max-width: 100%; max-height: 18rem; display: block; }
+  figcaption { padding: .8rem 1rem; font-size: .72rem; letter-spacing: .06em; }
+</style>

@@ -1,0 +1,25 @@
+---
+import Quote from './Quote.astro';
+import { url } from '../lib/url';
+
+/** One step of a flow: big number, screenshot, caption, explanation and a pull-quote. */
+interface Props { n: number; label: string; src: string; alt: string; caption: string; quote?: string }
+const { n, label, src, alt, caption, quote } = Astro.props;
+---
+<article class="step">
+  <div class="title"><span class="n head">{n}</span><span class="label">{label}</span></div>
+  <img src={url(src)} alt={alt} loading="lazy" />
+  <p class="caption">{caption}</p>
+  <p class="text"><slot /></p>
+  {quote && <Quote>{quote}</Quote>}
+</article>
+
+<style>
+  .step { min-width: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+  .step > * { margin: 0; }
+  .title { display: flex; align-items: baseline; gap: 1rem; }
+  .n { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent); }
+  .title .label { font-size: .78rem; color: var(--fg); }
+  img { width: 100%; display: block; border: 1px solid var(--line); }
+  .text { font-size: 1rem; line-height: 1.7; color: var(--fg-body); }
+</style>

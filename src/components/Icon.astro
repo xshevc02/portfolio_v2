@@ -1,0 +1,13 @@
+---
+interface Props { name: 'out' | 'back' | 'next' | 'check' | 'pin' | 'calendar'; class?: string }
+const { name, class: cls } = Astro.props;
+const paths = {
+  out: ['M4 14 14 4M6 4h8v8'],
+  back: ['M14 9H4M8 5 4 9l4 4'],
+  next: ['M4 9h10M10 5l4 4-4 4'],
+  check: ['M3.5 9.5 7 13l7.5-8'],
+  pin: ['M14 7.5c0 3.5-5 8-5 8s-5-4.5-5-8a5 5 0 0 1 10 0Z', 'M9 9.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Z'],
+  calendar: ['M5 2.5v2M13 2.5v2M3.5 7h11M4 4h10a1 1 0 0 1 1 1v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z'],
+}[name];
+---
+<svg viewBox="0 0 18 18" aria-hidden="true" class:list={['icon', cls]}>{paths.map((d) => <path d={d} />)}</svg>

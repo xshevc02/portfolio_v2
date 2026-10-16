@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; background-color: #f5f7f9; background-image: linear-gradient(rgba(31,63,191,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(31,63,191,.07) 1px, transparent 1px); background-size: 24px 24px; color: #14161c; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; cursor: pointer; }
+  a:hover { color: #1f3fbf; }
+  button { color: inherit; cursor: pointer; }
+  ::selection { color: #14161c; background: #b9c6ff; }
+  .om-track::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+
+<header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem clamp(1.25rem, 4vw, 4.5rem); border-bottom: 1px solid rgba(31,63,191,.30); background: rgba(245,247,249,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+  <a href="Portfolio v2.dc.html" style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.2rem; line-height: 1; letter-spacing: -.01em;">Anna Shevchenko</a>
+  <nav style="display: flex; flex-wrap: wrap; gap: clamp(1.25rem, 3.5vw, 3.5rem); font: 400 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;">
+    <a href="Portfolio v2.dc.html#work" style="display: inline-flex; align-items: center; gap: .4rem;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: .9rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M14 9H4M8 5 4 9l4 4"></path></svg>All work</a>
+    <a href="#next">Next case</a>
+  </nav>
+</header>
+
+<section data-screen-label="Case hero" style="padding: clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(2rem, 4vw, 3.5rem);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: end; gap: clamp(2rem, 5vw, 5rem);">
+    <div style="min-width: 0;">
+      <div style="display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span>2</span><span>2026</span><span>AI-assisted product prototype</span></div>
+      <h1 style="margin: clamp(1.25rem, 2.5vw, 2rem) 0 0; font-size: clamp(3rem, 8vw, 8rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Pockland</h1>
+      <p style="margin: clamp(1.5rem, 3vw, 2.25rem) 0 0; max-width: 44ch; font-size: clamp(1.1rem, 1.6vw, 1.4rem); line-height: 1.6; color: rgba(20,22,28,.78); text-wrap: pretty;">A personal book tracking app designed and iterated from a mobile-first prototype into a responsive web app with real authentication, synced data, and book discovery.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: .75rem; margin-top: clamp(1.75rem, 3vw, 2.5rem);">
+        <a href="https://xshevc02.github.io/book_app/" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: .75rem; padding: 1.05rem 1.4rem; background: #1c3aa9; color: #f2f5ff; font: 500 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">Open the live app
+          <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg>
+        </a>
+      </div>
+    </div>
+    <dl style="margin: 0; display: grid; border-top: 1px solid rgba(31,63,191,.30);">
+      <div style="display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Product</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Personal book tracking and reading companion app</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Platform</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Responsive web app for mobile and desktop</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Data &amp; auth</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Supabase authentication, account-based syncing, Open Library and Google Books metadata</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(31,63,191,.30);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">AI role</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Rapid prototyping, implementation support, layout exploration, and iterative UI refinement</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<figure data-screen-label="Cover" style="margin: 0; padding: 0 clamp(1.25rem, 4vw, 4.5rem);">
+  <div style="padding: clamp(1rem, 3vw, 2.5rem); background: #e6ebfb; border: 1px solid rgba(31,63,191,.24);">
+    <img src="public/images/pockland/live-preview.png" alt="Pockland live app home screen with currently reading progress, trending books, and sidebar navigation" style="width: 100%; display: block; box-shadow: 0 1px 0 rgba(20,22,28,.08), 0 20px 50px -24px rgba(31,63,191,.47);" />
+  </div>
+  <figcaption style="margin-top: .9rem; max-width: 70ch; font: 300 .74rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">Live Pockland prototype showing the responsive desktop home screen with reading progress, discovery shelves, and navigation.</figcaption>
+</figure>
+
+<section data-screen-label="At a glance" style="padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <p style="margin: 0 0 1.5rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #1f3fbf;">In short</p>
+  <div style="display: flex; flex-wrap: wrap; gap: 1px; background: rgba(31,63,191,.30); border: 1px solid rgba(31,63,191,.30);">
+    <div style="flex: 1 1 19rem; padding: clamp(1.25rem, 2.5vw, 2rem); background: #f5f7f9;">
+      <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Problem</p>
+      <p style="margin: .8rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(20,22,28,.82);">Readers often manage books across fragmented tools such as Notion, notes, wishlists, screenshots, and memory. Competitor feedback also showed frustration around missing manual book entry, audiobook tracking, and limited rating flexibility.</p>
+    </div>
+    <div style="flex: 1 1 19rem; padding: clamp(1.25rem, 2.5vw, 2rem); background: #f5f7f9;">
+      <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Complexity</p>
+      <p style="margin: .8rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(20,22,28,.82);">The product had to support mobile and desktop layouts, authentication, synced user data, external book APIs, custom shelves, ratings, reading progress, and real deployment constraints.</p>
+    </div>
+    <div style="flex: 1 1 19rem; padding: clamp(1.25rem, 2.5vw, 2rem); background: #f5f7f9;">
+      <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">My role</p>
+      <p style="margin: .8rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(20,22,28,.82);">I owned the UX direction, product decisions, information hierarchy, interaction design, visual critique, and iterative testing. I used AI as a prototyping and implementation partner while keeping the final design judgment mine.</p>
+    </div>
+    <div style="flex: 1 1 19rem; padding: clamp(1.25rem, 2.5vw, 2rem); background: #f5f7f9;">
+      <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Constraints</p>
+      <p style="margin: .8rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(20,22,28,.82);">The app was deployed through GitHub Pages, used Supabase for auth and data, and relied on Open Library and Google Books for metadata, which created challenges around translated and Ukrainian books.</p>
+    </div>
+    <div style="flex: 1 1 19rem; padding: clamp(1.25rem, 2.5vw, 2rem); background: #f5f7f9;">
+      <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Stack</p>
+      <p style="margin: .8rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(20,22,28,.82);">Supabase, Open Library API, Google Books API, responsive frontend implementation, GitHub Pages deployment</p>
+    </div>
+    <div style="flex: 1 1 19rem; padding: clamp(1.25rem, 2.5vw, 2rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
+      <p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">Outcome</p>
+      <p style="margin: .8rem 0 0; font-size: 1rem; line-height: 1.6; color: rgba(242,245,255,.88);">The final product became a functional responsive web app with clearer navigation, stronger card systems, synced user data, custom shelf controls, and a more coherent interface than the first generated versions.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="01 Context" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">1</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Context</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">A reading app that feels personal, not like a database.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">Pockland is a personal book tracking and reading companion app. It helps readers organize books, track reading progress, manage wishlists and custom shelves, view book details, add feedback, and discover books through Open Library and Google Books.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The project started from a simple product need: book tracking often gets scattered across notes, Notion databases, screenshots, wishlists, and memory. I wanted the experience to feel lightweight, visual, and personal while still supporting real product behavior.</p>
+      <ul style="margin: .5rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 1px; background: rgba(31,63,191,.30); border: 1px solid rgba(31,63,191,.30);">
+        <li style="flex: 1 1 14rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Track reading progress and reading states.</li>
+        <li style="flex: 1 1 14rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Organize books into wishlist, finished, reading, and custom shelves.</li>
+        <li style="flex: 1 1 14rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Search and discover books through external APIs.</li>
+        <li style="flex: 1 1 14rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Support account-based syncing across sessions.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="02 Research" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">2</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Research</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 24ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Competitor reviews turned vague ideas into specific feature requirements.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">Before starting the design, I looked at existing book-tracking apps such as Goodreads and checked reader feedback from App Store reviews. This helped me separate “nice to have” ideas from real user frustrations people were already expressing in similar products.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">Two repeated needs influenced the product scope directly: the ability to add books manually when search, barcode, or cover recognition cannot find a title, and a better way to track audiobooks where progress is measured by time or duration rather than page count.</p>
+    </div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); align-items: start; gap: clamp(1rem, 2.5vw, 2rem); margin-top: clamp(2rem, 4vw, 3.5rem);">
+    <figure style="margin: 0; min-width: 0;">
+      <div style="display: flex; justify-content: center; padding: clamp(1rem, 2.5vw, 2rem); background: #e6ebfb; border: 1px solid rgba(31,63,191,.24);"><img src="public/images/pockland/research/app-store-half-star-review.jpg" alt="App Store review asking for half-star rating in a book tracking app" loading="lazy" style="width: 100%; max-width: 26rem; display: block;" /></div>
+      <figcaption style="margin-top: .8rem; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Review insight — rating precision</span>App Store feedback showed that some readers want more precise rating options, such as half-star ratings.</figcaption>
+    </figure>
+    <figure style="margin: 0; min-width: 0;">
+      <div style="display: flex; justify-content: center; padding: clamp(1rem, 2.5vw, 2rem); background: #e6ebfb; border: 1px solid rgba(31,63,191,.24);"><img src="public/images/pockland/research/app-store-manual-entry-review.jpg" alt="App Store review requesting manual book entry and audiobook tracking" loading="lazy" style="width: 100%; max-width: 26rem; display: block;" /></div>
+      <figcaption style="margin-top: .8rem; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: block; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;">Review insight — manual entry and audiobooks</span>User feedback highlighted missing manual book entry and the need to track audiobook progress by duration.</figcaption>
+    </figure>
+    <div style="min-width: 0; display: flex; flex-direction: column;">
+      <p style="margin: 0 0 .9rem; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">What it changed</p>
+      <div style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Added manual book entry as a fallback for books missing from external databases.</div>
+      <div style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Included audiobook progress tracking so users are not forced into page-based progress.</div>
+      <div style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Considered more flexible rating behavior after seeing requests for 0.5-star ratings.</div>
+      <div style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); border-bottom: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Used competitor feedback as an input for product decisions before moving into UI design.</div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="03 Product scope" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">3</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Product scope</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">From mobile-first screens to a real responsive product.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The app evolved around four main areas: Home, Feed, Shelves, and Profile. Home surfaces currently reading books, wishlist suggestions, trending books, and an award shelf. Shelves support reading states and custom organization, while Profile brings together user information, reading activity, and a reading calendar.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The product needed to behave like a real app rather than a static concept. That meant authentication, synced personal data, book status changes, manual book creation, audiobook progress tracking, 0.5-star rating support, custom shelf actions, search behavior, book detail pages, and responsive layouts across mobile and desktop.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 1px; margin-top: .5rem; background: #1c3aa9; border: 1px solid #1f3fbf;">
+        <span style="flex: 1 1 8rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: clamp(1.2rem, 2vw, 1.6rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Home</span>
+        <span style="flex: 1 1 8rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: clamp(1.2rem, 2vw, 1.6rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Feed</span>
+        <span style="flex: 1 1 8rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: clamp(1.2rem, 2vw, 1.6rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Shelves</span>
+        <span style="flex: 1 1 8rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: clamp(1.2rem, 2vw, 1.6rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Profile</span>
+      </div>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column;">
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Fixed navigation between Home, Feed, Shelves, and Profile.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Book detail and author pages with simplified metadata.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Inline shelf rename and delete actions.</li>
+        <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); border-bottom: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Clear confirmation copy explaining that deleting a shelf does not delete the books.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="04 AI-assisted workflow" style="margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 4vw, 4.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem);">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: rgba(242,245,255,.45);">4</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">AI-assisted workflow</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">AI made the app clickable fast, but it did not replace product direction.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(242,245,255,.8);">AI was useful because it let me move quickly from a product idea into a clickable, deployable prototype. It helped generate screens, interaction states, responsive layouts, authentication flows, search behavior, shelves, progress tracking, and synced user data without treating the project as a static mockup.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(242,245,255,.8);">The tradeoff became visible very quickly: because I skipped a low-fidelity mockup at the start, the AI filled too many product and layout gaps by itself. It generated components that looked complete but had no real user value, invented page structures I did not actually need, and created extra cleanup work that a simple Figma sketch could have prevented.</p>
+      <blockquote style="margin: 1rem 0; padding: 0; max-width: 30ch; font-family: 'IBM Plex Sans', sans-serif; font-style: italic; font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2.3rem); line-height: 1.25; color: #b9c6ff; text-wrap: pretty;">The biggest process lesson was that AI implementation works faster when the designer first defines the page logic: what each screen contains, which components are required, where they should live, and how the mobile and desktop versions should differ.</blockquote>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); column-gap: clamp(1.5rem, 4vw, 3rem);">
+        <p style="margin: 0; padding: .95rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: 1rem; line-height: 1.55; color: rgba(242,245,255,.88);">A rough mockup would have reduced the number of prompts spent on basic placement, hierarchy, and component logic.</p>
+        <p style="margin: 0; padding: .95rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: 1rem; line-height: 1.55; color: rgba(242,245,255,.88);">The strongest results came after I gave specific design critique instead of accepting the first generated UI.</p>
+        <p style="margin: 0; padding: .95rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: 1rem; line-height: 1.55; color: rgba(242,245,255,.88);">I pushed the interface toward reused components instead of letting every page introduce a new pattern.</p>
+        <p style="margin: 0; padding: .95rem 0; border-top: 1px solid rgba(242,245,255,.16); font-size: 1rem; line-height: 1.55; color: rgba(242,245,255,.88);">AI accelerated implementation, but the final quality came from repeated review, testing, and design judgment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="05 Iteration evidence" style="padding: clamp(4rem, 8vw, 7rem) 0 0;">
+  <div style="margin: 0 clamp(1.25rem, 4vw, 4.5rem); display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">5</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Iteration evidence</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">The recurring AI-generated issues I had to correct.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">I kept a small critique log while iterating on the prototype. The notes were not a separate research artifact; they were practical checkpoints showing where the generated UI looked plausible at first glance but still needed human product and interface review.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">Instead of making this evidence take over the page, I kept it as a horizontal gallery. It shows the types of issues that repeatedly required direction: weak contrast, unclear actions, useless metadata, inconsistent card patterns, spacing problems, oversized responsive layouts, and ambiguous destructive controls.</p>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 4vw, 4.5rem) 1rem;">
+    <p style="margin: 0; font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">Critique log · {{ total }} notes</p>
+    <div style="display: flex; gap: .5rem;">
+      <button type="button" aria-label="Previous" onClick="{{ prev }}" style="width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; border: 1px solid #1f3fbf; background: transparent;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M14 9H4M8 5 4 9l4 4"></path></svg></button>
+      <button type="button" aria-label="Next" onClick="{{ next }}" style="width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; border: 1px solid #1f3fbf; background: #1c3aa9; color: #f2f5ff;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 9h10M10 5l4 4-4 4"></path></svg></button>
+    </div>
+  </div>
+  <div ref="{{ trackRef }}" class="om-track" style="display: flex; gap: clamp(1rem, 2vw, 1.5rem); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 clamp(1.25rem, 4vw, 4.5rem); padding: 0 clamp(1.25rem, 4vw, 4.5rem) .5rem; scrollbar-width: none;">
+    <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
+      <figure style="margin: 0; flex: 0 0 clamp(16rem, 30vw, 24rem); scroll-snap-align: start;">
+        <div style="display: flex; align-items: center; justify-content: center; height: clamp(14rem, 22vw, 18rem); padding: 1rem; background: #e6ebfb; border: 1px solid rgba(31,63,191,.24);"><img src="{{ n.src }}" alt="{{ n.alt }}" loading="lazy" style="max-width: 100%; max-height: 100%; display: block;" /></div>
+        <figcaption style="margin-top: .8rem; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;"><span style="display: flex; gap: .6rem; font-weight: 400; color: #14161c; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem;"><span style="color: #1f3fbf;">{{ n.num }}</span>{{ n.label }}</span>{{ n.caption }}</figcaption>
+      </figure>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="06 UX decisions" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">6</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">UX decisions</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Repairing the gap between mobile polish and desktop reality.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">Several UX decisions came from repeatedly testing the live prototype on different screen sizes. At first I focused mostly on the mobile experience; once that felt cleaner, the desktop version exposed a second layer of problems: stretched cards, awkward empty space, oversized progress elements, and layouts that looked like mobile screens simply widened across a larger viewport.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">This became one of the most important iteration areas. I had to specify how objects should reflow, which cards deserved more space, where navigation should sit, and which mobile patterns needed a separate desktop treatment instead of a larger version of the same layout.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">I refined the app around consistency: reusable vertical book cards, compact rating badges, direct status selectors on cards, clearer shelves, and search behavior that did not interrupt the mobile keyboard.</p>
+    </div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: clamp(1rem, 2.5vw, 2rem); margin-top: clamp(2rem, 4vw, 3.5rem);">
+    <div style="min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1px; background: rgba(31,63,191,.30); border: 1px solid rgba(31,63,191,.30);">
+      <figure style="margin: 0; display: flex; flex-direction: column; background: #f5f7f9;">
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 14rem; padding: 1rem; background: #e6ebfb;"><img src="public/images/pockland/iteration-notes/currently-reading-before.png" alt="Pockland Currently Reading card before redesign" loading="lazy" style="max-width: 100%; max-height: 18rem; display: block;" /></div>
+        <figcaption style="padding: .8rem 1rem; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; color: #1f3fbf;">Currently Reading · before</figcaption>
+      </figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; background: #f5f7f9;">
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; min-height: 14rem; padding: 1rem; background: #e6ebfb;"><img src="public/images/pockland/iteration-notes/currently-reading-after.png" alt="Pockland Currently Reading card after redesign" loading="lazy" style="max-width: 100%; max-height: 18rem; display: block;" /></div>
+        <figcaption style="padding: .8rem 1rem; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; color: #1f3fbf;">Currently Reading · after</figcaption>
+      </figure>
+    </div>
+    <ul style="margin: 0; padding: 0; list-style: none; min-width: 0; display: flex; flex-direction: column;">
+      <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Mobile-first structure adapted into a more spacious desktop layout.</li>
+      <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Separate reading states for Reading, Wishlist, Finished, and custom shelves.</li>
+      <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Manual book entry, audiobook progress tracking, and 0.5-star rating support added as research-backed product decisions.</li>
+      <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Google Books fallback added when Open Library could not find a title.</li>
+      <li style="padding: .85rem 0; border-top: 1px solid rgba(31,63,191,.30); border-bottom: 1px solid rgba(31,63,191,.30); font-size: .98rem; line-height: 1.55;">Currently Reading card redesigned to respond better to screen height and width.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-screen-label="07–08 Feedback and future" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: clamp(2.5rem, 5vw, 4.5rem);">
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem; padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+      <div style="display: flex; gap: 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span style="color: #1f3fbf;">7</span><span>Feedback updates · done</span></div>
+      <h2 style="margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.5rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Turning feedback into implemented UX improvements.</h2>
+      <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: rgba(20,22,28,.78);">After reviewing the working prototype, I separated feedback that directly affected everyday usability from broader product ideas. The UX-impacting changes were prioritized first, especially areas that made personal reading history easier to scan and the interface easier to adapt to different readers.</p>
+      <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: rgba(20,22,28,.78);">The following feedback items were treated as completed updates in the current iteration rather than left as open backlog notes.</p>
+      <div style="display: flex; flex-direction: column;">
+        <div style="display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: .75rem; padding: .95rem 0; border-top: 1px solid rgba(31,63,191,.30);">
+          <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1.1rem; margin-top: .2rem; fill: none; stroke: #1f3fbf; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M3.5 9.5 7 13l7.5-8"></path></svg>
+          <span style="font-size: .98rem; line-height: 1.55;"><strong style="font-weight: 600;">Profile:</strong> show best and worst books read by the user to make personal reading history easier to scan.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: .75rem; padding: .95rem 0; border-top: 1px solid rgba(31,63,191,.30); border-bottom: 1px solid rgba(31,63,191,.30);">
+          <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1.1rem; margin-top: .2rem; fill: none; stroke: #1f3fbf; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M3.5 9.5 7 13l7.5-8"></path></svg>
+          <span style="font-size: .98rem; line-height: 1.55;"><strong style="font-weight: 600;">Customization:</strong> add settings for font size, preferred language, preferred writer countries, all four seasonal themes, and trigger moments that can be used as filters or hidden-by-default descriptions.</span>
+        </div>
+      </div>
+    </div>
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem; padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px dashed rgba(31,63,191,.52);">
+      <div style="display: flex; gap: 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span style="color: #1f3fbf;">8</span><span>Future ideas · backlog</span></div>
+      <h2 style="margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.5rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Keeping larger product ideas for future feature exploration.</h2>
+      <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: rgba(20,22,28,.78);">The remaining feedback is intentionally framed as future product direction. These ideas could make Pockland richer over time, but they are not required to resolve the core usability problems found during the current prototype review.</p>
+      <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: rgba(20,22,28,.78);">This keeps the case study honest: the immediate experience issues were addressed, while larger ecosystem features stay available for later prioritization, testing, and scope decisions.</p>
+      <div style="display: flex; flex-direction: column; color: rgba(20,22,28,.8);">
+        <p style="margin: 0; padding: .85rem 0; border-top: 1px dashed rgba(31,63,191,.42); font-size: .95rem; line-height: 1.55;"><strong style="font-weight: 600; color: #14161c;">Social discovery:</strong> add book clubs, friends in Feed, and recommendations that preserve who suggested a book or which post it came from.</p>
+        <p style="margin: 0; padding: .85rem 0; border-top: 1px dashed rgba(31,63,191,.42); font-size: .95rem; line-height: 1.55;"><strong style="font-weight: 600; color: #14161c;">Search and discovery:</strong> automatically add searched books to wishlist, add filters by language and writer country, and recommend books based on similar readers or fandoms.</p>
+        <p style="margin: 0; padding: .85rem 0; border-top: 1px dashed rgba(31,63,191,.42); font-size: .95rem; line-height: 1.55;"><strong style="font-weight: 600; color: #14161c;">Mobile UX:</strong> make the Back action return inside the app instead of leaving through browser history.</p>
+        <p style="margin: 0; padding: .85rem 0; border-top: 1px dashed rgba(31,63,191,.42); font-size: .95rem; line-height: 1.55;"><strong style="font-weight: 600; color: #14161c;">Book editing:</strong> support inline feedback creation/editing, total page count editing, and total reading or listening time editing.</p>
+        <p style="margin: 0; padding: .85rem 0; border-top: 1px dashed rgba(31,63,191,.42); border-bottom: 1px dashed rgba(31,63,191,.42); font-size: .95rem; line-height: 1.55;"><strong style="font-weight: 600; color: #14161c;">Shelves and layout:</strong> add custom shelf cover images, direct add-to-shelf actions, automatic source attribution from posts, full-width desktop feed cards, and separate desktop Currently Reading cards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="09 Outcome" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">9</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Outcome</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">A working prototype shaped by many rounds of critique.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">The final result is a functional responsive web app with authentication, synced personal data, book discovery, reading progress, custom shelves, and polished UI patterns.</p>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(20,22,28,.78);">Compared to the early generated versions, the final app has better navigation, cleaner book cards, improved shelf management, clearer detail pages, more reliable search behavior, and a stronger mobile-to-desktop experience. AI accelerated prototyping, but the quality came from repeated critique, testing, and design direction.</p>
+      <ul style="margin: .5rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 1px; background: rgba(31,63,191,.30); border: 1px solid rgba(31,63,191,.30);">
+        <li style="flex: 1 1 16rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Designed a mobile-first reading app and adapted it into a responsive desktop experience.</li>
+        <li style="flex: 1 1 16rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Created core flows for adding books, tracking progress, managing shelves, and viewing book details.</li>
+        <li style="flex: 1 1 16rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Integrated real auth/data constraints into the product experience.</li>
+        <li style="flex: 1 1 16rem; padding: 1.1rem 1.2rem; background: #f5f7f9; font-size: .98rem; line-height: 1.55;">Used AI to accelerate prototyping while independently directing UX critique and product decisions.</li>
+      </ul>
+      <a href="https://xshevc02.github.io/book_app/" target="_blank" rel="noreferrer" style="align-self: flex-start; display: inline-flex; align-items: center; gap: .6rem; margin-top: .75rem; padding-bottom: .35rem; border-bottom: 1px solid currentColor; font: 500 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">Try Pockland live <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<a id="next" href="Case - Wake and Wine.dc.html" data-screen-label="Next case" style="display: block; margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf;">
+  <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;">Next · 3</p>
+  <p style="margin: 1rem 0 0; display: flex; align-items: center; gap: .3em; font-size: clamp(2.4rem, 6vw, 5.6rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Wake &amp; Wine <svg viewBox="0 0 18 18" aria-hidden="true" style="width: .8em; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></p>
+</a>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid rgba(31,63,191,.30); font: 400 .72rem/1.4 'IBM Plex Mono', monospace; color: #1f3fbf;">
+  <span>Anna Shevchenko · 2026</span>
+  <a href="mailto:anna.shevchenko.20042015@gmail.com">anna.shevchenko.20042015@gmail.com</a>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  trackRef = React.createRef();
+  scroll(dir) {
+    const el = this.trackRef.current;
+    if (!el) return;
+    const card = el.querySelector('figure');
+    const step = card ? card.getBoundingClientRect().width + 20 : 320;
+    el.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+  }
+  renderVals() {
+    const P = 'public/images/pockland/iteration-notes/';
+    const raw = [
+      ['Progress visibility', 'The reading progress bar had low contrast, so an important state was technically present but easy to miss.', 'progress-bar-contrast', 'Pockland screenshot showing a low-contrast progress bar'],
+      ['Missing shelf controls', 'Custom shelves looked like fixed content because rename and delete actions were missing.', 'shelf-actions-missing', 'Pockland shelves screen without clear shelf edit actions'],
+      ['Bad proportions', 'Some generated desktop layouts had awkward proportions and large empty areas instead of using space intentionally.', 'bad-proportions-desktop', 'Pockland desktop screen with awkward proportions'],
+      ['Mobile proportions', 'The same proportional problems also appeared on smaller screens, where content blocks felt cramped or oddly scaled.', 'bad-proportions-mobile', 'Pockland mobile screen with awkward proportions'],
+      ['Useless metadata', 'Generated cards often included information that looked complete but did not help the user decide what to do next.', 'useless-info-1', 'Pockland screen with unnecessary metadata on book cards'],
+      ['Useless metadata', 'Repeated labels and text-heavy details made some screens feel busy without adding real product value.', 'useless-info-2', 'Pockland screen with repeated labels and unnecessary text'],
+      ['Useless metadata', 'Several iterations needed pruning because the interface surfaced too many low-priority details at once.', 'useless-info-3', 'Pockland mobile screen with too much low-priority information'],
+      ['Useless metadata', 'The issue was not only visual density; some generated information had no clear action or decision attached to it.', 'useless-info-4', 'Pockland screen showing information without a clear user purpose'],
+      ['Useless metadata', 'I had to repeatedly separate useful book context from decorative or redundant metadata.', 'useless-info-5', 'Pockland screen with redundant book metadata'],
+      ['Useless metadata', 'The cleanup work became a reminder that a generated UI can look detailed while still lacking hierarchy.', 'useless-info-6', 'Pockland generated UI with weak information hierarchy'],
+      ['Useless metadata', 'Another example of generated detail that needed to be reduced or moved into a clearer pattern.', 'useless-info-7', 'Pockland screen with excessive generated detail'],
+      ['Shelf hierarchy', 'Shelves, custom shelves, and book groups were mixed together, making the page harder to scan.', 'hierarchy-shelves-before', 'Pockland shelves page with weak grouping and hierarchy'],
+      ['Card consistency', 'Book cards mixed author, book count, rating, state labels, and text in inconsistent ways across the app.', 'book-card-consistency-before', 'Pockland book card before consistency improvements'],
+      ['Card consistency after', 'After review, the card pattern became cleaner and easier to reuse across screens.', 'book-card-consistency-after', 'Pockland book card after consistency improvements'],
+      ['Spacing problems', 'Several screens needed manual spacing corrections because generated layouts placed objects too tightly or unevenly.', 'spacing-layout-1', 'Pockland screen with layout spacing problems'],
+      ['Spacing problems', 'Some mobile layouts had controls and content blocks that did not breathe enough.', 'spacing-layout-2', 'Pockland mobile layout with spacing problems'],
+      ['Spacing problems', 'Small UI elements also needed review because generated spacing made them feel detached or cramped.', 'spacing-layout-3', 'Pockland detail showing spacing problems'],
+      ['Spacing problems', 'Even tiny components needed manual attention when alignment and rhythm were off.', 'spacing-layout-4', 'Pockland small component with layout spacing issue'],
+      ['Spacing problems', 'The larger layout needed clearer grouping so the page did not feel assembled from unrelated blocks.', 'spacing-layout-5', 'Pockland layout with weak grouping and spacing'],
+      ['Currently Reading before', 'The Currently Reading card initially took too much visual weight and did not scale well.', 'currently-reading-before', 'Pockland Currently Reading card before redesign'],
+      ['Currently Reading after', 'The revised card made reading progress clearer and fit better into the surrounding layout.', 'currently-reading-after', 'Pockland Currently Reading card after redesign'],
+      ['Responsive check', 'On small screens, cards could become too large, showing why every generated responsive layout still needed human review.', 'small-screen-card-too-large', 'Pockland small screen with an oversized card'],
+      ['Weak edit pattern', 'Editing actions were pushed into separate popups, creating unnecessary interruption for simple shelf changes.', 'editing-popup-pattern', 'Pockland UI showing an editing popup pattern'],
+      ['Ambiguous delete', 'The delete control looked like it might delete books instead of the shelf, so the action needed clearer iconography and copy.', 'delete-action-ambiguity', 'Pockland shelf delete action with ambiguous meaning'],
+    ];
+    const notes = raw.map(([label, caption, file, alt], i) => ({ num: String(i + 1), label, caption, src: P + file + '.png', alt }));
+    return { notes, total: notes.length, trackRef: this.trackRef, prev: () => this.scroll(-1), next: () => this.scroll(1) };
+  }
+}
+</script>
+</body>
+</html>

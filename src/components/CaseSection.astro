@@ -1,0 +1,79 @@
+---
+/**
+ * Numbered case section: number + label column | h2 + Markdown body column, top rule.
+ * Slots: default (body prose), "aside" (right column when layout="split"), "after" (full-width content below).
+ */
+interface Props {
+  n?: number;
+  label: string;
+  /** Headline; may contain <em>. */
+  title?: string;
+  /** Blue .print section (Outcome, AI-assisted workflow, Product strategy…). */
+  print?: boolean;
+  /** Dashed top rule (backlog / next steps). */
+  dashed?: boolean;
+  /** Body and an aside side by side inside the content column. */
+  layout?: 'stack' | 'split';
+  /** Compact form used inside <Columns>: meta row on top, no label column. */
+  variant?: 'default' | 'column';
+  titleWidth?: string;
+}
+const { n, label, title, print = false, dashed = false, layout = 'stack', variant = 'default', titleWidth = '22ch' } = Astro.props;
+const hasBody = Astro.slots.has('default');
+const hasAfter = Astro.slots.has('after');
+const Tag = variant === 'column' ? 'div' : 'section';
+---
+<Tag class:list={['case-section', `v-${variant}`, { print, wrap: variant === 'default' }]}>
+  {variant === 'column' ? (
+    <div class:list={['column', { dashed }]}>
+      <div class="column-meta label">{n && <span>{n}</span>}<span>{label}</span></div>
+      {title && <h2 class="head" set:html={title} />}
+      {hasBody && <div class="prose"><slot /></div>}
+    </div>
+  ) : (
+    <div class:list={['case-cols row', { dashed }]}>
+      <div class="side">
+        {n && <p class="num">{n}</p>}
+        <p class="label">{label}</p>
+      </div>
+      <div class="main">
+        {layout === 'split' ? (
+          <div class="split auto-grid">
+            <div class="stack">
+              {title && <h2 class="h2 head" style={`max-width: ${titleWidth}`} set:html={title} />}
+              {hasBody && <div class="prose"><slot /></div>}
+            </div>
+            <div><slot name="aside" /></div>
+          </div>
+        ) : (
+          <>
+            {title && <h2 class="h2 head" style={`max-width: ${titleWidth}`} set:html={title} />}
+            {hasBody && <div class="prose"><slot /></div>}
+          </>
+        )}
+      </div>
+    </div>
+  )}
+  {hasAfter && <div class="after"><slot name="after" /></div>}
+</Tag>
+
+<style>
+  .case-section.v-default { padding-top: var(--section-gap); }
+  .row { padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid var(--rule); }
+  .row.dashed { border-top-style: dashed; }
+  .print.v-default { margin-top: var(--section-gap); padding-block: clamp(3.5rem, 7vw, 6rem); }
+  .print .row { padding-top: 0; border-top: 0; }
+  .split { --min: 20rem; --gap: clamp(1.5rem, 4vw, 3rem); }
+  .split .h2 { max-width: 18ch; }
+  .split .prose > :global(p) { max-width: none; }
+  .after { margin-top: clamp(2rem, 4vw, 3.5rem); display: flex; flex-direction: column; gap: clamp(2rem, 4vw, 3rem); }
+  .after > :global(*) { margin: 0; }
+
+  /* column variant */
+  .column { display: flex; flex-direction: column; gap: 1.25rem; padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid var(--rule); }
+  .column.dashed { border-top: 1px dashed var(--line); }
+  .column-meta { display: flex; gap: 1.25rem; }
+  .column h2 { margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.5rem); }
+  .column .prose > :global(p) { font-size: 1.02rem; }
+  .v-column .after { margin-top: 0; }
+</style>

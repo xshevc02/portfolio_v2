@@ -1,0 +1,227 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import HeroHome from '../components/HeroHome.astro';
+import NumbersRow from '../components/NumbersRow.astro';
+import ProjectRow from '../components/ProjectRow.astro';
+import NdaBlock from '../components/NdaBlock.astro';
+import Gallery from '../components/Gallery.astro';
+import CopyEmail from '../components/CopyEmail.astro';
+import Icon from '../components/Icon.astro';
+import { url, CV_URL, GITHUB_URL } from '../lib/url';
+
+const cases = (await getCollection('cases')).sort((a, b) => a.data.order - b.data.order);
+const shown = cases.filter((c) => !c.data.nda);
+
+const numbers = [
+  { value: '2+ years', text: 'designing scientific software at Thermo Fisher Scientific' },
+  { value: '7+ sessions', text: 'usability tests I planned and ran with Product Owners' },
+  { value: '6+ teams', text: 'cross-functional teams I design with, incl. France and the Netherlands' },
+];
+
+const experience = [
+  'Delivered high-fidelity interactive prototypes and UI mockups for complex scientific web applications controlling electron microscopes across 6+ international cross-functional teams, including alignment with teams in France & the Netherlands.',
+  'Consulted with Application Specialists and Domain Experts working directly with scientific equipment to translate complex technical inputs and material-testing scenarios into clear user workflows.',
+  'Defined user flows, interaction models, and functional concepts for new features, aligning design decisions with product strategy and technical feasibility.',
+  'Planned and conducted 7+ usability testing sessions with POs, converting user pain points into actionable design improvements for the product roadmap.',
+  'Collaborated daily with frontend developers and POs to resolve UI edge cases, streamline developer handoff, ship iterative usability fixes, and provide UX feedback prior to feature implementation.',
+  'Experimented with AI-assisted prototyping connected to existing frontend codebases, enabling faster creation of clickable prototypes based on real product components and patterns.',
+];
+
+const skills = [
+  { label: 'Design', text: 'UI/UX design · product design · interaction design · prototyping · user flows · feature concept development · service blueprints' },
+  { label: 'Research & evaluation', text: 'Usability testing · heuristic evaluation · requirement gathering · Google HEART framework · analytics · iterative design' },
+  { label: 'Development & AI', text: 'React · TypeScript · API integration · Tailwind CSS · prompt engineering · AI-assisted prototyping' },
+  { label: 'Tools', text: 'Figma · Figma Make · Miro · Jira · Confluence · Google Analytics · generative AI (ChatGPT, Claude)' },
+  { label: 'Languages', text: 'Czech B2 · English C1 · Ukrainian & Russian native' },
+  { label: 'Based in', text: 'Brno · on site here, hybrid in Prague, remote across Europe' },
+];
+
+const life = [
+  {
+    title: 'Travel',
+    tags: [{ icon: 'pin', text: 'Around the world' }],
+    text: 'Some trips stay with me because of the people I shared them with — my sister, close friends, and different companions who made each place feel unique 🌍. Rome, Batumi, Crete, Estonia, Riga, and Budapest all became special in their own way: shared meals, unknown streets, sea views, postcards, tiny tickets, and the joy of discovering something new together ✨.',
+    photos: [
+      { src: '/images/hobbies/travel-gallery/travel-1.jpg', alt: 'Travel journal collage with postcards from Estonia, Latvia and Riga' },
+      { src: '/images/hobbies/travel-gallery/travel-2.jpg', alt: 'Travel journal collage with Budapest photos and museum tickets' },
+      { src: '/images/hobbies/travel-gallery/travel-3.jpg', alt: 'Travel journal collage with Rome photos, architecture and food' },
+      { src: '/images/hobbies/travel-gallery/travel-4.jpg', alt: 'Travel journal collage with Greece and seaside memories' },
+    ],
+  },
+  {
+    title: 'RealUXCamp',
+    tags: [{ icon: 'calendar', text: '14–16 August' }, { icon: 'pin', text: 'Paběnický mlýn' }],
+    text: 'RealUXCamp left me with that rare kind of energy when a weekend gives you both new ideas and new people ✨. The talks opened many topics I want to return to — AI in everyday design work, stakeholder collaboration, team experience from 2FRESH, and how people think about hiring. What inspired me most were the conversations around the talks: shared questions, spontaneous discussions, campfire moments, and the joy of being part of the Czech UX community 🔥.',
+    photos: [
+      { src: '/images/hobbies/community-gallery/community-1.jpg', alt: 'Community event presentation in a wooden room' },
+      { src: '/images/hobbies/community-gallery/community-6.jpg', alt: 'Event schedule board with handwritten workshop sessions' },
+      { src: '/images/hobbies/community-gallery/community-4.jpg', alt: 'Group sitting around a campfire during an outdoor gathering' },
+      { src: '/images/hobbies/community-gallery/community-2.jpg', alt: 'Speaker presenting during a community workshop' },
+      { src: '/images/hobbies/community-gallery/community-3.jpg', alt: 'Night sky captured during an outdoor event' },
+    ],
+  },
+] as const;
+---
+<Base title="Anna Shevchenko — UX for scientific and data-heavy products">
+  <HeroHome />
+
+  <section class="numbers wrap" aria-label="In numbers">
+    <NumbersRow items={numbers} />
+  </section>
+
+  <section id="work" class="work wrap">
+    <div class="section-head auto-grid">
+      <p class="label">Work · newest first</p>
+      <h2 class="head">Four projects I can talk about for an hour, and one I can’t show you.</h2>
+    </div>
+    {cases.map((entry) =>
+      entry.data.nda ? (
+        <NdaBlock entry={entry} />
+      ) : (
+        <ProjectRow entry={entry} first={shown.indexOf(entry) === 0} flip={shown.indexOf(entry) % 2 === 1} />
+      )
+    )}
+  </section>
+
+  <section id="about" class="about wrap print">
+    <p class="label">About me</p>
+    <div class="about-intro auto-grid">
+      <h2 class="head">The interface is the smallest part of the problem.</h2>
+      <div class="stack">
+        <p>Underneath every screen I work on there are domain rules, technical constraints, expert habits and engineering decisions — and all of them shape what “good UX” even means here.</p>
+        <p>So I start with the logic of the workflow: what someone is trying to decide, which data they rely on, where a mistake becomes expensive. Then I make the complicated action feel clearer without pretending it is simple.</p>
+        <p>Day to day that means sitting with Application Specialists and domain experts, asking a lot of questions, and testing whether my answer survives contact with a real user.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="label">Experience</p>
+      <div class="entries auto-grid">
+        <div>
+          <p class="when">2024 — now</p>
+          <h3 class="head">User Experience Designer</h3>
+          <p class="where">Thermo Fisher Scientific · Brno</p>
+        </div>
+        <div class="stack">
+          <p class="role">Designing scientific web applications and the tools that control electron microscopes, with Product Owners, developers, Application Specialists and domain experts.</p>
+          <ul class="bullets">
+            {experience.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="label">Education</p>
+      <div class="entries auto-grid">
+        <div>
+          <p class="when">Expected 2028</p>
+          <h3 class="head small">M.S. Information Services Design</h3>
+          <p class="where">Masaryk University · KISK FF</p>
+          <p class="note">Part-time, focused on information services, user needs and the design of digital information experiences.</p>
+          <a class="link-line kisk" href={url('/kisk/')}>Study reflections <Icon name="out" /></a>
+        </div>
+        <div>
+          <p class="when">Graduated 2026</p>
+          <h3 class="head small">B.S. Information Technology</h3>
+          <p class="where">Brno University of Technology · VUT FIT</p>
+          <p class="note">Bachelor thesis: User-friendliness of the Traffic Analysis App — the Analyticity project above. Evaluated with grade A and nominated for the Dean’s Award.</p>
+          <p class="note">Collaborated in 4+ student teams on end-to-end IT projects — systems built from scratch, ERD modeling, database and simulation tools — managing task distribution, resource planning and coordination under tight deadlines while balancing two bachelor’s degrees.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills auto-grid">
+      {skills.map((s) => (
+        <div>
+          <p class="label">{s.label}</p>
+          <p class="skill">{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="life" class="life wrap">
+    <div class="section-head auto-grid">
+      <p class="label">Outside work</p>
+      <h2 class="head">Two things I keep coming back to.</h2>
+    </div>
+    <div class="life-grid auto-grid">
+      {life.map((item) => (
+        <article class="stack">
+          <Gallery variant="photos" items={[...item.photos]} />
+          <div>
+            <h3 class="head">{item.title}</h3>
+            <div class="tags">
+              {item.tags.map((tag) => <span class="tag"><Icon name={tag.icon} />{tag.text}</span>)}
+            </div>
+            <p class="life-text">{item.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" class="contact wrap">
+    <p class="label">Contact</p>
+    <h2 class="head">Working on something complicated? <em>Let’s talk.</em></h2>
+    <p class="lead">I’m in Brno, happy to work on site here, hybrid in Prague, or remote across Europe. Tell me what your users are stuck with.</p>
+    <div class="links">
+      <CopyEmail variant="link" showEmail />
+      <a class="link-line" href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub <Icon name="out" /></a>
+      <a class="link-line" href={CV_URL} target="_blank" rel="noreferrer">CV <Icon name="out" /></a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .numbers { padding-bottom: clamp(3rem, 7vw, 6rem); }
+
+  .section-head { --min: 20rem; align-items: end; }
+  .section-head .label { margin: 0; font-size: .72rem; line-height: 1.5; letter-spacing: .09em; }
+  .section-head h2 { margin: 0; max-width: 26ch; font-size: clamp(1.9rem, 3.4vw, 3.2rem); }
+
+  .work { padding-block: clamp(3rem, 6vw, 5rem) var(--section-gap); border-top: 1px solid var(--line); }
+
+  /* About (.print) */
+  .about { padding-block: var(--section-gap); }
+  .about .label { margin: 0; font-size: .72rem; line-height: 1.5; letter-spacing: .09em; color: var(--fg-soft); }
+  .about-intro { --min: 20rem; --gap: clamp(2rem, 6vw, 5rem); align-items: start; margin-top: clamp(2.5rem, 5vw, 4rem); }
+  .about-intro h2 { margin: 0; max-width: 18ch; font-size: clamp(2rem, 4.2vw, 3.8rem); }
+  .about-intro .stack { --gap: 1.4rem; }
+  .about-intro p { max-width: 48ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.7; color: var(--fg-body); }
+  .block { margin-top: clamp(3rem, 6vw, 5rem); }
+  .block:first-of-type { margin-top: clamp(3.5rem, 7vw, 6rem); }
+  .block > .label { margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+  .entries, .skills { --min: 18rem; --gap: clamp(1.25rem, 4vw, 3.5rem); padding-top: clamp(1.25rem, 2.5vw, 2rem); border-top: 1px solid var(--line); }
+  .when, .where { margin: 0; font: 300 .78rem/1.6 var(--font-mono); color: var(--fg-soft); }
+  .entries h3 { margin: .9rem 0 .4rem; font-size: clamp(1.25rem, 2vw, 1.7rem); line-height: 1; }
+  .entries h3.small { font-size: clamp(1.15rem, 1.7vw, 1.45rem); }
+  .where + .note { margin-top: 1rem; }
+  .note { margin: 0 0 1rem; max-width: 46ch; line-height: 1.65; color: var(--fg-body); }
+  .role { max-width: 50ch; font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.7; color: var(--fg-body); }
+  .bullets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .9rem; }
+  .bullets li { max-width: 60ch; padding-top: .9rem; border-top: 1px solid var(--line); line-height: 1.65; color: var(--fg-body); }
+  .kisk { margin-top: .1rem; font-size: .74rem; padding-bottom: .3rem; gap: .5rem; }
+  .skills { --min: 20rem; --gap: clamp(1.5rem, 4vw, 3rem); margin-top: clamp(3rem, 6vw, 5rem); }
+  .skills .label { margin-bottom: 1.1rem; }
+  .skill { margin: 0; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; color: var(--fg-body); text-wrap: pretty; }
+
+  /* Life */
+  .life { padding-block: var(--section-gap); border-top: 1px solid var(--rule); }
+  .life-grid { --min: 20rem; --gap: clamp(2rem, 5vw, 4rem); margin-top: clamp(2.5rem, 5vw, 4rem); }
+  .life h3 { margin: 0 0 .75rem; font-size: clamp(1.25rem, 2vw, 1.7rem); line-height: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.1rem; }
+  .tag { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: var(--fg-soft); background: var(--chip); font: 400 .7rem/1 var(--font-mono); }
+  .tag :global(.icon) { width: .85rem; height: .85rem; stroke-width: 1.5; }
+  .life-text { margin: 0; line-height: 1.65; color: var(--fg-body); text-wrap: pretty; }
+
+  /* Contact */
+  .contact { display: flex; flex-direction: column; padding-block: clamp(4.5rem, 10vw, 9rem); border-top: 1px solid var(--rule); }
+  .contact .label { margin: 0; color: var(--fg); font-size: .72rem; letter-spacing: .09em; }
+  .contact h2 { margin: clamp(2rem, 5vw, 4rem) 0 0; max-width: 16ch; font-size: clamp(2.75rem, 8vw, 8rem); }
+  .contact .lead { margin: clamp(1.75rem, 4vw, 3rem) 0 0; max-width: 44ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.65; color: var(--fg); }
+  .links { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; margin-top: clamp(2.5rem, 6vw, 4.5rem); }
+  .links .link-line { padding-bottom: .4rem; font-size: .85rem; gap: .5rem; }
+</style>

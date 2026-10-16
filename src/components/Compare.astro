@@ -1,0 +1,26 @@
+---
+/** Before/after principles: struck-through left column, plain right column. */
+interface Props { before: string; after: string; rows: [string, string][] }
+const { before, after, rows } = Astro.props;
+---
+<div class="compare">
+  <div class="row heads label"><span class="was">{before}</span><span class="is">{after}</span></div>
+  {rows.map(([was, is]) => (
+    <div class="row">
+      <p class="was"><s>{was}</s></p>
+      <p>{is}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .compare { border-top: 1px solid var(--line); }
+  .row { display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .row > * { flex: 1 1 16rem; margin: 0; }
+  .heads { padding: 1rem 0; font-size: .72rem; }
+  .heads .was { color: var(--fg-soft); }
+  .heads .is { color: var(--accent); }
+  p { font-size: 1.05rem; line-height: 1.55; }
+  p.was { color: var(--fg-soft); }
+  s { text-decoration-color: var(--line); }
+</style>

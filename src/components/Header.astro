@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+import { url, CV_URL } from '../lib/url';
+
+type Props =
+  | { variant: 'home' }
+  | { variant: 'back'; backHref: string; backLabel: string; nextLabel?: string };
+const props = Astro.props;
+---
+<header class="site-header u">
+  <a class="name head" href={props.variant === 'home' ? '#top' : url('/')}>Anna Shevchenko</a>
+  <nav>
+    {props.variant === 'home' ? (
+      <>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#life">Life</a>
+        <a class="strong" href={CV_URL} target="_blank" rel="noreferrer">CV <Icon name="out" /></a>
+      </>
+    ) : (
+      <>
+        <a href={props.backHref}><Icon name="back" />{props.backLabel}</a>
+        {props.nextLabel && <a href="#next">{props.nextLabel}</a>}
+      </>
+    )}
+    <slot />
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    padding: 1.25rem var(--gutter);
+    border-bottom: 1px solid var(--line);
+    background: var(--header-bg);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  .name { font-size: 1.2rem; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
+  .name::after { display: none; }
+  nav {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end;
+    gap: .75rem clamp(1.25rem, 3.5vw, 3.5rem);
+    font: 400 .78rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: .08em;
+  }
+  nav a { display: inline-flex; align-items: center; gap: .4rem; }
+  nav a :global(.icon) { width: .9rem; }
+  .strong { font-weight: 500; }
+</style>

@@ -1,0 +1,18 @@
+---
+/** Fluid grid for figures (and the odd text column next to them). */
+interface Props {
+  min?: string;
+  gap?: string;
+  align?: 'start' | 'center' | 'stretch';
+  /** Pale cobalt panel behind the grid (phone screens). */
+  panel?: boolean;
+}
+const { min = '20rem', gap = 'clamp(1rem, 2.5vw, 2rem)', align = 'start', panel = false } = Astro.props;
+---
+<div class:list={['figure-grid auto-grid', { panel }]} style={`--min: ${min}; --gap: ${gap}; align-items: ${align}`}>
+  <slot />
+</div>
+
+<style>
+  .panel { padding: clamp(1.5rem, 3vw, 2.5rem); background: var(--matte); border: 1px solid var(--line); }
+</style>

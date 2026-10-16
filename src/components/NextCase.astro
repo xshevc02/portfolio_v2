@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+
+interface Props { current: CollectionEntry<'cases'>; next: CollectionEntry<'cases'> }
+const { current, next } = Astro.props;
+const backToStart = next.data.order < current.data.order;
+const label = backToStart
+  ? `Back to the start · ${next.data.order}`
+  : `Next · ${next.data.order}${next.data.nda ? ' · under NDA' : ''}`;
+const long = next.data.title.length > 16;
+---
+<a id="next" class="next" href={url(`/work/${next.id}/`)}>
+  <p class="label">{label}</p>
+  <p class:list={['title head', { long }]}>{next.data.title} <Icon name="out" /></p>
+</a>
+
+<style>
+  .next { display: block; margin-top: var(--section-gap); padding: clamp(2.5rem, 5vw, 4.5rem) var(--gutter); border-top: 1px solid var(--rule); }
+  :global(.print) .label { color: var(--fg-soft); }
+  p { margin: 0; }
+  .title { display: flex; align-items: center; gap: .3em; margin-top: 1rem; font-size: clamp(2.4rem, 6vw, 5.6rem); }
+  .title.long { font-size: clamp(2.2rem, 5vw, 4.6rem); }
+  .title :global(.icon) { width: .8em; stroke-width: 1.4; }
+</style>

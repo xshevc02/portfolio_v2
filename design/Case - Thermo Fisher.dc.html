@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; cursor: pointer; }
+  a:hover { color: #b9c6ff; }
+  button { color: inherit; cursor: pointer; }
+  ::selection { color: #14161c; background: #b9c6ff; }
+</style>
+</helmet>
+
+<header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem clamp(1.25rem, 4vw, 4.5rem); border-bottom: 1px solid rgba(242,245,255,.16); background: rgba(28,58,169,.94); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+  <a href="Portfolio v2.dc.html" style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.2rem; line-height: 1; letter-spacing: -.01em;">Anna Shevchenko</a>
+  <nav style="display: flex; flex-wrap: wrap; gap: clamp(1.25rem, 3.5vw, 3.5rem); font: 400 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;">
+    <a href="Portfolio v2.dc.html#work" style="display: inline-flex; align-items: center; gap: .4rem;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: .9rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M14 9H4M8 5 4 9l4 4"></path></svg>All work</a>
+    <a href="#next">Next case</a>
+  </nav>
+</header>
+
+<section data-screen-label="Hero" style="padding: clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(2.5rem, 5vw, 4rem);">
+  <div style="display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.6);"><span>4</span><span>2024 — now</span><span>Enterprise B2B · Thermo Fisher Scientific</span><span style="color: #b9c6ff;">Under NDA</span></div>
+  <h1 style="margin: clamp(1.25rem, 2.5vw, 2rem) 0 0; max-width: 17ch; font-size: clamp(2.6rem, 6.4vw, 6.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">What I do at Thermo Fisher <span style="font-family: 'IBM Plex Sans', sans-serif; font-style: italic; letter-spacing: -.03em; color: #b9c6ff;">without</span> the screens.</h1>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; gap: clamp(2rem, 5vw, 5rem); margin-top: clamp(2rem, 4vw, 3.5rem);">
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <p style="margin: 0; max-width: 46ch; font-size: clamp(1.1rem, 1.6vw, 1.4rem); line-height: 1.6; color: rgba(242,245,255,.84); text-wrap: pretty;">At Thermo Fisher Scientific, I work on high-tech B2B software used by scientists and engineers to control advanced electron microscopes.</p>
+      <p style="margin: 0; max-width: 52ch; font: 400 .8rem/1.75 'IBM Plex Mono', monospace; color: rgba(242,245,255,.62);">Due to non-disclosure agreements, specific UI elements, proprietary algorithm parameters, and real scientific data stay private. This page shows the methods, the collaboration model, and the kinds of product decisions I make.</p>
+    </div>
+    <dl style="margin: 0; display: grid; border-top: 1px solid rgba(242,245,255,.16);">
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Role</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">User Experience Designer · Brno</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Domain</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Electron microscopy, scientific instrument control, material-testing scenarios, and expert-user workflows</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Design outputs</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Interaction models, journey maps, high-fidelity prototypes, usability findings, component documentation, and handoff notes</dd>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+        <dt style="font: 400 .72rem/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Tools</dt>
+        <dd style="margin: 0; font-size: .95rem; line-height: 1.55;">Figma, corporate design system, Jira, Confluence, usability testing, agile planning, developer handoff</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section data-screen-label="Numbers" style="padding: 0 clamp(1.25rem, 4vw, 4.5rem);">
+  <div style="display: flex; flex-wrap: wrap; gap: 1px; background: rgba(242,245,255,.16); border: 1px solid rgba(242,245,255,.16);">
+    <div style="flex: 1 1 15rem; padding: clamp(1.5rem, 3vw, 2.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px;">
+      <p style="margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">2+ years</p>
+      <p style="margin: .9rem 0 0; font: 300 .76rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.66);">designing scientific software, from feature concept to developer handoff</p>
+    </div>
+    <div style="flex: 1 1 15rem; padding: clamp(1.5rem, 3vw, 2.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px;">
+      <p style="margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">7+ sessions</p>
+      <p style="margin: .9rem 0 0; font: 300 .76rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.66);">usability tests I planned and ran with Product Owners and domain specialists</p>
+    </div>
+    <div style="flex: 1 1 15rem; padding: clamp(1.5rem, 3vw, 2.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px;">
+      <p style="margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">6+ teams</p>
+      <p style="margin: .9rem 0 0; font: 300 .76rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.66);">international product teams, incl. France and the Netherlands</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="01 Who I work with" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #f2f5ff;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: rgba(242,245,255,.45);">1</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">Who I work with</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Cross-functional planning before pixels.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(242,245,255,.8);">Designing for scientific instrumentation requires tight integration with both business goals and technical realities. Most of my design decisions are shaped in conversation before anything is drawn.</p>
+    </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: clamp(.75rem, 1.5vw, 1rem); margin-top: clamp(2rem, 4vw, 3.5rem);">
+    <div style="flex: 1 1 17rem; min-width: 0; display: flex; flex-direction: column; gap: clamp(.75rem, 1.5vw, 1rem);">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: .7rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); border: 1px solid rgba(242,245,255,.2);">
+        <span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">Application Specialists</span>
+        <span style="font-size: .98rem; line-height: 1.6; color: rgba(242,245,255,.84);">Internal scientists who operate and test microscopes in real material-testing scenarios. Their feedback refines interaction models and catches assumptions that would not hold in expert workflows.</span>
+      </div>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: .7rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); border: 1px solid rgba(242,245,255,.2);">
+        <span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">Product Owners</span>
+        <span style="font-size: .98rem; line-height: 1.6; color: rgba(242,245,255,.84);">Quarterly planning, UX requirements, and feature readiness before implementation starts. Co-running usability sessions.</span>
+      </div>
+    </div>
+    <div style="flex: 1 1 14rem; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .9rem; padding: clamp(2rem, 4vw, 3rem) 1.5rem; background: #b9c6ff; color: #14161c; text-align: center;">
+      <span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;">UX designer</span>
+      <span style="font-size: clamp(1.8rem, 3vw, 2.6rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Me</span>
+      <span style="max-width: 18ch; font: 400 .74rem/1.6 'IBM Plex Mono', monospace;">translating domain logic into workflows people can trust</span>
+    </div>
+    <div style="flex: 1 1 17rem; min-width: 0; display: flex; flex-direction: column; gap: clamp(.75rem, 1.5vw, 1rem);">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: .7rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); border: 1px solid rgba(242,245,255,.2);">
+        <span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">Engineering Leads &amp; developers</span>
+        <span style="font-size: .98rem; line-height: 1.6; color: rgba(242,245,255,.84);">Edge cases, technical constraints, and state transitions discussed early in the design phase, so handoff is shared understanding rather than static mockups.</span>
+      </div>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: .7rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); border: 1px solid rgba(242,245,255,.2);">
+        <span style="font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">Adjacent teams</span>
+        <span style="font-size: .98rem; line-height: 1.6; color: rgba(242,245,255,.84);">I act as an internal UX advisor, giving design reviews and recommendations when new functionality is initiated, to keep the wider product ecosystem consistent.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="02 The quarter" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #f2f5ff;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: rgba(242,245,255,.45);">2</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">How a quarter runs</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">From roadmap to handoff, then back again.</h2>
+    </div>
+  </div>
+  <ol style="margin: clamp(2rem, 4vw, 3.5rem) 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 1px; background: rgba(242,245,255,.16); border: 1px solid rgba(242,245,255,.16);">
+    <li style="flex: 1 1 12rem; display: flex; flex-direction: column; gap: .8rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); background: #1c3aa9;">
+      <span style="font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">1 →</span>
+      <span style="font-size: 1.3rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Planning</span>
+      <span style="font-size: .92rem; line-height: 1.6; color: rgba(242,245,255,.74);">Quarterly sessions with Product Owners and Engineering Leads to scope features and agree what is ready.</span>
+    </li>
+    <li style="flex: 1 1 12rem; display: flex; flex-direction: column; gap: .8rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); background: #1c3aa9;">
+      <span style="font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">2 →</span>
+      <span style="font-size: 1.3rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Requirements</span>
+      <span style="font-size: .92rem; line-height: 1.6; color: rgba(242,245,255,.74);">UX requirements written before implementation, checked against domain logic with Application Specialists.</span>
+    </li>
+    <li style="flex: 1 1 12rem; display: flex; flex-direction: column; gap: .8rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); background: #1c3aa9;">
+      <span style="font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">3 →</span>
+      <span style="font-size: 1.3rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Prototype</span>
+      <span style="font-size: .92rem; line-height: 1.6; color: rgba(242,245,255,.74);">Interaction models and high-fidelity prototypes aligned with the corporate design system.</span>
+    </li>
+    <li style="flex: 1 1 12rem; display: flex; flex-direction: column; gap: .8rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); background: #1c3aa9;">
+      <span style="font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">4 →</span>
+      <span style="font-size: 1.3rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Testing</span>
+      <span style="font-size: .92rem; line-height: 1.6; color: rgba(242,245,255,.74);">Usability sessions with domain specialists, findings synthesized and presented to stakeholders.</span>
+    </li>
+    <li style="flex: 1 1 12rem; display: flex; flex-direction: column; gap: .8rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); background: #1c3aa9;">
+      <span style="font: 400 .74rem/1 'IBM Plex Mono', monospace; color: #b9c6ff;">5 ↺</span>
+      <span style="font-size: 1.3rem;  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Handoff</span>
+      <span style="font-size: .92rem; line-height: 1.6; color: rgba(242,245,255,.74);">Component documentation and handoff notes; what we learn feeds the next planning round.</span>
+    </li>
+  </ol>
+</section>
+
+<section data-screen-label="03 A core workflow" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #f2f5ff;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: rgba(242,245,255,.45);">3</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">One project, abstracted</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Iterating on a core system workflow.</h2>
+      <p style="margin: 0; max-width: 62ch; font-size: clamp(1.02rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(242,245,255,.8);">One of my primary initiatives was a multi-month iterative design process for a core system workflow. The question underneath: how can new capabilities fit into existing application structures without cluttering the interface or breaking the mental models expert users already rely on?</p>
+      <div style="display: flex; flex-direction: column; margin-top: 1rem;">
+        <div style="display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1rem;">
+          <div style="display: flex; flex-direction: column; align-items: center;"><span style="width: .8rem; height: .8rem; margin-top: .4rem; border-radius: 50%; background: #b9c6ff;"></span><span style="flex: 1; width: 1px; background: rgba(242,245,255,.25);"></span></div>
+          <div style="padding-bottom: 1.75rem;"><p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Phase 1</p><p style="margin: .4rem 0 0; font-size: 1.2rem; font-weight: 500; letter-spacing: -.02em;">Requirements and brainstorming</p><p style="margin: .4rem 0 0; font-size: .95rem; line-height: 1.6; color: rgba(242,245,255,.74);">Understanding what the new capabilities had to do and where they could live in the existing structure.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1rem;">
+          <div style="display: flex; flex-direction: column; align-items: center;"><span style="width: .8rem; height: .8rem; margin-top: .4rem; border-radius: 50%; background: #b9c6ff;"></span><span style="flex: 1; width: 1px; background: rgba(242,245,255,.25);"></span></div>
+          <div style="padding-bottom: 1.75rem;"><p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Phase 2</p><p style="margin: .4rem 0 0; font-size: 1.2rem; font-weight: 500; letter-spacing: -.02em;">End-to-end journey mapping</p><p style="margin: .4rem 0 0; font-size: .95rem; line-height: 1.6; color: rgba(242,245,255,.74);">Mapping user journeys across parameter-heavy system workflows.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1rem;">
+          <div style="display: flex; flex-direction: column; align-items: center;"><span style="width: .8rem; height: .8rem; margin-top: .4rem; border-radius: 50%; background: #b9c6ff;"></span><span style="flex: 1; width: 1px; background: rgba(242,245,255,.25);"></span></div>
+          <div style="padding-bottom: 1.75rem;"><p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Phase 3</p><p style="margin: .4rem 0 0; font-size: 1.2rem; font-weight: 500; letter-spacing: -.02em;">Interaction logic</p><p style="margin: .4rem 0 0; font-size: .95rem; line-height: 1.6; color: rgba(242,245,255,.74);">Defining how complex parameter inputs and system state changes behave.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1rem;">
+          <div style="display: flex; flex-direction: column; align-items: center;"><span style="width: .8rem; height: .8rem; margin-top: .4rem; border-radius: 50%; background: #b9c6ff;"></span><span style="flex: 1; width: 1px; background: rgba(242,245,255,.25);"></span></div>
+          <div style="padding-bottom: 1.75rem;"><p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Phase 4</p><p style="margin: .4rem 0 0; font-size: 1.2rem; font-weight: 500; letter-spacing: -.02em;">High-fidelity prototypes</p><p style="margin: .4rem 0 0; font-size: .95rem; line-height: 1.6; color: rgba(242,245,255,.74);">Translating those decisions into prototypes testable with real domain specialists.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1rem;">
+          <div style="display: flex; flex-direction: column; align-items: center;"><span style="width: .8rem; height: .8rem; margin-top: .4rem; border-radius: 50%; background: #b9c6ff;"></span><span style="flex: 1; width: 1px; background: rgba(242,245,255,.25);"></span></div>
+          <div style="padding-bottom: 1.75rem;"><p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Phase 5</p><p style="margin: .4rem 0 0; font-size: 1.2rem; font-weight: 500; letter-spacing: -.02em;">Usability testing</p><p style="margin: .4rem 0 0; font-size: .95rem; line-height: 1.6; color: rgba(242,245,255,.74);">Sessions with domain specialists to find points of confusion and validate assumptions.</p></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1rem;">
+          <div style="display: flex; flex-direction: column; align-items: center;"><span style="width: .8rem; height: .8rem; margin-top: .4rem; border-radius: 50%; border: 1px solid #b9c6ff;"></span></div>
+          <div><p style="margin: 0; font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.55);">Phase 6 · repeat</p><p style="margin: .4rem 0 0; font-size: 1.2rem; font-weight: 500; letter-spacing: -.02em;">Iterate and present findings</p><p style="margin: .4rem 0 0; font-size: .95rem; line-height: 1.6; color: rgba(242,245,255,.74);">Feedback turned into concrete design iterations, findings presented to stakeholders.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="04 Before and after" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0;">
+  <div style="display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #f2f5ff;">
+    <div style="flex: 1 1 11rem; display: flex; flex-direction: column; gap: .6rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: rgba(242,245,255,.45);">4</p>
+      <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">How I shift the work</p>
+    </div>
+    <div style="flex: 999 1 30rem; min-width: 0;">
+      <h2 style="margin: 0; max-width: 22ch; font-size: clamp(1.9rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Before and after, in principles.</h2>
+    </div>
+  </div>
+  <div style="margin-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid rgba(242,245,255,.16);">
+    <div style="display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 1rem 0; border-bottom: 1px solid rgba(242,245,255,.16); font: 400 .72rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em;">
+      <span style="flex: 1 1 16rem; color: rgba(242,245,255,.5);">Without it</span>
+      <span style="flex: 1 1 16rem; color: #b9c6ff;">What I push for</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55; color: rgba(242,245,255,.5); text-decoration: line-through; text-decoration-color: rgba(242,245,255,.3);">Workflow assumptions made at a desk</p>
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55;">Domain logic validated with Application Specialists who run the instruments</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55; color: rgba(242,245,255,.5); text-decoration: line-through; text-decoration-color: rgba(242,245,255,.3);">New capabilities added on top of the interface</p>
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55;">New capabilities fitted into existing structures and users’ mental models</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55; color: rgba(242,245,255,.5); text-decoration: line-through; text-decoration-color: rgba(242,245,255,.3);">Each team solving the same pattern its own way</p>
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55;">Reusable components documented and published to the central design library</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55; color: rgba(242,245,255,.5); text-decoration: line-through; text-decoration-color: rgba(242,245,255,.3);">Handoff as a set of static mockups</p>
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55;">Edge cases and state transitions agreed with developers early in design</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(242,245,255,.16);">
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55; color: rgba(242,245,255,.5); text-decoration: line-through; text-decoration-color: rgba(242,245,255,.3);">Usability feedback collected as a list</p>
+      <p style="flex: 1 1 16rem; margin: 0; font-size: 1.05rem; line-height: 1.55;">Findings synthesized, presented to stakeholders, and turned into iterations</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Talk" style="margin: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem) 0; padding: clamp(2rem, 4vw, 3.5rem); background: #f5f7f9; color: #14161c;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: center; gap: clamp(1.5rem, 4vw, 3rem);">
+    <h2 style="margin: 0; max-width: 20ch; font-size: clamp(1.7rem, 3vw, 2.8rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">The details live in a conversation.</h2>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem;">
+      <p style="margin: 0; max-width: 46ch; font-size: 1.02rem; line-height: 1.65; color: rgba(20,22,28,.78);">I’m happy to walk you through the reasoning behind this work in a call, within what my NDA allows.</p>
+      <button type="button" onClick="{{ copyEmail }}" style="display: inline-flex; align-items: center; gap: .75rem; padding: 1.05rem 1.4rem; border: 0; background: #1c3aa9; color: #f2f5ff; font: 500 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">{{ copyLabel }}</button>
+    </div>
+  </div>
+</section>
+
+<a id="next" href="Case - PeePoint.dc.html" data-screen-label="Next case" style="display: block; margin-top: clamp(4rem, 8vw, 7rem); padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #f2f5ff;">
+  <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: rgba(242,245,255,.6);">Next · 5</p>
+  <p style="margin: 1rem 0 0; display: flex; align-items: center; gap: .3em; font-size: clamp(2.4rem, 6vw, 5.6rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">PeePoint <svg viewBox="0 0 18 18" aria-hidden="true" style="width: .8em; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></p>
+</a>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 1.5rem clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid rgba(242,245,255,.16); font: 400 .72rem/1.4 'IBM Plex Mono', monospace; color: rgba(242,245,255,.6);">
+  <span>Anna Shevchenko · 2024 — now</span>
+  <a href="mailto:anna.shevchenko.20042015@gmail.com">anna.shevchenko.20042015@gmail.com</a>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { copied: false };
+  copyEmail = () => {
+    navigator.clipboard?.writeText('anna.shevchenko.20042015@gmail.com');
+    this.setState({ copied: true });
+    clearTimeout(this.t);
+    this.t = setTimeout(() => this.setState({ copied: false }), 1800);
+  };
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    return { copyEmail: this.copyEmail, copyLabel: this.state.copied ? 'Copied ✓' : 'Copy my email' };
+  }
+}
+</script>
+</body>
+</html>

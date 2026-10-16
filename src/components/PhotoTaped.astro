@@ -1,0 +1,39 @@
+---
+import { url } from '../lib/url';
+
+interface Props { src: string; alt: string; caption?: string }
+const { src, alt, caption } = Astro.props;
+---
+<figure class="photo">
+  <div class="frame">
+    <div class="shadow" aria-hidden="true"></div>
+    <div class="card">
+      <div class="matte">
+        <div class="img">
+          <img src={url(src)} alt={alt} width="608" height="760" />
+          <div class="grade" aria-hidden="true"></div>
+        </div>
+      </div>
+      <span class="tape" aria-hidden="true"></span>
+    </div>
+  </div>
+  {caption && <figcaption class="caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .photo { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: .9rem; justify-self: end; }
+  .frame { position: relative; width: 100%; max-width: 19rem; margin: .75rem .75rem 0 0; }
+  .shadow { position: absolute; inset: 0; background: var(--cobalt); transform: translate(10px, 10px); }
+  .card { position: relative; transform: rotate(2.5deg); }
+  .matte { aspect-ratio: 4 / 5; padding: 8px; background: var(--cobalt-pale); border: 1px solid var(--cobalt); }
+  .img { position: relative; width: 100%; height: 100%; overflow: hidden; }
+  img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 30%; filter: saturate(.8) brightness(1.04) contrast(1.03); }
+  .grade { position: absolute; inset: 0; background: var(--photo-grade); mix-blend-mode: soft-light; opacity: .55; }
+  .tape {
+    position: absolute; top: -10px; left: 50%; width: 72px; height: 20px; margin-left: -36px;
+    background: var(--tape); border: 1px solid var(--tape-line);
+    transform: rotate(-4deg); box-shadow: var(--tape-shadow);
+  }
+  figcaption { max-width: 19rem; margin-top: .9rem; }
+  @media (max-width: 47.99rem) { .photo { justify-self: start; } }
+</style>

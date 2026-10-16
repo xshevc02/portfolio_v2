@@ -1,0 +1,27 @@
+---
+/** Collaboration map: partner cards on both sides of a highlighted "Me" card. */
+interface Partner { label: string; text: string }
+interface Props { left: Partner[]; right: Partner[]; me: { label: string; title: string; text: string } }
+const { left, right, me } = Astro.props;
+---
+<div class="map">
+  <div class="col">{left.map((p) => <div class="card"><span class="label">{p.label}</span><span class="text">{p.text}</span></div>)}</div>
+  <div class="me">
+    <span class="me-label">{me.label}</span>
+    <span class="head">{me.title}</span>
+    <span class="me-text">{me.text}</span>
+  </div>
+  <div class="col">{right.map((p) => <div class="card"><span class="label">{p.label}</span><span class="text">{p.text}</span></div>)}</div>
+</div>
+
+<style>
+  .map { display: flex; flex-wrap: wrap; align-items: stretch; gap: clamp(.75rem, 1.5vw, 1rem); }
+  .col { flex: 1 1 17rem; min-width: 0; display: flex; flex-direction: column; gap: clamp(.75rem, 1.5vw, 1rem); }
+  .card { flex: 1; display: flex; flex-direction: column; gap: .7rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); border: 1px solid var(--line); }
+  .label { font-size: .72rem; }
+  .text { font-size: .98rem; line-height: 1.6; color: var(--fg-body); }
+  .me { flex: 1 1 14rem; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .9rem; padding: clamp(2rem, 4vw, 3rem) 1.5rem; background: var(--on-print-label); color: var(--ink); text-align: center; }
+  .me-label { font: 400 .72rem/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
+  .me .head { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+  .me-text { max-width: 18ch; font: 400 .74rem/1.6 var(--font-mono); }
+</style>

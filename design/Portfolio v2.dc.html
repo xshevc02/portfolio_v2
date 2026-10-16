@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; background-color: #f5f7f9; background-image: linear-gradient(rgba(31,63,191,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(31,63,191,.07) 1px, transparent 1px); background-size: 24px 24px; color: #14161c; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; cursor: pointer; }
+  a:hover { color: #1f3fbf; }
+  button { color: inherit; cursor: pointer; }
+  ::selection { color: #14161c; background: #b9c6ff; }
+  .u a { position: relative; }
+  .u a::after { content: ''; position: absolute; right: 0; bottom: -.35rem; left: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 250ms ease; }
+  .u a:hover::after { transform: scaleX(1); transform-origin: left; }
+  .om-track::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+
+<header class="u" style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem clamp(1.25rem, 4vw, 4.5rem); border-bottom: 1px solid rgba(31,63,191,.30); background: rgba(245,247,249,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+  <a href="#top" style="font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase; font-size: 1.2rem; line-height: 1; letter-spacing: -.01em;">Anna Shevchenko</a>
+  <nav style="display: flex; flex-wrap: wrap; gap: clamp(1.25rem, 3.5vw, 3.5rem); font: 400 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#life">Life</a>
+    <a href="https://docs.google.com/document/d/1WiEn4m7vF1AwVd9WYD8QIVhUFJTEkMI9Howa8WtqWp8/edit?usp=sharing" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: .4rem; font-weight: 500;">CV
+      <svg viewBox="0 0 18 18" aria-hidden="true" style="width: .9rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg>
+    </a>
+  </nav>
+</header>
+
+<section id="top" data-screen-label="Hero" style="padding: clamp(2.25rem, 4vw, 4rem) clamp(1.25rem, 4vw, 4.5rem) clamp(2rem, 4vw, 3rem);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; gap: clamp(2rem, 5vw, 5rem);">
+    <div style="min-width: 0;">
+      <p style="margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); font: 400 .78rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #1f3fbf;">UX for scientific and data-heavy products · Brno, open to Prague &amp; remote EU</p>
+      <h1 style="margin: 0; max-width: 20ch; font-size: clamp(2.5rem, 5.4vw, 5.4rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Complex software that feels simple to use.</h1>
+      <p style="margin: clamp(1.75rem, 3vw, 2.5rem) 0 0; max-width: 42ch; font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.6; color: rgba(20,22,28,.78);">Electron microscopes, traffic data, scientific workflows. I start with the logic underneath — what people decide, what data they trust, where mistakes get expensive.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: .75rem; margin-top: clamp(2rem, 4vw, 3rem);">
+        <a href="#work" style="display: inline-flex; align-items: center; gap: .75rem; padding: 1.05rem 1.4rem; background: #1c3aa9; color: #f2f5ff; font: 500 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">See my work
+          <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg>
+        </a>
+        <button type="button" onClick="{{ copyEmail }}" style="display: inline-flex; align-items: center; gap: .75rem; padding: 1.05rem 1.4rem; border: 1px solid #1f3fbf; background: transparent; font: 500 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">{{ copyLabel }}</button>
+      </div>
+    </div>
+
+    <figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: .9rem; justify-self: end;">
+      <div style="position: relative; width: 100%; max-width: 19rem; margin: .75rem .75rem 0 0;"><div style="position: absolute; inset: 0; background: #1f3fbf; transform: translate(10px, 10px);"></div><div style="position: relative; transform: rotate(2.5deg);"><div style="position: relative; aspect-ratio: 4 / 5; padding: 8px; background: #e6ebfb; border: 1px solid #1f3fbf;"><div style="position: relative; width: 100%; height: 100%; overflow: hidden;"><img src="public/images/profile/profile-courtyard.png" alt="Anna Shevchenko" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; filter: saturate(.8) brightness(1.04) contrast(1.03);" /><div style="position: absolute; inset: 0; background: #7f9cff; mix-blend-mode: soft-light; opacity: .55;"></div></div></div><span style="position: absolute; top: -10px; left: 50%; width: 72px; height: 20px; margin-left: -36px; background: rgba(245,247,249,.82); border: 1px solid rgba(31,63,191,.22); transform: rotate(-4deg); box-shadow: 0 1px 2px rgba(15,26,74,.12);"></span></div></div>
+      <figcaption style="max-width: 19rem; margin-top: .9rem; font: 300 .72rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">In the courtyard of FIT VUT, where I studied — on the day a friend from my year graduated.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="Numbers" style="padding: 0 clamp(1.25rem, 4vw, 4.5rem) clamp(3rem, 7vw, 6rem);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1px; background: rgba(31,63,191,.30); border: 1px solid rgba(31,63,191,.30);">
+    <div style="padding: clamp(1.5rem, 3vw, 2.5rem); background: #f5f7f9;">
+      <p style="margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">2+ years</p>
+      <p style="margin: .9rem 0 0; font: 300 .76rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">designing scientific software at Thermo Fisher Scientific</p>
+    </div>
+    <div style="padding: clamp(1.5rem, 3vw, 2.5rem); background: #f5f7f9;">
+      <p style="margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">7+ sessions</p>
+      <p style="margin: .9rem 0 0; font: 300 .76rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">usability tests I planned and ran with Product Owners</p>
+    </div>
+    <div style="padding: clamp(1.5rem, 3vw, 2.5rem); background: #f5f7f9;">
+      <p style="margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.4rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">6+ teams</p>
+      <p style="margin: .9rem 0 0; font: 300 .76rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">cross-functional teams I design with, incl. France and the Netherlands</p>
+    </div>
+  </div>
+</section>
+
+<section id="work" data-screen-label="Work" style="padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(4rem, 8vw, 7rem); border-top: 1px solid rgba(31,63,191,.30);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: end; gap: clamp(1.5rem, 4vw, 3rem);">
+    <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #1f3fbf;">Work · newest first</p>
+    <h2 style="margin: 0; max-width: 26ch; font-size: clamp(1.9rem, 3.4vw, 3.2rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Four projects I can talk about for an hour, and one I can’t show you.</h2>
+  </div>
+
+  <a href="Case - Analyticity.dc.html" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); align-items: center; gap: clamp(1.5rem, 4vw, 4rem); margin-top: clamp(3rem, 6vw, 5rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid #1f3fbf;">
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">1</p>
+      <div style="display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span>2026</span><span>Data platform · UX + frontend</span></div>
+      <h3 style="margin: 0; font-size: clamp(2rem, 4.4vw, 4rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Analyticity platform overhaul <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1em; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></h3>
+      <p style="margin: 0; max-width: 44ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: rgba(20,22,28,.76);">Traffic jams, accidents, hazards and road closures lived in separate fragmented views. I rebuilt them into one map-based workflow where a street, a period and a comparison are three clicks apart.</p>
+      <p style="margin: 0; max-width: 46ch; font: 400 .78rem/1.75 'IBM Plex Mono', monospace; color: #1f3fbf;">My part — information architecture, wireframes, final UI, map controls and dashboards, then the React/TypeScript frontend on an existing REST API.</p>
+    </div>
+    <div style="min-width: 0;">
+      <img src="public/images/thesis/final-solution-overview.png" alt="Analyticity traffic analytics interface after the redesign" style="width: 100%; display: block; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top;" />
+    </div>
+  </a>
+
+  <a href="Case - Pockland.dc.html" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); align-items: center; gap: clamp(1.5rem, 4vw, 4rem); margin-top: clamp(2.5rem, 5vw, 4.5rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid rgba(31,63,191,.30);">
+    <div style="min-width: 0; order: 2;">
+      <img src="public/images/pockland/live-preview.png" alt="Pockland book tracking app" loading="lazy" style="width: 100%; display: block; aspect-ratio: 16 / 10; object-fit: cover; object-position: center top;" />
+    </div>
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">2</p>
+      <div style="display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span>2026</span><span>Personal product · built and running</span></div>
+      <h3 style="margin: 0; font-size: clamp(1.8rem, 3.4vw, 3rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Pockland <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1em; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></h3>
+      <p style="margin: 0; max-width: 44ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: rgba(20,22,28,.76);">A book tracker I took from a mobile-first prototype to a working responsive app: real accounts, synced data, and discovery through Open Library and Google Books.</p>
+      <p style="margin: 0; max-width: 46ch; font: 400 .78rem/1.75 'IBM Plex Mono', monospace; color: #1f3fbf;">My part — everything. Product thinking, UI, AI-assisted prototyping, and the build.</p>
+    </div>
+  </a>
+
+  <a href="Case - Wake and Wine.dc.html" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); align-items: center; gap: clamp(1.5rem, 4vw, 4rem); margin-top: clamp(2.5rem, 5vw, 4.5rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid rgba(31,63,191,.30);">
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">3</p>
+      <div style="display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span>2025</span><span>UX research · UI · full stack</span></div>
+      <h3 style="margin: 0; font-size: clamp(1.8rem, 3.4vw, 3rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Wake &amp; Wine <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1em; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></h3>
+      <p style="margin: 0; max-width: 44ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: rgba(20,22,28,.76);">Habit trackers either moralise or make logging too slow to keep up. I designed a neutral one: pick a drink, see the glasses, watch the total — then read your month back as patterns and spending.</p>
+      <p style="margin: 0; max-width: 46ch; font: 400 .78rem/1.75 'IBM Plex Mono', monospace; color: #1f3fbf;">My part — four interviews, competitor teardown, progressive drink-entry flow, then React and FastAPI.</p>
+    </div>
+    <div style="min-width: 0;">
+      <img src="public/images/wake-wine/drink-entry-complete.png" alt="Wake and Wine drink entry screen" loading="lazy" style="width: 100%; display: block; aspect-ratio: 16 / 10; object-fit: cover; object-position: center top;" />
+    </div>
+  </a>
+
+  <div style="margin-top: clamp(3rem, 6vw, 5rem); padding: clamp(1.75rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); align-items: start; gap: clamp(1.5rem, 4vw, 3.5rem);">
+      <div style="min-width: 0;">
+        <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #b9c6ff;">04 · 2024 — now · under NDA</p>
+        <h3 style="margin: 1.1rem 0 0; max-width: 18ch; font-size: clamp(1.7rem, 3vw, 2.8rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Instrument control at Thermo Fisher Scientific</h3>
+      </div>
+      <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+        <p style="margin: 0; max-width: 52ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.7; color: rgba(242,245,255,.8);">My day job: the software scientists and engineers use to drive electron microscopes. Interaction models, journey maps, high-fidelity prototypes and usability findings, made with Product Owners, developers, Application Specialists and domain experts across 6+ international teams.</p>
+        <p style="margin: 0; max-width: 52ch; font: 400 .78rem/1.75 'IBM Plex Mono', monospace; color: rgba(242,245,255,.62);">I can’t publish the screens — proprietary parameters, algorithms and scientific data. I can walk you through the thinking in a call, and there is an abstracted write-up if you want the detail.</p>
+        <a href="Case - Thermo Fisher.dc.html" style="align-self: flex-start; display: inline-flex; align-items: center; gap: .6rem; padding-bottom: .35rem; border-bottom: 1px solid currentColor; font: 500 .78rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">Read the abstracted case <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1em; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <a href="Case - PeePoint.dc.html" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); align-items: center; gap: clamp(1.5rem, 4vw, 4rem); margin-top: clamp(2.5rem, 5vw, 4.5rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid rgba(31,63,191,.30);">
+    <figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: .6rem;">
+      <img src="public/images/peepoint/ai-prototype/ai-prototype-preview.png" alt="PeePoint mobile screens reworked with AI: map, list, filters, and add toilet" loading="lazy" style="width: 100%; height: auto; display: block;" />
+      <figcaption style="font: 300 .7rem/1.5 'IBM Plex Mono', monospace; color: #1f3fbf;">Screens reworked with AI in 2026 from the original 2024 mockups</figcaption>
+    </figure>
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+      <p style="margin: 0; font: 400 .8rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;">5</p>
+      <div style="display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; color: #1f3fbf;"><span>2024</span><span>Research → product spec</span></div>
+      <h3 style="margin: 0; font-size: clamp(1.8rem, 3.4vw, 3rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">PeePoint <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1em; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></h3>
+      <p style="margin: 0; max-width: 44ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: rgba(20,22,28,.76);">A survey turned a small inconvenience into a product direction: people plan trips on a laptop but need the saved places in their hand on the street. That split — planning mode versus travel mode — became the whole concept, with a QR handover between them.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(31,63,191,.30);">
+        <div><p style="margin: 0; font-size: clamp(1.6rem, 2.6vw, 2.2rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">65%</p><p style="margin: .35rem 0 0; max-width: 22ch; font: 300 .74rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">planned on a laptop, wanted it on mobile</p></div>
+        <div><p style="margin: 0; font-size: clamp(1.6rem, 2.6vw, 2.2rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">75%</p><p style="margin: .35rem 0 0; max-width: 22ch; font: 300 .74rem/1.6 'IBM Plex Mono', monospace; color: #1f3fbf;">liked handing the route over by QR code</p></div>
+      </div>
+      <p style="margin: 0; max-width: 46ch; font: 400 .78rem/1.75 'IBM Plex Mono', monospace; color: #1f3fbf;">My part — survey synthesis, personas, competitor review of 8 apps, and the functional spec. Team project, never built.</p>
+    </div>
+  </a>
+</section>
+
+
+<section id="about" data-screen-label="About" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
+  <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">About me</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: start; gap: clamp(2rem, 6vw, 5rem); margin-top: clamp(2.5rem, 5vw, 4rem);">
+    <h2 style="margin: 0; max-width: 18ch; font-size: clamp(2rem, 4.2vw, 3.8rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">The interface is the smallest part of the problem.</h2>
+    <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.4rem;">
+      <p style="margin: 0; max-width: 48ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.7; color: rgba(242,245,255,.78);">Underneath every screen I work on there are domain rules, technical constraints, expert habits and engineering decisions — and all of them shape what “good UX” even means here.</p>
+      <p style="margin: 0; max-width: 48ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.7; color: rgba(242,245,255,.78);">So I start with the logic of the workflow: what someone is trying to decide, which data they rely on, where a mistake becomes expensive. Then I make the complicated action feel clearer without pretending it is simple.</p>
+      <p style="margin: 0; max-width: 48ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.7; color: rgba(242,245,255,.78);">Day to day that means sitting with Application Specialists and domain experts, asking a lot of questions, and testing whether my answer survives contact with a real user.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: clamp(3.5rem, 7vw, 6rem);">
+    <p style="margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Experience</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: clamp(1.25rem, 4vw, 3.5rem); padding-top: clamp(1.25rem, 2.5vw, 2rem); border-top: 1px solid rgba(242,245,255,.22);">
+      <div style="min-width: 0;">
+        <p style="margin: 0; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.7);">2024 — now</p>
+        <h3 style="margin: .9rem 0 .4rem; font-size: clamp(1.25rem, 2vw, 1.7rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">User Experience Designer</h3>
+        <p style="margin: 0; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.7);">Thermo Fisher Scientific · Brno</p>
+      </div>
+      <div style="min-width: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+        <p style="margin: 0; max-width: 50ch; font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.7; color: rgba(242,245,255,.78);">Designing scientific web applications and the tools that control electron microscopes, with Product Owners, developers, Application Specialists and domain experts.</p>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .9rem;">
+          <li style="padding-top: .9rem; border-top: 1px solid rgba(242,245,255,.16); max-width: 60ch; line-height: 1.65; color: rgba(242,245,255,.72);">Delivered high-fidelity interactive prototypes and UI mockups for complex scientific web applications controlling electron microscopes across 6+ international cross-functional teams, including alignment with teams in France &amp; the Netherlands.</li>
+          <li style="padding-top: .9rem; border-top: 1px solid rgba(242,245,255,.16); max-width: 60ch; line-height: 1.65; color: rgba(242,245,255,.72);">Consulted with Application Specialists and Domain Experts working directly with scientific equipment to translate complex technical inputs and material-testing scenarios into clear user workflows.</li>
+          <li style="padding-top: .9rem; border-top: 1px solid rgba(242,245,255,.16); max-width: 60ch; line-height: 1.65; color: rgba(242,245,255,.72);">Defined user flows, interaction models, and functional concepts for new features, aligning design decisions with product strategy and technical feasibility.</li>
+          <li style="padding-top: .9rem; border-top: 1px solid rgba(242,245,255,.16); max-width: 60ch; line-height: 1.65; color: rgba(242,245,255,.72);">Planned and conducted 7+ usability testing sessions with POs, converting user pain points into actionable design improvements for the product roadmap.</li>
+          <li style="padding-top: .9rem; border-top: 1px solid rgba(242,245,255,.16); max-width: 60ch; line-height: 1.65; color: rgba(242,245,255,.72);">Collaborated daily with frontend developers and POs to resolve UI edge cases, streamline developer handoff, ship iterative usability fixes, and provide UX feedback prior to feature implementation.</li>
+          <li style="padding-top: .9rem; border-top: 1px solid rgba(242,245,255,.16); max-width: 60ch; line-height: 1.65; color: rgba(242,245,255,.72);">Experimented with AI-assisted prototyping connected to existing frontend codebases, enabling faster creation of clickable prototypes based on real product components and patterns.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: clamp(3rem, 6vw, 5rem);">
+    <p style="margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Education</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: clamp(1.25rem, 4vw, 3.5rem); padding-top: clamp(1.25rem, 2.5vw, 2rem); border-top: 1px solid rgba(242,245,255,.22);">
+      <div style="min-width: 0;">
+        <p style="margin: 0; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.7);">Expected 2028</p>
+        <h3 style="margin: .9rem 0 .4rem; font-size: clamp(1.15rem, 1.7vw, 1.45rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">M.S. Information Services Design</h3>
+        <p style="margin: 0 0 1rem; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.7);">Masaryk University · KISK FF</p>
+        <p style="margin: 0; max-width: 40ch; line-height: 1.65; color: rgba(242,245,255,.72);">Part-time, focused on information services, user needs and the design of digital information experiences.</p>
+        <a href="KISK Reflections.dc.html" style="display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.1rem; padding-bottom: .3rem; border-bottom: 1px solid currentColor; font: 500 .74rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em; color: #f2f5ff;">Study reflections <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg></a>
+      </div>
+      <div style="min-width: 0;">
+        <p style="margin: 0; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.7);">Graduated 2026</p>
+        <h3 style="margin: .9rem 0 .4rem; font-size: clamp(1.15rem, 1.7vw, 1.45rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">B.S. Information Technology</h3>
+        <p style="margin: 0 0 1rem; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: rgba(242,245,255,.7);">Brno University of Technology · VUT FIT</p>
+        <p style="margin: 0 0 1rem; max-width: 46ch; line-height: 1.65; color: rgba(242,245,255,.72);">Bachelor thesis: User-friendliness of the Traffic Analysis App — the Analyticity project above. Evaluated with grade A and nominated for the Dean’s Award.</p>
+        <p style="margin: 0; max-width: 46ch; line-height: 1.65; color: rgba(242,245,255,.72);">Collaborated in 4+ student teams on end-to-end IT projects — systems built from scratch, ERD modeling, database and simulation tools — managing task distribution, resource planning and coordination under tight deadlines while balancing two bachelor’s degrees.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: clamp(1.5rem, 4vw, 3rem); margin-top: clamp(3rem, 6vw, 5rem); padding-top: clamp(1.25rem, 2.5vw, 2rem); border-top: 1px solid rgba(242,245,255,.22);">
+    <div style="min-width: 0;">
+      <p style="margin: 0 0 1.1rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Design</p>
+      <p style="margin: 0; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; color: rgba(242,245,255,.82); text-wrap: pretty;">UI/UX design · product design · interaction design · prototyping · user flows · feature concept development · service blueprints</p>
+    </div>
+    <div style="min-width: 0;">
+      <p style="margin: 0 0 1.1rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Research &amp; evaluation</p>
+      <p style="margin: 0; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; color: rgba(242,245,255,.82); text-wrap: pretty;">Usability testing · heuristic evaluation · requirement gathering · Google HEART framework · analytics · iterative design</p>
+    </div>
+    <div style="min-width: 0;">
+      <p style="margin: 0 0 1.1rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Development &amp; AI</p>
+      <p style="margin: 0; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; color: rgba(242,245,255,.82); text-wrap: pretty;">React · TypeScript · API integration · Tailwind CSS · prompt engineering · AI-assisted prototyping</p>
+    </div>
+    <div style="min-width: 0;">
+      <p style="margin: 0 0 1.1rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Tools</p>
+      <p style="margin: 0; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; color: rgba(242,245,255,.82); text-wrap: pretty;">Figma · Figma Make · Miro · Jira · Confluence · Google Analytics · generative AI (ChatGPT, Claude)</p>
+    </div>
+    <div style="min-width: 0;">
+      <p style="margin: 0 0 1.1rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Languages</p>
+      <p style="margin: 0; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; color: rgba(242,245,255,.82); text-wrap: pretty;">Czech B2 · English C1 · Ukrainian &amp; Russian native</p>
+    </div>
+    <div style="min-width: 0;">
+      <p style="margin: 0 0 1.1rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Based in</p>
+      <p style="margin: 0; font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.8; color: rgba(242,245,255,.82); text-wrap: pretty;">Brno · on site here, hybrid in Prague, remote across Europe</p>
+    </div>
+  </div>
+</section>
+
+<section id="life" data-screen-label="Life" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: end; gap: clamp(1.5rem, 4vw, 3rem);">
+    <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #1f3fbf;">Outside work</p>
+    <h2 style="margin: 0; max-width: 24ch; font-size: clamp(1.9rem, 3.4vw, 3.2rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Two things I keep coming back to.</h2>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: clamp(2rem, 5vw, 4rem); margin-top: clamp(2.5rem, 5vw, 4rem);">
+    <article style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <div class="om-track" style="display: grid; grid-auto-columns: 100%; grid-auto-flow: column; gap: .75rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: inline mandatory; scrollbar-width: none;">
+        <img src="public/images/hobbies/travel-gallery/travel-1.jpg" alt="Travel journal collage with postcards from Estonia, Latvia and Riga" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+        <img src="public/images/hobbies/travel-gallery/travel-2.jpg" alt="Travel journal collage with Budapest photos and museum tickets" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+        <img src="public/images/hobbies/travel-gallery/travel-3.jpg" alt="Travel journal collage with Rome photos, architecture and food" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+        <img src="public/images/hobbies/travel-gallery/travel-4.jpg" alt="Travel journal collage with Greece and seaside memories" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+      </div>
+      <p style="margin: 0; display: flex; align-items: center; gap: .6rem; font: 300 .72rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;"><span>4 photos</span><span style="flex: 1; height: 1px; background: rgba(31,63,191,.32);"></span><span>scroll →</span></p>
+      <div>
+        <h3 style="margin: 0 0 .75rem; font-size: clamp(1.25rem, 2vw, 1.7rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Travel</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.1rem;"><span style="display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .7rem; border: 1px solid rgba(31,63,191,.32); border-radius: 999px; color: rgba(20,22,28,.7); background: rgba(255,255,255,.5); font: 400 .7rem/1 'IBM Plex Mono', monospace;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: .85rem; height: .85rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M14 7.5c0 3.5-5 8-5 8s-5-4.5-5-8a5 5 0 0 1 10 0Z"></path><path d="M9 9.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Z"></path></svg>Around the world</span></div>
+        <p style="margin: 0; line-height: 1.65; color: rgba(20,22,28,.72); text-wrap: pretty;">Some trips stay with me because of the people I shared them with — my sister, close friends, and different companions who made each place feel unique 🌍. Rome, Batumi, Crete, Estonia, Riga, and Budapest all became special in their own way: shared meals, unknown streets, sea views, postcards, tiny tickets, and the joy of discovering something new together ✨.</p>
+      </div>
+    </article>
+
+    <article style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+      <div class="om-track" style="display: grid; grid-auto-columns: 100%; grid-auto-flow: column; gap: .75rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: inline mandatory; scrollbar-width: none;">
+        <img src="public/images/hobbies/community-gallery/community-1.jpg" alt="Community event presentation in a wooden room" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+        <img src="public/images/hobbies/community-gallery/community-6.jpg" alt="Event schedule board with handwritten workshop sessions" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+        <img src="public/images/hobbies/community-gallery/community-4.jpg" alt="Group sitting around a campfire during an outdoor gathering" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+        <img src="public/images/hobbies/community-gallery/community-2.jpg" alt="Speaker presenting during a community workshop" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+        <img src="public/images/hobbies/community-gallery/community-3.jpg" alt="Night sky captured during an outdoor event" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
+      </div>
+      <p style="margin: 0; display: flex; align-items: center; gap: .6rem; font: 300 .72rem/1 'IBM Plex Mono', monospace; color: #1f3fbf;"><span>5 photos</span><span style="flex: 1; height: 1px; background: rgba(31,63,191,.32);"></span><span>scroll →</span></p>
+      <div>
+        <h3 style="margin: 0 0 .75rem; font-size: clamp(1.25rem, 2vw, 1.7rem);  letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">RealUXCamp</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.1rem;"><span style="display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .7rem; border: 1px solid rgba(31,63,191,.32); border-radius: 999px; color: rgba(20,22,28,.7); background: rgba(255,255,255,.5); font: 400 .7rem/1 'IBM Plex Mono', monospace;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: .85rem; height: .85rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M5 2.5v2M13 2.5v2M3.5 7h11M4 4h10a1 1 0 0 1 1 1v9.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"></path></svg>14–16 August</span><span style="display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .7rem; border: 1px solid rgba(31,63,191,.32); border-radius: 999px; color: rgba(20,22,28,.7); background: rgba(255,255,255,.5); font: 400 .7rem/1 'IBM Plex Mono', monospace;"><svg viewBox="0 0 18 18" aria-hidden="true" style="width: .85rem; height: .85rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M14 7.5c0 3.5-5 8-5 8s-5-4.5-5-8a5 5 0 0 1 10 0Z"></path><path d="M9 9.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Z"></path></svg>Paběnický mlýn</span></div>
+        <p style="margin: 0; line-height: 1.65; color: rgba(20,22,28,.72); text-wrap: pretty;">RealUXCamp left me with that rare kind of energy when a weekend gives you both new ideas and new people ✨. The talks opened many topics I want to return to — AI in everyday design work, stakeholder collaboration, team experience from 2FRESH, and how people think about hiring. What inspired me most were the conversations around the talks: shared questions, spontaneous discussions, campfire moments, and the joy of being part of the Czech UX community 🔥.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="display: flex; flex-direction: column; justify-content: center; padding: clamp(4.5rem, 10vw, 9rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf; color: #14161c;">
+  <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em;">Contact</p>
+  <h2 style="margin: clamp(2rem, 5vw, 4rem) 0 0; max-width: 16ch; font-size: clamp(2.75rem, 8vw, 8rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Working on something complicated? <em style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;">Let’s talk.</em></h2>
+  <p style="margin: clamp(1.75rem, 4vw, 3rem) 0 0; max-width: 44ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.65;">I’m in Brno, happy to work on site here, hybrid in Prague, or remote across Europe. Tell me what your users are stuck with.</p>
+  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; margin-top: clamp(2.5rem, 6vw, 4.5rem);">
+    <button type="button" onClick="{{ copyEmail }}" style="display: inline-flex; align-items: center; gap: .6rem; padding: 0 0 .4rem; border: 0; border-bottom: 1px solid currentColor; background: transparent; font: 500 .85rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">{{ copyLabel }}<strong style="font: inherit; text-transform: lowercase; letter-spacing: 0;">anna.shevchenko.20042015@gmail.com</strong></button>
+    <a href="https://github.com/xshevc02" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: .5rem; padding-bottom: .4rem; border-bottom: 1px solid currentColor; font: 500 .85rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">GitHub
+      <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1.1em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg>
+    </a>
+    <a href="https://docs.google.com/document/d/1WiEn4m7vF1AwVd9WYD8QIVhUFJTEkMI9Howa8WtqWp8/edit?usp=sharing" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: .5rem; padding-bottom: .4rem; border-bottom: 1px solid currentColor; font: 500 .85rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .06em;">CV
+      <svg viewBox="0 0 18 18" aria-hidden="true" style="width: 1.1em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="u" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 2rem clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf; color: #1f3fbf; font: 300 .74rem/1.5 'IBM Plex Mono', monospace;">
+  <p style="margin: 0;">© 2026 Anna Shevchenko · Brno</p>
+  <a href="#top">Back to top ↑</a>
+</footer></x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { copied: false };
+  renderVals() {
+    const email = 'anna.shevchenko.20042015@gmail.com';
+    return {
+      copyLabel: this.state.copied ? 'Copied — talk soon' : 'Copy my email',
+      copyEmail: async () => {
+        try { await navigator.clipboard.writeText(email); } catch { window.location.href = 'mailto:' + email; }
+        this.setState({ copied: true });
+        window.setTimeout(() => this.setState({ copied: false }), 2400);
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

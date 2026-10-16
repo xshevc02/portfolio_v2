@@ -1,0 +1,23 @@
+---
+import { url } from '../lib/url';
+
+/** Image card with title, mono verdict and a paragraph (competitor reviews). */
+interface Props { src: string; alt: string; title: string; note: string }
+const { src, alt, title, note } = Astro.props;
+---
+<article class="card">
+  <div class="img"><img src={url(src)} alt={alt} loading="lazy" /></div>
+  <h3 class="head">{title}</h3>
+  <p class="note">{note}</p>
+  <p class="text"><slot /></p>
+</article>
+
+<style>
+  .card { min-width: 0; display: flex; flex-direction: column; gap: 1rem; }
+  .card > * { margin: 0; }
+  .img { aspect-ratio: 4 / 3; overflow: hidden; background: var(--matte); border: 1px solid var(--line); }
+  img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  h3 { font-size: 1.5rem; line-height: 1; }
+  .note { font: 300 .74rem/1.6 var(--font-mono); color: var(--accent); }
+  .text { padding-top: 1rem; border-top: 1px solid var(--line); font-size: .98rem; line-height: 1.65; color: var(--fg-body); }
+</style>

@@ -1,0 +1,120 @@
+---
+order: 3
+title: Wake & Wine
+heroTitle: 'Wake <em class="amp">&amp;</em> Wine'
+year: "2025"
+type: UX research · UI · full stack
+heroMeta: [UX/UI & full-stack case study]
+summary: "Habit trackers either moralise or make logging too slow to keep up. I designed a neutral one: pick a drink, see the glasses, watch the total — then read your month back as patterns and spending."
+myPart: four interviews, competitor teardown, progressive drink-entry flow, then React and FastAPI.
+lead: A desktop web app for reflecting on alcohol and caffeine habits through quick logging, calendar patterns, spending, and statistics.
+home:
+  image: /images/wake-wine/drink-entry-complete.png
+  alt: Wake and Wine drink entry screen
+cover:
+  src: /images/wake-wine/drink-entry-complete.png
+  alt: Wake and Wine drink entry interface with glass-size cards, quantity controls, and a running total
+  caption: Wake & Wine makes daily tracking feel lightweight and human while keeping quantities and spending visible.
+facts:
+  - { label: Research inputs, value: "User interviews, competitor review, habit-tracking patterns, and consumption-log requirements" }
+  - { label: Design system, value: "Material Design patterns adapted for a softer, less clinical habit-reflection experience" }
+  - { label: Data model, value: "Drink type, amount, alcohol/caffeine content, price, date, quantity, and calendar-based aggregation" }
+  - { label: Core flows, value: "Progressive drink entry, calendar review, statistics filtering, spending insights, and editable records" }
+inShort:
+  - { label: Problem, text: "People wanted to understand alcohol and caffeine habits without using trackers that feel moralizing, clinical, or too slow for everyday logging." }
+  - { label: Complexity, text: "The product had to translate irregular drink records into time, quantity, spending, alcohol, and caffeine insights while keeping the experience emotionally neutral." }
+  - { label: My role, text: "I owned the UX research, product structure, Material Design-based interface direction, and full-stack implementation decisions from concept to working prototype." }
+  - { label: Constraints, text: "The design had to support flexible drink types, variable portions, manual correction, calendar patterns, and clear statistics without overwhelming the user." }
+  - { label: Stack, text: "Figma, Material Design, React, TypeScript, FastAPI" }
+  - { label: Outcome, text: "A working desktop web application built with React, TypeScript, FastAPI, and Material Design patterns that turns everyday records into readable behavioral and financial insights." }
+next: thermo-fisher
+---
+
+<CaseSection n={1} label="Context" title="Awareness <em>without</em> judgment.">
+
+Wake & Wine is a desktop web application for people who want to understand their alcohol and caffeine habits without addiction framing, moralizing, or pressure to abstain. It supports quick daily logging of the drink, amount, and price, then turns those records into patterns people can reflect on.
+
+The intended audience includes students relying on coffee or energy drinks, office workers drinking several coffees a day, people who drink alcohol after work or on weekends, and budget-conscious users interested in how much their habits cost.
+
+- Log alcohol and caffeine quickly, including amount and price.
+- See spending, caffeine intake, alcohol intake, and dominant drink types.
+- Filter trends by time, drink type, alcohol content, and price.
+- Support optional blood-alcohol estimates without making them the product focus.
+- Use the larger desktop canvas for graphs, tables, and longer-term reflection.
+
+</CaseSection>
+
+<CaseSection n={2} label="User research" title="Four routines, one need for clearer patterns.">
+  <div slot="after">
+    <Cells plainLabel titleSize="l" min="14rem" items={[
+      { label: '24 · student', title: 'Lukáš' },
+      { label: '29 · hairdresser', title: 'Klára' },
+      { label: '33 · remote graphic designer', title: 'Eva' },
+      { label: '45 · driver', title: 'Mirek' },
+    ]} />
+    <Indent>
+
+I interviewed four people whose routines represented different relationships with alcohol and caffeine. Lukáš, a 24-year-old student, wanted weekly and semester-long trends and a clear view of cost. Klára, a 29-year-old hairdresser, cared about caffeine intake and its effect on sleep.
+
+Eva, a 33-year-old remote graphic designer, wanted to compare monthly spending and recognize stress-related patterns. Mirek, a 45-year-old driver, was especially interested in timing, estimated blood-alcohol level, and beer spending.
+
+<p class="emph">Across the interviews, the strongest shared expectations were clarity, speed, and a neutral tone. This led to a desktop-first product centered on statistics, spending, filtering, fast logging, long-term trends, and comparisons between periods.</p>
+
+    </Indent>
+  </div>
+</CaseSection>
+
+<CaseSection n={3} label="Competitive analysis" title="Learning from trackers that make logging feel like work.">
+  <FigureGrid slot="after" min="18rem" gap="clamp(1.5rem, 3vw, 2.5rem)">
+    <Card src="/images/wake-wine/competitor-alcostat.png" alt="AlcoStat competitor screens with calendar and statistics" title="AlcoStat" note="Clear calendar and statistics, but a complex drink-entry flow and limited financial insight.">I reviewed three existing products to understand which patterns support reflection and which ones create friction. AlcoStat offered clear time filters, calendar icons, and custom drink templates, but its entry flow was complex and its financial feedback limited.</Card>
+    <Card src="/images/wake-wine/competitor-alcohol-calendar.png" alt="Alcohol Drink Calendar competitor screens and achievement badges" title="Alcohol Drink Calendar" note="Strong category and spending views, weakened by excessive steps, advertising, and gamified drinking achievements.">Alcohol Drink Calendar combined a calendar with graphs, category statistics, spending, and realistic serving sizes. However, it required too many steps, used unclear glass-fill visuals, included distracting advertising, and rewarded drinking through counterproductive achievements.</Card>
+    <Card src="/images/wake-wine/competitor-try-dry.png" alt="TRY DRY competitor screens with yellow calendar and tracking views" title="TRY DRY" note="A supportive visual style and wellbeing tracking, but an abstinence-first concept and crowded interface.">TRY DRY used positive motivation, wellbeing tracking, automatic alcohol and price values, and multiple calendar modes. Its abstinence-only framing, redundant shop-versus-bar choice, and overloaded interaction flow made it less suitable for a neutral everyday tracker.</Card>
+  </FigureGrid>
+</CaseSection>
+
+<CaseSection n={4} label="Product strategy" title="A calm structure for everyday reflection." print>
+
+The research translated into four design principles: keep the tone neutral, make logging quick, reveal detail only when it becomes relevant, and keep patterns visible over time. The product does not diagnose or lecture; it gives people enough context to form their own conclusions.
+
+Calendar and Statistics became the two primary destinations. Both use the same Coffee and Alcohol filters, while a persistent Add drink action keeps the core task close at hand.
+
+<NumberedList min="13rem" items={[
+  'Neutral and nonjudgmental language throughout the experience.',
+  'Desktop-first layouts for dense graphs, tables, and comparisons.',
+  'Consistent filters across calendar and analytical views.',
+  'Progressive disclosure to keep each logging step focused.',
+]} />
+
+</CaseSection>
+
+<CaseSection n={5} label="Core experience" title="Calendar for patterns, statistics for meaning.">
+  <div slot="after">
+    <Feature src="/images/wake-wine/calendar.png" alt="Wake and Wine calendar showing coffee and alcohol records across a month" label="Calendar overview" caption="A monthly overview makes drink types, quantities, and repeated patterns visible at a glance.">The monthly calendar acts as the product’s temporal anchor. Each record shows the drink name, volume, and type icon directly in the grid, making recurring routines and unusually busy days visible without opening every entry.</Feature>
+    <Feature reverse src="/images/wake-wine/statistics.png" alt="Wake and Wine statistics dashboard with summary cards and charts" label="Statistics overview" caption="Time filters and focused analytical sections connect consumption with volume, caffeine, alcohol, and spending.">Statistics aggregate records by week, month, or year and summarize total drinks, alcohol, caffeine, and spending. Separate spending, volume, alcohol, and caffeine views help users answer different questions without crowding everything into one chart.</Feature>
+  </div>
+</CaseSection>
+
+<CaseSection n={6} label="Interaction design" title="A drink-entry flow that reveals complexity gradually.">
+
+This progressive disclosure reduces both visual load and input errors: users make one understandable decision at a time while still retaining control over non-standard servings.
+
+  <FigureGrid slot="after" min="24rem" gap="clamp(2rem, 4vw, 3rem)">
+    <Step n={1} label="Choose a drink" src="/images/wake-wine/drink-selection.png" alt="Wake and Wine first drink-entry step with category tabs and an empty-state character" caption="Category filters and visual drink cards narrow the choice before quantities and prices appear." quote="“What are you drinking? Pick one to see the glasses!”">The first step asks users to choose a category—Beer, Wine, Spirits, Cocktails, or Shots—and then presents recognizable drink cards with a name, typical alcohol range, and image. The empty state uses a friendly character and the prompt “What are you drinking? Pick one to see the glasses!”</Step>
+    <Step n={2} label="Add amount and price" src="/images/wake-wine/drink-entry-complete.png" alt="Wake and Wine second drink-entry step with glass sizes, price, quantity, and total" caption="Serving cards, quantity controls, a running total, and selected-drink summaries keep the final step transparent." quote="“Anything else, or is that enough for today?”">Only after selecting a drink does the interface reveal glass sizes, custom amounts, price, and quantity. A running total and selected-drink cards keep the consequences of each choice visible before saving. The UI uses familiar Material Design patterns for cards, tabs, controls, and dialogs, while the closing prompt—“Anything else, or is that enough for today?”—maintains the conversational tone without judging the answer.</Step>
+  </FigureGrid>
+</CaseSection>
+
+<CaseSection n={7} label="Implementation" title="Designing and building the complete product.">
+
+I carried the concept from research and Figma into a working full-stack application. The frontend uses React and TypeScript with Vite, Tailwind CSS, and Axios. The backend is built with FastAPI on Python 3.12, SQLAlchemy 2 in asynchronous mode, Alembic, and Pydantic v2.
+
+SQLite supports local development, while PostgreSQL is used for production. Uvicorn serves the API. This architecture keeps the interface fast to iterate while giving drink records, filtering, and aggregation a maintainable data foundation.
+
+<Facts mono strong labelWidth="7rem" items={[
+  { label: 'Frontend', value: 'React, TypeScript, Vite, Tailwind CSS, and Axios.' },
+  { label: 'Backend', value: 'FastAPI, Python 3.12, SQLAlchemy 2 async, Alembic, and Pydantic v2.' },
+  { label: 'Data', value: 'SQLite for development and PostgreSQL for production.' },
+  { label: 'Serving', value: 'Uvicorn ASGI server.' },
+]} />
+
+</CaseSection>

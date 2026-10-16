@@ -1,0 +1,26 @@
+---
+interface Props { label: string; items: { title: string; url: string; meta: string }[] }
+const { label, items } = Astro.props;
+---
+<section class="refs wrap">
+  <div class="case-cols">
+    <p class="side label">{label}</p>
+    <div class="main list">
+      {items.map((item) => (
+        <a href={item.url} target="_blank" rel="noreferrer">
+          <span class="title">{item.title} ↗</span>
+          <span class="caption">{item.meta}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .refs { padding-top: clamp(3rem, 6vw, 5rem); }
+  .side { margin: 0; font-size: .72rem; line-height: 1.5; letter-spacing: .09em; }
+  .list { gap: 0; }
+  a { display: flex; flex-direction: column; gap: .35rem; padding: 1rem 0; border-top: 1px solid var(--line); }
+  a:last-child { border-bottom: 1px solid var(--line); }
+  .title { font-size: 1.05rem; font-weight: 500; }
+</style>

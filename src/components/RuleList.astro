@@ -1,0 +1,33 @@
+---
+import Icon from './Icon.astro';
+
+/** Hairline list with an optional bold lead-in; check marks for done items, dashed rules for backlog. */
+interface Props {
+  items: { lead?: string; text: string }[];
+  title?: string;
+  check?: boolean;
+  dashed?: boolean;
+}
+const { items, title, check = false, dashed = false } = Astro.props;
+---
+<div class="rule-wrap">
+  {title && <p class="label">{title}</p>}
+  <ul class:list={['rule-list', { check, dashed }]}>
+    {items.map((item) => (
+      <li>
+        {check && <Icon name="check" />}
+        <span>{item.lead && <strong>{item.lead}:</strong>} {item.text}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .rule-wrap { min-width: 0; display: flex; flex-direction: column; }
+  .label { margin: 0 0 .9rem; font-size: .72rem; }
+  strong { font-weight: 600; color: var(--fg); }
+  .check li { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: .75rem; padding: .95rem 0; }
+  .check :global(.icon) { width: 1.1rem; margin-top: .2rem; stroke: var(--accent); stroke-width: 2; }
+  .dashed li { border-top-style: dashed; font-size: .95rem; color: var(--fg-body); }
+  .dashed li:last-child { border-bottom-style: dashed; }
+</style>

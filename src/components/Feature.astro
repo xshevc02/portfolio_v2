@@ -1,0 +1,27 @@
+---
+import { url } from '../lib/url';
+
+/** Large screenshot next to a short labelled explanation; image side can flip. */
+interface Props { src: string; alt: string; label: string; caption?: string; reverse?: boolean }
+const { src, alt, label, caption, reverse = false } = Astro.props;
+---
+<div class:list={['feature', { reverse }]}>
+  <figure><img src={url(src)} alt={alt} loading="lazy" /></figure>
+  <div class="text">
+    <p class="label">{label}</p>
+    <p class="body-text"><slot /></p>
+    {caption && <p class="caption">{caption}</p>}
+  </div>
+</div>
+
+<style>
+  .feature { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); }
+  .feature + :global(.feature) { margin-top: clamp(.5rem, 1vw, 1rem); }
+  figure { margin: 0; min-width: 0; flex: 2 1 28rem; }
+  img { width: 100%; display: block; border: 1px solid var(--line); }
+  .text { min-width: 0; flex: 1 1 18rem; display: flex; flex-direction: column; gap: .9rem; }
+  .text p { margin: 0; }
+  .label { font-size: .72rem; }
+  .body-text { font-size: 1.05rem; line-height: 1.7; color: var(--fg-body); }
+  .reverse figure { order: 2; }
+</style>

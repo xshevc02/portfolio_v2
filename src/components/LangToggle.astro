@@ -1,0 +1,43 @@
+---
+import { url } from '../lib/url';
+import { kiskPath, type Lang } from '../lib/kisk-i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const options = [
+  { code: 'en', label: 'EN', href: url(kiskPath.en) },
+  { code: 'cs', label: 'CZ', href: url(kiskPath.cs) },
+] as const;
+---
+<div class="toggle" data-lang-toggle data-lang={lang} data-href-cs={url(kiskPath.cs)} data-href-en={url(kiskPath.en)}>
+  {options.map((o) => (
+    <a href={o.href} hreflang={o.code} data-set-lang={o.code} class:list={{ on: o.code === lang }} aria-current={o.code === lang ? 'page' : undefined}>{o.label}</a>
+  ))}
+</div>
+
+<script>
+  const KEY = 'kisk-lang';
+  const toggle = document.querySelector<HTMLElement>('[data-lang-toggle]');
+  if (toggle) {
+    const current = toggle.dataset.lang;
+    const store = (fn: () => void) => { try { fn(); } catch { /* storage blocked */ } };
+    let saved: string | null = null;
+    let visited = false;
+    store(() => { saved = localStorage.getItem(KEY); visited = sessionStorage.getItem(KEY) === '1'; });
+    store(() => sessionStorage.setItem(KEY, '1'));
+    // First visit in this session: follow the last language choice.
+    if (!visited && (saved === 'cs' || saved === 'en') && saved !== current) {
+      window.location.replace(toggle.dataset[saved === 'cs' ? 'hrefCs' : 'hrefEn']!);
+    }
+    toggle.querySelectorAll<HTMLAnchorElement>('[data-set-lang]').forEach((a) => {
+      a.addEventListener('click', () => store(() => localStorage.setItem(KEY, a.dataset.setLang!)));
+    });
+  }
+</script>
+
+<style>
+  .toggle { display: flex; border: 1px solid var(--rule); }
+  a { padding: .45rem .7rem; font: 500 .72rem/1 var(--font-mono); color: var(--accent); }
+  a.on { background: var(--cobalt); color: var(--white); }
+  a::after { display: none; }
+</style>

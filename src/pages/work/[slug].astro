@@ -1,0 +1,71 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CaseHero from '../../components/CaseHero.astro';
+import InShort from '../../components/InShort.astro';
+import NextCase from '../../components/NextCase.astro';
+// MDX building blocks, available in every case file without imports
+import CaseSection from '../../components/CaseSection.astro';
+import Indent from '../../components/Indent.astro';
+import Columns from '../../components/Columns.astro';
+import Figure from '../../components/Figure.astro';
+import FigurePair from '../../components/FigurePair.astro';
+import FigureGrid from '../../components/FigureGrid.astro';
+import NumberedList from '../../components/NumberedList.astro';
+import Cells from '../../components/Cells.astro';
+import RuleList from '../../components/RuleList.astro';
+import Gallery from '../../components/Gallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import Quote from '../../components/Quote.astro';
+import Tags from '../../components/Tags.astro';
+import References from '../../components/References.astro';
+import Feature from '../../components/Feature.astro';
+import Card from '../../components/Card.astro';
+import Step from '../../components/Step.astro';
+import Facts from '../../components/Facts.astro';
+import Stats from '../../components/Stats.astro';
+import Flow from '../../components/Flow.astro';
+import NumbersRow from '../../components/NumbersRow.astro';
+import CollabMap from '../../components/CollabMap.astro';
+import Timeline from '../../components/Timeline.astro';
+import Compare from '../../components/Compare.astro';
+import TalkCard from '../../components/TalkCard.astro';
+import Icon from '../../components/Icon.astro';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('cases');
+  return cases.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+interface Props { entry: CollectionEntry<'cases'> }
+const { entry } = Astro.props;
+const { data } = entry;
+const next = (await getEntry(data.next))!;
+const { Content } = await render(entry);
+const backToStart = next.data.order < data.order;
+
+const components = {
+  CaseSection, Indent, Columns, Figure, FigurePair, FigureGrid, NumberedList, Cells, RuleList, Gallery,
+  BeforeAfter, Quote, Tags, References, Feature, Card, Step, Facts, Stats, Flow, NumbersRow, CollabMap,
+  Timeline, Compare, TalkCard, Icon,
+};
+---
+<Base
+  title={`${data.title} — Anna Shevchenko`}
+  description={data.lead}
+  print={data.print}
+  header={{ variant: 'back', backHref: url('/#work'), backLabel: 'All work', nextLabel: backToStart ? 'Back to start' : 'Next case' }}
+  footer={{ variant: 'email', text: `Anna Shevchenko · ${data.year}` }}
+>
+  <CaseHero entry={entry} />
+  {data.cover && (
+    <div class="wrap">
+      <Figure src={data.cover.src} alt={data.cover.alt} caption={data.cover.caption} variant={data.cover.matte ? 'matte' : 'plain'} cover eager />
+    </div>
+  )}
+  {data.inShort && <InShort items={data.inShort} />}
+  <Content components={components} />
+  <NextCase current={entry} next={next} />
+</Base>

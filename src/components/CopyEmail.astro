@@ -1,0 +1,43 @@
+---
+import { EMAIL } from '../lib/url';
+
+interface Props {
+  variant?: 'solid' | 'line' | 'link';
+  /** Show the address next to the label (Contact). */
+  showEmail?: boolean;
+}
+const { variant = 'line', showEmail = false } = Astro.props;
+---
+<button
+  type="button"
+  class:list={[variant === 'link' ? 'link-line copy--link' : ['btn', `btn--${variant}`]]}
+  data-copy-email={EMAIL}
+>
+  <span data-copy-label>Copy my email</span>
+  {showEmail && <strong>{EMAIL}</strong>}
+</button>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-email]').forEach((btn) => {
+    const label = btn.querySelector('[data-copy-label]')!;
+    const initial = label.textContent;
+    let timer: number | undefined;
+    btn.addEventListener('click', async () => {
+      const email = btn.dataset.copyEmail!;
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch {
+        window.location.href = `mailto:${email}`;
+        return;
+      }
+      label.textContent = 'Copied ✓';
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => (label.textContent = initial), 1800);
+    });
+  });
+</script>
+
+<style>
+  .copy--link { flex-wrap: wrap; gap: .6rem; padding-bottom: .4rem; font-size: .85rem; color: var(--fg); }
+  strong { font: inherit; text-transform: lowercase; letter-spacing: 0; overflow-wrap: anywhere; }
+</style>

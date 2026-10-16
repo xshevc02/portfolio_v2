@@ -1,0 +1,15 @@
+---
+import Cells from './Cells.astro';
+
+interface Props { items: { label: string; text: string }[] }
+const { items } = Astro.props;
+---
+<section class="in-short wrap">
+  <p class="label">In short</p>
+  <Cells items={items} lastPrint />
+</section>
+
+<style>
+  .in-short { padding-top: clamp(3.5rem, 7vw, 6rem); }
+  .label { margin: 0 0 1.5rem; font-size: .72rem; line-height: 1.5; letter-spacing: .09em; }
+</style>

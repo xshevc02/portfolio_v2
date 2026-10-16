@@ -1,0 +1,129 @@
+---
+order: 5
+title: PeePoint
+year: "2024"
+type: Research → product spec
+heroMeta: [UX research & product concept, Team project]
+summary: "A survey turned a small inconvenience into a product direction: people plan trips on a laptop but need the saved places in their hand on the street. That split — planning mode versus travel mode — became the whole concept, with a QR handover between them."
+myPart: survey synthesis, personas, competitor review of 8 apps, and the functional spec. Team project, never built.
+lead: A web and mobile app concept helping travelers quickly find public restrooms, plan toilet stops in advance, and transfer saved locations from desktop to mobile.
+home:
+  image: /images/peepoint/ai-prototype/ai-prototype-preview.png
+  alt: "PeePoint mobile screens reworked with AI: map, list, filters, and add toilet"
+  uncropped: true
+  caption: Screens reworked with AI in 2026 from the original 2024 mockups
+  stats:
+    - { value: 65%, label: "planned on a laptop, wanted it on mobile" }
+    - { value: 75%, label: liked handing the route over by QR code }
+facts:
+  - { label: Research inputs, value: "Survey questions, affinity mapping, competitor analysis, personas, and travel-context assumptions" }
+  - { label: User groups, value: "Families with children, tourists, public transport users, outdoor walkers, and road-trip travelers" }
+  - { label: My part, value: "Research synthesis, persona definition, competitive analysis, mobile UI concepts, and functional product specification" }
+  - { label: Tools, value: "Miro, Figma" }
+next: analyticity
+---
+
+<Stats items={[
+  { value: '85%', text: 'of respondents considered easy access to public restrooms very important for the travel experience.' },
+  { value: '65%', text: 'preferred planning on a laptop, but wanted saved information available on mobile during travel.' },
+  { value: '75%', text: 'liked the idea of using a QR code to transfer routes from laptop to mobile app.' },
+]} />
+
+<CaseSection n={1} label="Topic" title="A basic need that becomes stressful in unfamiliar places.">
+
+PeePoint is a product concept for a web and mobile app that helps users find public restrooms quickly and plan toilet stops before and during travel. The idea came from a simple but often ignored need: when people are in an unfamiliar city, park, museum area, or transport hub, they want reassurance that a restroom is nearby if needed.
+
+This need becomes especially important for families with children, seniors, people with health-related requirements, tourists moving between landmarks, and travelers who cannot rely on private facilities. The concept therefore focuses not only on finding the nearest toilet, but also on cleanliness, accessibility, opening hours, ratings, and route planning.
+
+</CaseSection>
+
+<CaseSection n={2} label="User research" title="Survey findings turned a small inconvenience into a product opportunity." titleWidth="24ch">
+  <Figure slot="after" src="/images/peepoint/survey-insights.png" alt="Sticky-note survey findings for public restroom finder app" label="Survey synthesis" caption="Key survey questions and findings covering restroom importance, travel mode, planning preferences, QR-code transfer, and feature priorities." />
+
+The research explored how people think about public restroom access when visiting new places. Respondents considered easy access very important and described poor signage, lack of public toilets near landmarks, and difficulty locating standalone toilets not connected to large facilities as common issues.
+
+<p class="emph">The strongest finding was that users wanted different modes for planning and travel. Many preferred planning on a laptop because it gives a larger overview, but wanted to access saved information on a mobile device while already outside.</p>
+
+- Top priorities were 24/7 availability, cleanliness, and accessibility.
+- Families requested changing tables, comfort ratings, and reliable opening/access information.
+
+</CaseSection>
+
+<CaseSection n={3} label="Personas" title="Different travelers need restrooms in very different contexts." titleWidth="24ch">
+  <FigureGrid slot="after" min="22rem" gap="clamp(1.5rem, 4vw, 3rem)">
+    <Cells compact min="13rem" items={[
+      { label: 'Families by car', text: 'Gas stations and rest stops, with cleanliness, accessibility, changing tables, and 24/7 availability.' },
+      { label: 'Culture-seeking tourists', text: 'Museums, landmarks, transport hubs, and walking zones, reached by public transport.' },
+      { label: 'Outdoor walkers', text: 'Parks, public gardens, hiking routes, and pedestrian zones.' },
+      { label: 'Passive recreation', text: 'Beaches, promenades, shopping centers, and leisure areas.' },
+    ]} />
+    <Figure variant="white" src="/images/peepoint/personas-map.png" alt="Mind map of PeePoint user personas based on responses" label="Persona map" caption="Persona mapping based on survey responses, grouped by travel behaviour and restroom expectations." />
+  </FigureGrid>
+</CaseSection>
+
+<CaseSection n={4} label="Competitive analysis" title="Existing apps solve parts of the problem, but rarely the whole journey." titleWidth="24ch">
+
+We reviewed several existing restroom, map, and travel products, including Where is the Toilet, Toilet Finder, WC Toilet and Restroom Finder, Ivie – Vienna Guide, Google Maps, TripAdvisor, WC Kompas, and Flush Public Toilet/Restrooms.
+
+The analysis showed useful patterns such as distance-based lists, user ratings, GPS navigation, offline functionality, and large toilet databases. At the same time, many tools had distracting ads, unclear filters, limited coverage, no offline mode, missing information about accessibility or changing tables, or poor support for trip planning.
+
+<Cells compact plainLabel min="15rem" items={[
+  { label: 'Keep', text: 'Distance-based toilet listing helps users act quickly.' },
+  { label: 'Keep', text: 'Ratings and reviews provide trust signals about cleanliness and reliability.' },
+  { label: 'Keep', text: 'Location categories such as restaurant, shopping mall, gas station, park, or landmark improve filtering.' },
+  { label: 'Gap', text: 'Many existing tools do not support specific needs such as changing tables, accessibility, or planned route transfer.', print: true },
+]} />
+
+  <Figure slot="after" src="/images/peepoint/app-analysis.png" alt="PeePoint competitor app analysis board" label="App analysis" caption="Competitor review comparing advantages and disadvantages across restroom finder, map, and travel applications." />
+</CaseSection>
+
+<CaseSection n={5} label="Product specification" title="A connected web and mobile experience." print>
+
+The target application is designed as an intuitive web and mobile app. The web version supports comfortable trip planning on a larger screen, while the mobile version supports quick access during travel. A QR-code transfer lets users move saved restroom locations from desktop planning into the mobile app without repeating the same work.
+
+<Flow steps={[
+  { label: 'Before travel · laptop', title: 'Plan & save' },
+  { label: 'Handover', title: 'Scan QR', highlight: true },
+  { label: 'During travel · phone', title: 'Find & navigate' },
+]} />
+
+The core frontend components are an interactive map, search and filtering, reviews and ratings, a personal saved list, and QR-code data transfer. Together, these functions support both immediate needs and planned travel behaviour.
+
+- Interactive map with current location and nearby restroom markers.
+- Search and filters for cleanliness, accessibility, opening hours, price/access restrictions, and location type.
+- Reviews and ratings to support quick decision-making.
+- My List for saving preferred restroom locations across web and mobile.
+- QR-code transfer for moving planned locations from laptop to phone.
+
+</CaseSection>
+
+<CaseSection n={6} label="Mobile mockups · 2024" title="Translating the concept into mobile screens.">
+
+The mobile app mockups focus on fast on-the-go use: a map-first interface, switchable list view, toilet detail bottom sheet, filters, adding a toilet, ratings, saved list, and QR-based connection with locations planned on desktop.
+
+The interface keeps key actions close to the map. Users can navigate to a selected restroom, save changes, filter by practical criteria such as price, accessibility, changing table, location type, and review stars, or add missing toilet information to improve the database.
+
+  <Figure slot="after" src="/images/peepoint/mobile-screens-overview.png" alt="PeePoint mobile app screens overview" label="Mobile app screen set" caption="Screen overview showing map and list modes, filter drawer, toilet detail sheet, add-toilet flow, saved list, and QR connection state." />
+</CaseSection>
+
+<CaseSection n={7} label="AI-assisted update · 2026" title="Reworking two-year-old mockups into cleaner mobile screens.">
+
+I later used Claude to rework my earlier PeePoint mockups from about two years ago into cleaner, more realistic mobile screens for this case study.
+
+The goal was not to let AI decide the product direction, but to use it as a fast prototyping tool: I kept the original research logic, core flows, and feature priorities, then refined the screens into a more consistent map, list, filter, and add-toilet experience.
+
+  <FigureGrid slot="after" panel min="11rem" gap="clamp(1rem, 2vw, 1.5rem)">
+    <Figure variant="phone" src="/images/peepoint/ai-prototype/map-detail-1.png" alt="PeePoint AI-assisted map detail mobile screen" label="Map detail" caption="Map-first toilet detail screen with navigation, save action, amenities, rating, and missing-place feedback." />
+    <Figure variant="phone" src="/images/peepoint/ai-prototype/list-view.png" alt="PeePoint AI-assisted list view mobile screen" label="List view" caption="List mode for comparing nearby toilets by distance, opening hours, payment, and accessibility." />
+    <Figure variant="phone" src="/images/peepoint/ai-prototype/filters.png" alt="PeePoint AI-assisted filters mobile screen" label="Filters" caption="Filter screen organized around price, location type, services, and review stars." />
+    <Figure variant="phone" src="/images/peepoint/ai-prototype/add-toilet.png" alt="PeePoint AI-assisted add toilet mobile screen" label="Add toilet" caption="Contribution flow for adding missing toilet information, rating the place, and confirming details." />
+  </FigureGrid>
+</CaseSection>
+
+<CaseSection n={8} label="Next steps" title="From research specification to interface prototype." dashed>
+
+The next step would be to translate the specification into low-fidelity web and mobile flows: planning a route on desktop, saving restroom stops, transferring the list by QR code, and opening the same route on mobile while traveling.
+
+<Quote>The most important validation point would be whether users understand the relationship between planning mode and travel mode, and whether filters such as accessibility, changing tables, cleanliness, and opening hours are visible without overwhelming the map interface.</Quote>
+
+</CaseSection>

@@ -1,0 +1,203 @@
+---
+order: 2
+title: Pockland
+year: "2026"
+type: Personal product · built and running
+heroMeta: [AI-assisted product prototype]
+summary: "A book tracker I took from a mobile-first prototype to a working responsive app: real accounts, synced data, and discovery through Open Library and Google Books."
+myPart: everything. Product thinking, UI, AI-assisted prototyping, and the build.
+lead: A personal book tracking app designed and iterated from a mobile-first prototype into a responsive web app with real authentication, synced data, and book discovery.
+cta: { label: Open the live app, url: "https://xshevc02.github.io/book_app/" }
+home:
+  image: /images/pockland/live-preview.png
+  alt: Pockland book tracking app
+cover:
+  src: /images/pockland/live-preview.png
+  alt: Pockland live app home screen with currently reading progress, trending books, and sidebar navigation
+  caption: Live Pockland prototype showing the responsive desktop home screen with reading progress, discovery shelves, and navigation.
+  matte: true
+facts:
+  - { label: Product, value: Personal book tracking and reading companion app }
+  - { label: Platform, value: Responsive web app for mobile and desktop }
+  - { label: Data & auth, value: "Supabase authentication, account-based syncing, Open Library and Google Books metadata" }
+  - { label: AI role, value: "Rapid prototyping, implementation support, layout exploration, and iterative UI refinement" }
+inShort:
+  - { label: Problem, text: "Readers often manage books across fragmented tools such as Notion, notes, wishlists, screenshots, and memory. Competitor feedback also showed frustration around missing manual book entry, audiobook tracking, and limited rating flexibility." }
+  - { label: Complexity, text: "The product had to support mobile and desktop layouts, authentication, synced user data, external book APIs, custom shelves, ratings, reading progress, and real deployment constraints." }
+  - { label: My role, text: "I owned the UX direction, product decisions, information hierarchy, interaction design, visual critique, and iterative testing. I used AI as a prototyping and implementation partner while keeping the final design judgment mine." }
+  - { label: Constraints, text: "The app was deployed through GitHub Pages, used Supabase for auth and data, and relied on Open Library and Google Books for metadata, which created challenges around translated and Ukrainian books." }
+  - { label: Stack, text: "Supabase, Open Library API, Google Books API, responsive frontend implementation, GitHub Pages deployment" }
+  - { label: Outcome, text: "The final product became a functional responsive web app with clearer navigation, stronger card systems, synced user data, custom shelf controls, and a more coherent interface than the first generated versions." }
+next: wake-and-wine
+---
+
+<CaseSection n={1} label="Context" title="A reading app that feels personal, not like a database.">
+
+Pockland is a personal book tracking and reading companion app. It helps readers organize books, track reading progress, manage wishlists and custom shelves, view book details, add feedback, and discover books through Open Library and Google Books.
+
+The project started from a simple product need: book tracking often gets scattered across notes, Notion databases, screenshots, wishlists, and memory. I wanted the experience to feel lightweight, visual, and personal while still supporting real product behavior.
+
+<Cells as="ul" compact min="14rem" items={[
+  { text: 'Track reading progress and reading states.' },
+  { text: 'Organize books into wishlist, finished, reading, and custom shelves.' },
+  { text: 'Search and discover books through external APIs.' },
+  { text: 'Support account-based syncing across sessions.' },
+]} />
+
+</CaseSection>
+
+<CaseSection n={2} label="Research" title="Competitor reviews turned vague ideas into specific feature requirements." titleWidth="24ch">
+
+Before starting the design, I looked at existing book-tracking apps such as Goodreads and checked reader feedback from App Store reviews. This helped me separate “nice to have” ideas from real user frustrations people were already expressing in similar products.
+
+Two repeated needs influenced the product scope directly: the ability to add books manually when search, barcode, or cover recognition cannot find a title, and a better way to track audiobooks where progress is measured by time or duration rather than page count.
+
+  <FigureGrid slot="after" min="18rem">
+    <Figure variant="matte" imgMax="26rem" src="/images/pockland/research/app-store-half-star-review.jpg" alt="App Store review asking for half-star rating in a book tracking app" label="Review insight — rating precision" caption="App Store feedback showed that some readers want more precise rating options, such as half-star ratings." />
+    <Figure variant="matte" imgMax="26rem" src="/images/pockland/research/app-store-manual-entry-review.jpg" alt="App Store review requesting manual book entry and audiobook tracking" label="Review insight — manual entry and audiobooks" caption="User feedback highlighted missing manual book entry and the need to track audiobook progress by duration." />
+    <RuleList title="What it changed" items={[
+      { text: 'Added manual book entry as a fallback for books missing from external databases.' },
+      { text: 'Included audiobook progress tracking so users are not forced into page-based progress.' },
+      { text: 'Considered more flexible rating behavior after seeing requests for 0.5-star ratings.' },
+      { text: 'Used competitor feedback as an input for product decisions before moving into UI design.' },
+    ]} />
+  </FigureGrid>
+</CaseSection>
+
+<CaseSection n={3} label="Product scope" title="From mobile-first screens to a real responsive product.">
+
+The app evolved around four main areas: Home, Feed, Shelves, and Profile. Home surfaces currently reading books, wishlist suggestions, trending books, and an award shelf. Shelves support reading states and custom organization, while Profile brings together user information, reading activity, and a reading calendar.
+
+The product needed to behave like a real app rather than a static concept. That meant authentication, synced personal data, book status changes, manual book creation, audiobook progress tracking, 0.5-star rating support, custom shelf actions, search behavior, book detail pages, and responsive layouts across mobile and desktop.
+
+<Cells strong compact min="8rem" items={[{ title: 'Home' }, { title: 'Feed' }, { title: 'Shelves' }, { title: 'Profile' }]} />
+
+- Fixed navigation between Home, Feed, Shelves, and Profile.
+- Book detail and author pages with simplified metadata.
+- Inline shelf rename and delete actions.
+- Clear confirmation copy explaining that deleting a shelf does not delete the books.
+
+</CaseSection>
+
+<CaseSection n={4} label="AI-assisted workflow" title="AI made the app clickable fast, but it did not replace product direction." print>
+
+AI was useful because it let me move quickly from a product idea into a clickable, deployable prototype. It helped generate screens, interaction states, responsive layouts, authentication flows, search behavior, shelves, progress tracking, and synced user data without treating the project as a static mockup.
+
+The tradeoff became visible very quickly: because I skipped a low-fidelity mockup at the start, the AI filled too many product and layout gaps by itself. It generated components that looked complete but had no real user value, invented page structures I did not actually need, and created extra cleanup work that a simple Figma sketch could have prevented.
+
+> The biggest process lesson was that AI implementation works faster when the designer first defines the page logic: what each screen contains, which components are required, where they should live, and how the mobile and desktop versions should differ.
+
+<div class="rule-grid">
+  <p>A rough mockup would have reduced the number of prompts spent on basic placement, hierarchy, and component logic.</p>
+  <p>The strongest results came after I gave specific design critique instead of accepting the first generated UI.</p>
+  <p>I pushed the interface toward reused components instead of letting every page introduce a new pattern.</p>
+  <p>AI accelerated implementation, but the final quality came from repeated review, testing, and design judgment.</p>
+</div>
+
+</CaseSection>
+
+<CaseSection n={5} label="Iteration evidence" title="The recurring AI-generated issues I had to correct.">
+
+I kept a small critique log while iterating on the prototype. The notes were not a separate research artifact; they were practical checkpoints showing where the generated UI looked plausible at first glance but still needed human product and interface review.
+
+Instead of making this evidence take over the page, I kept it as a horizontal gallery. It shows the types of issues that repeatedly required direction: weak contrast, unclear actions, useless metadata, inconsistent card patterns, spacing problems, oversized responsive layouts, and ambiguous destructive controls.
+
+  <div slot="after" class="bleed">
+    <Gallery title="Critique log" items={[
+      { label: 'Progress visibility', caption: 'The reading progress bar had low contrast, so an important state was technically present but easy to miss.', src: '/images/pockland/iteration-notes/progress-bar-contrast.png', alt: 'Pockland screenshot showing a low-contrast progress bar' },
+      { label: 'Missing shelf controls', caption: 'Custom shelves looked like fixed content because rename and delete actions were missing.', src: '/images/pockland/iteration-notes/shelf-actions-missing.png', alt: 'Pockland shelves screen without clear shelf edit actions' },
+      { label: 'Bad proportions', caption: 'Some generated desktop layouts had awkward proportions and large empty areas instead of using space intentionally.', src: '/images/pockland/iteration-notes/bad-proportions-desktop.png', alt: 'Pockland desktop screen with awkward proportions' },
+      { label: 'Mobile proportions', caption: 'The same proportional problems also appeared on smaller screens, where content blocks felt cramped or oddly scaled.', src: '/images/pockland/iteration-notes/bad-proportions-mobile.png', alt: 'Pockland mobile screen with awkward proportions' },
+      { label: 'Useless metadata', caption: 'Generated cards often included information that looked complete but did not help the user decide what to do next.', src: '/images/pockland/iteration-notes/useless-info-1.png', alt: 'Pockland screen with unnecessary metadata on book cards' },
+      { label: 'Useless metadata', caption: 'Repeated labels and text-heavy details made some screens feel busy without adding real product value.', src: '/images/pockland/iteration-notes/useless-info-2.png', alt: 'Pockland screen with repeated labels and unnecessary text' },
+      { label: 'Useless metadata', caption: 'Several iterations needed pruning because the interface surfaced too many low-priority details at once.', src: '/images/pockland/iteration-notes/useless-info-3.png', alt: 'Pockland mobile screen with too much low-priority information' },
+      { label: 'Useless metadata', caption: 'The issue was not only visual density; some generated information had no clear action or decision attached to it.', src: '/images/pockland/iteration-notes/useless-info-4.png', alt: 'Pockland screen showing information without a clear user purpose' },
+      { label: 'Useless metadata', caption: 'I had to repeatedly separate useful book context from decorative or redundant metadata.', src: '/images/pockland/iteration-notes/useless-info-5.png', alt: 'Pockland screen with redundant book metadata' },
+      { label: 'Useless metadata', caption: 'The cleanup work became a reminder that a generated UI can look detailed while still lacking hierarchy.', src: '/images/pockland/iteration-notes/useless-info-6.png', alt: 'Pockland generated UI with weak information hierarchy' },
+      { label: 'Useless metadata', caption: 'Another example of generated detail that needed to be reduced or moved into a clearer pattern.', src: '/images/pockland/iteration-notes/useless-info-7.png', alt: 'Pockland screen with excessive generated detail' },
+      { label: 'Shelf hierarchy', caption: 'Shelves, custom shelves, and book groups were mixed together, making the page harder to scan.', src: '/images/pockland/iteration-notes/hierarchy-shelves-before.png', alt: 'Pockland shelves page with weak grouping and hierarchy' },
+      { label: 'Card consistency', caption: 'Book cards mixed author, book count, rating, state labels, and text in inconsistent ways across the app.', src: '/images/pockland/iteration-notes/book-card-consistency-before.png', alt: 'Pockland book card before consistency improvements' },
+      { label: 'Card consistency after', caption: 'After review, the card pattern became cleaner and easier to reuse across screens.', src: '/images/pockland/iteration-notes/book-card-consistency-after.png', alt: 'Pockland book card after consistency improvements' },
+      { label: 'Spacing problems', caption: 'Several screens needed manual spacing corrections because generated layouts placed objects too tightly or unevenly.', src: '/images/pockland/iteration-notes/spacing-layout-1.png', alt: 'Pockland screen with layout spacing problems' },
+      { label: 'Spacing problems', caption: 'Some mobile layouts had controls and content blocks that did not breathe enough.', src: '/images/pockland/iteration-notes/spacing-layout-2.png', alt: 'Pockland mobile layout with spacing problems' },
+      { label: 'Spacing problems', caption: 'Small UI elements also needed review because generated spacing made them feel detached or cramped.', src: '/images/pockland/iteration-notes/spacing-layout-3.png', alt: 'Pockland detail showing spacing problems' },
+      { label: 'Spacing problems', caption: 'Even tiny components needed manual attention when alignment and rhythm were off.', src: '/images/pockland/iteration-notes/spacing-layout-4.png', alt: 'Pockland small component with layout spacing issue' },
+      { label: 'Spacing problems', caption: 'The larger layout needed clearer grouping so the page did not feel assembled from unrelated blocks.', src: '/images/pockland/iteration-notes/spacing-layout-5.png', alt: 'Pockland layout with weak grouping and spacing' },
+      { label: 'Currently Reading before', caption: 'The Currently Reading card initially took too much visual weight and did not scale well.', src: '/images/pockland/iteration-notes/currently-reading-before.png', alt: 'Pockland Currently Reading card before redesign' },
+      { label: 'Currently Reading after', caption: 'The revised card made reading progress clearer and fit better into the surrounding layout.', src: '/images/pockland/iteration-notes/currently-reading-after.png', alt: 'Pockland Currently Reading card after redesign' },
+      { label: 'Responsive check', caption: 'On small screens, cards could become too large, showing why every generated responsive layout still needed human review.', src: '/images/pockland/iteration-notes/small-screen-card-too-large.png', alt: 'Pockland small screen with an oversized card' },
+      { label: 'Weak edit pattern', caption: 'Editing actions were pushed into separate popups, creating unnecessary interruption for simple shelf changes.', src: '/images/pockland/iteration-notes/editing-popup-pattern.png', alt: 'Pockland UI showing an editing popup pattern' },
+      { label: 'Ambiguous delete', caption: 'The delete control looked like it might delete books instead of the shelf, so the action needed clearer iconography and copy.', src: '/images/pockland/iteration-notes/delete-action-ambiguity.png', alt: 'Pockland shelf delete action with ambiguous meaning' },
+    ]} />
+  </div>
+</CaseSection>
+
+<CaseSection n={6} label="UX decisions" title="Repairing the gap between mobile polish and desktop reality.">
+
+Several UX decisions came from repeatedly testing the live prototype on different screen sizes. At first I focused mostly on the mobile experience; once that felt cleaner, the desktop version exposed a second layer of problems: stretched cards, awkward empty space, oversized progress elements, and layouts that looked like mobile screens simply widened across a larger viewport.
+
+This became one of the most important iteration areas. I had to specify how objects should reflow, which cards deserved more space, where navigation should sit, and which mobile patterns needed a separate desktop treatment instead of a larger version of the same layout.
+
+I refined the app around consistency: reusable vertical book cards, compact rating badges, direct status selectors on cards, clearer shelves, and search behavior that did not interrupt the mobile keyboard.
+
+  <FigureGrid slot="after" min="20rem">
+    <BeforeAfter
+      before={{ src: '/images/pockland/iteration-notes/currently-reading-before.png', alt: 'Pockland Currently Reading card before redesign', label: 'Currently Reading · before' }}
+      after={{ src: '/images/pockland/iteration-notes/currently-reading-after.png', alt: 'Pockland Currently Reading card after redesign', label: 'Currently Reading · after' }}
+    />
+    <RuleList items={[
+      { text: 'Mobile-first structure adapted into a more spacious desktop layout.' },
+      { text: 'Separate reading states for Reading, Wishlist, Finished, and custom shelves.' },
+      { text: 'Manual book entry, audiobook progress tracking, and 0.5-star rating support added as research-backed product decisions.' },
+      { text: 'Google Books fallback added when Open Library could not find a title.' },
+      { text: 'Currently Reading card redesigned to respond better to screen height and width.' },
+    ]} />
+  </FigureGrid>
+</CaseSection>
+
+<Columns>
+  <CaseSection variant="column" n={7} label="Feedback updates · done" title="Turning feedback into implemented UX improvements.">
+
+After reviewing the working prototype, I separated feedback that directly affected everyday usability from broader product ideas. The UX-impacting changes were prioritized first, especially areas that made personal reading history easier to scan and the interface easier to adapt to different readers.
+
+The following feedback items were treated as completed updates in the current iteration rather than left as open backlog notes.
+
+<RuleList check items={[
+  { lead: 'Profile', text: 'show best and worst books read by the user to make personal reading history easier to scan.' },
+  { lead: 'Customization', text: 'add settings for font size, preferred language, preferred writer countries, all four seasonal themes, and trigger moments that can be used as filters or hidden-by-default descriptions.' },
+]} />
+
+  </CaseSection>
+  <CaseSection variant="column" dashed n={8} label="Future ideas · backlog" title="Keeping larger product ideas for future feature exploration.">
+
+The remaining feedback is intentionally framed as future product direction. These ideas could make Pockland richer over time, but they are not required to resolve the core usability problems found during the current prototype review.
+
+This keeps the case study honest: the immediate experience issues were addressed, while larger ecosystem features stay available for later prioritization, testing, and scope decisions.
+
+<RuleList dashed items={[
+  { lead: 'Social discovery', text: 'add book clubs, friends in Feed, and recommendations that preserve who suggested a book or which post it came from.' },
+  { lead: 'Search and discovery', text: 'automatically add searched books to wishlist, add filters by language and writer country, and recommend books based on similar readers or fandoms.' },
+  { lead: 'Mobile UX', text: 'make the Back action return inside the app instead of leaving through browser history.' },
+  { lead: 'Book editing', text: 'support inline feedback creation/editing, total page count editing, and total reading or listening time editing.' },
+  { lead: 'Shelves and layout', text: 'add custom shelf cover images, direct add-to-shelf actions, automatic source attribution from posts, full-width desktop feed cards, and separate desktop Currently Reading cards.' },
+]} />
+
+  </CaseSection>
+</Columns>
+
+<CaseSection n={9} label="Outcome" title="A working prototype shaped by many rounds of critique.">
+
+The final result is a functional responsive web app with authentication, synced personal data, book discovery, reading progress, custom shelves, and polished UI patterns.
+
+Compared to the early generated versions, the final app has better navigation, cleaner book cards, improved shelf management, clearer detail pages, more reliable search behavior, and a stronger mobile-to-desktop experience. AI accelerated prototyping, but the quality came from repeated critique, testing, and design direction.
+
+<Cells as="ul" compact min="16rem" items={[
+  { text: 'Designed a mobile-first reading app and adapted it into a responsive desktop experience.' },
+  { text: 'Created core flows for adding books, tracking progress, managing shelves, and viewing book details.' },
+  { text: 'Integrated real auth/data constraints into the product experience.' },
+  { text: 'Used AI to accelerate prototyping while independently directing UX critique and product decisions.' },
+]} />
+
+<a class="link-line" href="https://xshevc02.github.io/book_app/" target="_blank" rel="noreferrer">Try Pockland live <Icon name="out" /></a>
+
+</CaseSection>

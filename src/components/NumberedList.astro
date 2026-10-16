@@ -1,0 +1,35 @@
+---
+import Cells from './Cells.astro';
+
+/** Numbered items without leading zeros: R1…R11 (panel), Change 1…6 / 1…4 (cells). */
+interface Props {
+  items: string[];
+  prefix?: string;
+  /** Panel heading (panel variant). */
+  title?: string;
+  variant?: 'panel' | 'cells';
+  min?: string;
+}
+const { items, prefix = '', title, variant = 'cells', min = '17rem' } = Astro.props;
+const numbered = items.map((text, i) => ({ label: `${prefix}${i + 1}`, text }));
+---
+{variant === 'panel' ? (
+  <div class="panel print">
+    {title && <p class="label">{title}</p>}
+    <ol>
+      {numbered.map((item) => (
+        <li><span class="n">{item.label}</span><span>{item.text}</span></li>
+      ))}
+    </ol>
+  </div>
+) : (
+  <Cells as="ol" items={numbered} min={min} plainLabel compact />
+)}
+
+<style>
+  .panel { padding: clamp(1.5rem, 3.5vw, 3rem); }
+  .label { margin: 0 0 1.5rem; font-size: .72rem; letter-spacing: .08em; }
+  ol { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); column-gap: clamp(1.5rem, 4vw, 3.5rem); }
+  li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .75rem; padding: .95rem 0; border-top: 1px solid var(--line); font-size: 1rem; line-height: 1.55; color: var(--fg-body); }
+  .n { font: 400 .78rem/1.6 var(--font-mono); color: var(--fg-soft); }
+</style>

@@ -1,0 +1,24 @@
+---
+import CopyEmail from './CopyEmail.astro';
+
+/** Light call-to-talk card with the copy-email button (sits on a .print page). */
+interface Props { title: string }
+const { title } = Astro.props;
+---
+<section class="talk-wrap wrap">
+  <div class="talk paper auto-grid">
+    <h2 class="head">{title}</h2>
+    <div class="stack">
+      <p><slot /></p>
+      <CopyEmail variant="solid" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .talk-wrap { margin-top: var(--section-gap); }
+  .talk { --min: 20rem; --gap: clamp(1.5rem, 4vw, 3rem); align-items: center; padding: clamp(2rem, 4vw, 3.5rem); }
+  h2 { margin: 0; max-width: 20ch; font-size: clamp(1.7rem, 3vw, 2.8rem); }
+  .stack { align-items: flex-start; }
+  p { max-width: 46ch; font-size: 1.02rem; line-height: 1.65; color: var(--fg-body); }
+</style>

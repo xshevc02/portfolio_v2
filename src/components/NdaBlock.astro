@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+
+interface Props { entry: CollectionEntry<'cases'> }
+const { entry } = Astro.props;
+const { data } = entry;
+---
+<div class="nda print">
+  <div class="auto-grid">
+    <div>
+      <p class="label">{data.order} · {data.year} · under NDA</p>
+      <h3 class="head">{data.homeTitle ?? data.title}</h3>
+    </div>
+    <div class="stack">
+      <p class="summary">{data.summary}</p>
+      <p class="note">{data.myPart}</p>
+      <a class="link-line" href={url(`/work/${entry.id}/`)}>Read the abstracted case <Icon name="out" /></a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .nda { margin-top: clamp(3rem, 6vw, 5rem); padding: clamp(1.75rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3.5rem); }
+  .auto-grid { --min: 18rem; --gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+  .label { margin: 0; }
+  h3 { margin: 1.1rem 0 0; max-width: 18ch; font-size: clamp(1.7rem, 3vw, 2.8rem); }
+  .stack { --gap: 1.2rem; }
+  .summary { max-width: 52ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.7; color: var(--fg-body); }
+  .note { max-width: 52ch; font: 400 .78rem/1.75 var(--font-mono); color: var(--fg-soft); }
+</style>

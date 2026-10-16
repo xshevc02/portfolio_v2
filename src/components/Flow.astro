@@ -1,0 +1,26 @@
+---
+/** Step → step → step handover diagram; one step can be highlighted. */
+interface Props { steps: { label: string; title: string; highlight?: boolean }[] }
+const { steps } = Astro.props;
+---
+<ol class="flow">
+  {steps.map((step, i) => (
+    <>
+      {i > 0 && <li class="arrow" aria-hidden="true">→</li>}
+      <li class:list={['step', { highlight: step.highlight }]}>
+        <span class="step-label">{step.label}</span>
+        <span class="head">{step.title}</span>
+      </li>
+    </>
+  ))}
+</ol>
+
+<style>
+  .flow { margin: .75rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: stretch; gap: .75rem; }
+  .step { flex: 1 1 11rem; display: flex; flex-direction: column; gap: .5rem; padding: 1.25rem; border: 1px solid var(--line); }
+  .step .head { font-size: 1.25rem; line-height: 1; }
+  .step-label { font: 400 .72rem/1 var(--font-mono); color: var(--accent); }
+  .highlight { flex-basis: 9rem; border-color: var(--on-print-label); background: var(--on-print-label); color: var(--ink); }
+  .highlight .step-label { color: var(--ink); }
+  .arrow { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 0 .25rem; font: 400 1.2rem/1 var(--font-mono); color: var(--accent); }
+</style>

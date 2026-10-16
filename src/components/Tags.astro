@@ -1,0 +1,10 @@
+---
+interface Props { items: string[] }
+const { items } = Astro.props;
+---
+<div class="tags">{items.map((item) => <span class="label">{item}</span>)}</div>
+
+<style>
+  .tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem; }
+  span { padding: .6rem .9rem; border: 1px solid var(--accent); line-height: 1; letter-spacing: .06em; }
+</style>

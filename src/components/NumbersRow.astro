@@ -1,0 +1,21 @@
+---
+interface Props { items: { value: string; text: string }[] }
+const { items } = Astro.props;
+---
+<div class="numbers">
+  {items.map((item) => (
+    <div class="cell">
+      <p class="value head">{item.value}</p>
+      <p class="text">{item.text}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .cell { min-width: 0; padding: clamp(1.5rem, 3vw, 2.5rem); background: var(--surface); }
+  :global(.print) .cell { background-image: linear-gradient(var(--grid-line-on-print) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line-on-print) 1px, transparent 1px); background-size: var(--grid) var(--grid); }
+  .value { margin: 0; font-size: clamp(2.25rem, 3.6vw, 3.4rem); }
+  .text { margin: .9rem 0 0; font: 300 .76rem/1.6 var(--font-mono); color: var(--accent); }
+  :global(.print) .text { color: var(--fg-soft); }
+</style>

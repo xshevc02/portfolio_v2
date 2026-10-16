@@ -1,0 +1,10 @@
+---
+/** Two column-variant CaseSections side by side (Pockland: done | backlog). */
+---
+<section class="columns wrap auto-grid">
+  <slot />
+</section>
+
+<style>
+  .columns { --min: 24rem; --gap: clamp(2.5rem, 5vw, 4.5rem); padding-top: var(--section-gap); }
+</style>

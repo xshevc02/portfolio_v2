@@ -1,0 +1,151 @@
+---
+order: 1
+title: Analyticity platform overhaul
+year: "2026"
+type: Data platform · UX + frontend
+heroMeta: [Data platform · UX + frontend, Bachelor thesis · VUT FIT]
+summary: Traffic jams, accidents, hazards and road closures lived in separate fragmented views. I rebuilt them into one map-based workflow where a street, a period and a comparison are three clicks apart.
+myPart: information architecture, wireframes, final UI, map controls and dashboards, then the React/TypeScript frontend on an existing REST API.
+lead: A data-heavy traffic analytics frontend connected to an existing REST API, translating fragmented datasets, map layers, filters, and chart transformations into one coherent analytical workflow.
+home:
+  image: /images/thesis/final-solution-overview.png
+  alt: Analyticity traffic analytics interface after the redesign
+  position: left top
+cover:
+  src: /images/thesis/final-solution-overview.png
+  alt: Final traffic analytics redesign showing the unified map and accidents dashboard side by side
+  caption: "Final solution overview: a unified spatial map for exploration paired with a focused analytical dashboard for interpretation."
+facts:
+  - { label: Research inputs, value: "Prior theses, Waze and Google Maps UI analysis, usability testing, and domain requirements" }
+  - { label: Data domain, value: "Traffic jams, accidents, hazards, road closures, street summaries, and period comparison" }
+  - { label: Deliverables, value: "Information architecture, wireframes, final UI, map controls, dashboards, and reusable frontend components" }
+  - { label: Stack, value: "React, TypeScript, Tailwind CSS, REST API integration, React Leaflet, Recharts" }
+inShort:
+  - { label: Problem, text: "The traffic analytics platform exposed valuable Brno traffic and accident data, but fragmented map and dashboard workflows made analysis difficult to navigate and interpret." }
+  - { label: Complexity, text: "High data density, multi-layered spatial data, complex filter logic, and analytical chart transformations had to work together without making the interface feel fragmented." }
+  - { label: My role, text: "I owned UX research, UI/UX design, interaction logic, responsive frontend implementation, and the translation of analytical requirements into usable product flows." }
+  - { label: Constraints, text: "The frontend had to integrate with a legacy REST API, inherited data structures, existing domain rules, and strict browser-performance limits for heavy map rendering, with no backend redesign." }
+  - { label: Evaluation, text: "Usability findings, thesis documentation, implementation review, and academic defense" }
+  - { label: Outcome, text: "Successfully unified fragmented traffic and accident datasets into a single interactive analytics workflow. Implemented production-ready React/TypeScript frontend; thesis awarded Grade A and nominated for Dean’s Award." }
+next: pockland
+---
+
+<CaseSection n={1} label="Context" title="One product, two disconnected experiences.">
+
+The existing application visualized urban traffic data from several sources: Waze congestion and related events, police accident records, and NDIC road restrictions. Its two main parts had been developed separately around different datasets and analytical tasks.
+
+That history shaped the interface. Maps, dashboards, filters, terminology, and interaction patterns differed between sections, so the product felt like two partially connected applications rather than one analytical environment.
+
+  <FigurePair slot="after">
+    <Figure variant="matte" src="/images/thesis/legacy-waze-dashboard.png" alt="Original Waze traffic jams dashboard with red charts and summary metrics" label="Before · Original Traffic Jams dashboard" caption="Legacy Waze data-analysis dashboard designed by Ing. Magdaléna Ondrušková." />
+    <Figure variant="matte" src="/images/thesis/legacy-accidents-dashboard.png" alt="Original traffic accidents dashboard with charts for alcohol, causes, road conditions, and monthly accidents" label="Before · Original Accidents dashboard" caption="Legacy police-accident analysis dashboard designed by Bc. Šimková." />
+  </FigurePair>
+</CaseSection>
+
+<CaseSection n={2} label="Analysis" title="Finding the friction behind the interface.">
+
+I used Nielsen’s usability heuristics as a qualitative framework to inspect how the original product communicated state, supported navigation, prevented errors, and presented dense analytical information.
+
+The analysis produced eleven design requirements that became the decision framework for the redesign, from unifying the application to preserving usability on smaller screens.
+
+  <div slot="after">
+    <NumberedList variant="panel" prefix="R" title="Eleven design requirements" items={[
+      'Unify the two originally separated parts into one coherent analytical environment.',
+      'Improve visibility of system status, loading, empty views, active filters, and unavailable controls.',
+      'Use semantically clear labels, icons, and interactions that correspond with real-world concepts.',
+      'Ensure internal consistency and follow established web and map-interface conventions.',
+      'Improve navigation and the logical information flow between related views.',
+      'Prevent invalid input states such as an end date preceding the start date.',
+      'Keep active streets, time ranges, and analytical conditions visible instead of relying on user recall.',
+      'Present charts and data-rich views in ways that reduce cognitive load and support interpretation.',
+      'Apply aesthetic and minimalist design only where visual emphasis adds informational value.',
+      'Use reusable components to support future pages, features, and city-specific adaptations.',
+      'Preserve clarity and usability on smaller screens.',
+    ]} />
+    <Figure src="/images/thesis/map-controls-analysis.png" alt="Waze and Google Maps comparison with important interface controls highlighted" label="External consistency analysis" caption="Waze on the left and Google Maps on the right. The comparison highlights the familiar placement of search, navigation, layers, and map controls used as external-consistency benchmarks." />
+  </div>
+</CaseSection>
+
+<CaseSection n={3} label="Information architecture" title="Reframing the product around user tasks, not data sources.">
+
+The core structural decision was to replace separate map experiences with one shared map that acts as the central spatial overview. Users can combine traffic jams, accidents, hazards, and closures in the same geographical context.
+
+The analytical area was reorganized into thematic pages for accidents, congestion, hazards, and relationships between accidents and traffic jams. A high-level overview provides a starting point before users move into specialized analysis.
+
+<Cells as="ul" compact min="16rem" items={[
+  { text: 'Persistent sidebar navigation connects the map, dashboard, help, and supporting pages.' },
+  { text: 'Street and date filters are shared between map and dashboard views.' },
+  { text: 'Applied filters stay visible and can be restored from URL parameters.' },
+  { text: 'Current data can be compared with the previous period or the same period last year.' },
+]} />
+
+  <FigurePair slot="after">
+    <Figure variant="white" src="/images/thesis/proposed-architecture.png" alt="Diagram of the proposed unified traffic analysis application architecture" label="Proposed information architecture" caption="The redesign unifies the application around a shared map and thematic analytical pages for traffic jams, accidents, accident impact, and hazards." />
+    <Figure variant="matte" src="/images/thesis/dashboard-wireframe.png" alt="Wireframe of the redesigned Traffic Jams analytical dashboard" label="Dashboard wireframe" caption="Early wireframe exploring unified navigation, shared filters, key indicators, and comparison with a reference period." />
+  </FigurePair>
+</CaseSection>
+
+<CaseSection n={4} label="Design solution" title="A map for exploration, dashboards for interpretation.">
+
+The redesigned map combines geographical exploration with direct analytical feedback. Users can search or select streets, toggle individual event layers, explore accident density through a heatmap, and inspect typical traffic patterns by weekday and hour.
+
+Street-based summary cards connect spatial selection with contextual values. The dashboards then support deeper interpretation through focused indicators, distributions, trends, critical streets, and accident-congestion relationships.
+
+  <div slot="after">
+    <Figure src="/images/thesis/implemented-map.png" alt="Implemented unified traffic analytics map with event layers and shared filters" label="Implemented unified map" caption="The central map view combines street search, shared date filtering, traffic-jam lines, accident markers, hazards, road closures, and typical-traffic controls in one analytical context." />
+    <Figure src="/images/thesis/accidents-dashboard.png" alt="Implemented accident analytics dashboard with indicators and charts" label="Accidents dashboard" caption="Implemented accident-analysis view with shared street and time filters, period comparison, summary indicators, distributions, causes, high-risk streets, and exportable charts." />
+    <p class="label details-label">Details</p>
+    <FigureGrid min="20rem" gap="clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem)">
+      <Figure variant="contain" src="/images/thesis/event-layer-toggles.png" alt="Map toolbar toggles for traffic jams, accidents, hazards, and road closures" label="Visible event-layer controls" caption="Direct toggle buttons make available map layers and their active states easier to discover than the earlier dropdown interaction." />
+      <Figure variant="contain" src="/images/thesis/custom-map-markers.png" alt="Custom Figma map markers for accidents, hazards, and road closures" label="Custom map markers" caption="I created this Figma marker system for accident, hazard, and road-closure events to give map layers a consistent and immediately recognizable visual language." />
+      <Figure variant="contain" src="/images/thesis/street-search-summaries.png" alt="Street search with selected street, traffic jam values, and accident summaries" label="Street search and contextual summaries" caption="Selected streets become a shared analytical filter, while expandable cards connect the map selection with congestion and accident summaries." />
+      <Figure variant="contain" src="/images/thesis/typical-traffic.png" alt="Typical traffic map visualization with weekday and hour controls" label="Typical traffic exploration" caption="The typical-traffic component lets users explore recurring congestion by weekday and hour while keeping the visualization directly on the map." />
+    </FigureGrid>
+  </div>
+</CaseSection>
+
+<CaseSection n={5} label="Implementation" title="Taking the redesign beyond the prototype." layout="split">
+  <Figure slot="aside" variant="white" src="/images/thesis/frontend-data-flow.png" alt="Frontend data-flow diagram connecting REST API, React Query, React Context, transformations, React Leaflet, and Recharts" label="Frontend data flow" caption="React Query loads and caches traffic data from the existing REST API. Shared filters from React Context shape requests and transformations before aggregated results feed React Leaflet map layers and Recharts dashboards." />
+
+I implemented the redesigned frontend in React and TypeScript. React Leaflet powers the interactive map, Recharts renders analytical visualizations, and shadcn/ui provides a consistent component foundation.
+
+The frontend also handles meaningful analytical work: filtering, grouping, aggregation, derived indicators, comparison datasets, and transformation of API records into chart-ready structures.
+
+- Shared application state keeps map layers, charts, streets, and date ranges synchronized.
+- React Query connects filter changes to API requests and data refreshes.
+- Charts can export data as CSV and visuals as PNG or SVG.
+- Environment-based configuration allows the frontend to support multiple cities and backend deployments.
+
+</CaseSection>
+
+<CaseSection n={6} label="User testing" title="Turning observed confusion into interface changes.">
+
+Testing with different user groups focused on navigation, map interaction, filtering, chart interpretation, and control clarity. The findings were applied directly to the implemented product rather than left as recommendations.
+
+  <div slot="after">
+    <NumberedList prefix="Change " items={[
+      'A hidden event dropdown became visible map-toolbar toggle buttons.',
+      'Active toggle states received stronger visual contrast.',
+      'Chart tooltips gained explicit seconds and minutes units.',
+      'Map controls wrap or move into a separate sheet on smaller screens.',
+      'Inactive controls were simplified and meaningless comparison labels were hidden.',
+      'The help page was expanded with a guide for first-time users.',
+    ]} />
+    <Figure src="/images/thesis/testing-map-controls-iteration.png" alt="Before and after comparison showing map layer controls moved from a second toolbar row into a sidebar" label="Map controls after testing" caption="Before testing, layer toggle buttons occupied a second toolbar row above the map. The revised solution moves them into a dedicated sidebar, reducing visual crowding and preserving more space for map exploration." />
+  </div>
+</CaseSection>
+
+<CaseSection n={7} label="Outcome" title="A coherent foundation for data-heavy analysis." print>
+
+The result connects previously fragmented workflows through clearer navigation, consistent filtering, improved map controls, street-level summaries, dedicated analytical views, period comparison, export tools, and explicit loading and empty states.
+
+The project demonstrated that redesigning an analytical product is not only a visual exercise. The most important decisions concerned how data is grouped, how context moves between views, and how the interface avoids misleading interpretations when information is missing.
+
+<Tags items={['Grade A', 'Nominated for Dean’s Award']} />
+
+</CaseSection>
+
+<References label="Built on prior work" items={[
+  { title: 'M. Ondrušková — Analysis and Visualization of Brno Traffic Data', url: 'https://www.vut.cz/www_base/zav_prace_soubor_verejne.php?file_id=267517', meta: 'Brno, CZ, 2024 · Master’s thesis · Brno University of Technology, Faculty of Information Technology · Accessed 29 April 2026' },
+  { title: 'V. Šimková — Analysis and Visualization of Traffic Accident Data', url: 'https://www.vut.cz/www_base/zav_prace_soubor_verejne.php?file_id=280132', meta: 'Brno, CZ, 2025 · Bachelor’s thesis · Brno University of Technology, Faculty of Information Technology · Accessed 29 April 2026' },
+]} />

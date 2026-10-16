@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Facts from './Facts.astro';
+import Icon from './Icon.astro';
+
+interface Props { entry: CollectionEntry<'cases'> }
+const { data } = Astro.props.entry;
+const short = data.title.length <= 12;
+const meta = [String(data.order), data.year, ...data.heroMeta];
+---
+<section class:list={['case-hero wrap', { 'has-cta': data.cta }]}>
+  <div class="intro">
+    <div class="meta label">
+      {meta.map((m) => <span>{m}</span>)}
+      {data.nda && <span class="nda">Under NDA</span>}
+    </div>
+    <h1 class:list={['head', { short }]} set:html={data.heroTitle ?? data.title} />
+    {data.cta && (
+      <>
+        <p class="lead">{data.lead}</p>
+        <div class="btn-row">
+          <a class="btn btn--solid" href={data.cta.url} target="_blank" rel="noreferrer">{data.cta.label} <Icon name="out" /></a>
+        </div>
+      </>
+    )}
+  </div>
+  <div class="details auto-grid">
+    {!data.cta && (
+      <div class="stack">
+        <p class="lead">{data.lead}</p>
+        {data.leadNote && <p class="note">{data.leadNote}</p>}
+      </div>
+    )}
+    <Facts items={data.facts} labelWidth={data.cta ? '8rem' : '8.5rem'} />
+  </div>
+</section>
+
+<style>
+  .case-hero { padding-block: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 4vw, 3.5rem); }
+  .meta { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
+  :global(.print) .meta { color: var(--fg-soft); }
+  .nda { color: var(--on-print-label); }
+  h1 { margin: clamp(1.25rem, 2.5vw, 2rem) 0 0; max-width: 17ch; font-size: clamp(2.6rem, 6.4vw, 6.4rem); }
+  h1.short { font-size: clamp(3rem, 8vw, 8rem); }
+  h1 :global(em) { font-family: var(--font-body); font-style: italic; font-weight: 500; letter-spacing: -.03em; color: var(--accent); }
+  h1 :global(em.amp) { font-family: var(--font-head); font-weight: 800; letter-spacing: -.015em; }
+  .details { --min: 22rem; --gap: clamp(2rem, 5vw, 5rem); align-items: start; margin-top: clamp(2rem, 4vw, 3.5rem); }
+  .stack { --gap: 1.25rem; }
+  .lead { margin: 0; max-width: 46ch; font-size: clamp(1.1rem, 1.6vw, 1.4rem); }
+  .note { max-width: 52ch; font: 400 .8rem/1.75 var(--font-mono); color: var(--fg-soft); }
+
+  /* variant with a call to action: title block and facts side by side */
+  .has-cta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: end; gap: clamp(2rem, 5vw, 5rem); }
+  .has-cta > * { min-width: 0; }
+  .has-cta .details { display: block; margin: 0; }
+  .has-cta .lead { margin-top: clamp(1.5rem, 3vw, 2.25rem); max-width: 44ch; }
+  .has-cta .btn-row { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
+</style>

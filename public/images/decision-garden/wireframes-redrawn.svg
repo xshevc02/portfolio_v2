@@ -1,0 +1,119 @@
+<svg width="1600" height="760" viewBox="0 0 1600 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="760" rx="36" fill="#F8F2F7"/>
+  <circle cx="1368" cy="124" r="210" fill="#F6BBFC" fill-opacity="0.24"/>
+  <circle cx="244" cy="650" r="180" fill="#F6BBFC" fill-opacity="0.16"/>
+
+  <style>
+    .phone { fill: #fffdfc; stroke: #211d22; stroke-width: 3; }
+    .line { stroke: #211d22; stroke-width: 3; stroke-linecap: round; }
+    .thin { stroke: #211d22; stroke-width: 2; stroke-linecap: round; }
+    .soft { stroke: #211d22; stroke-opacity: .28; stroke-width: 2; stroke-linecap: round; }
+    .label { fill: #211d22; font: 700 25px Inter, Arial, sans-serif; letter-spacing: -.02em; }
+    .small { fill: #211d22; font: 500 16px Inter, Arial, sans-serif; opacity: .72; }
+    .tiny { fill: #211d22; font: 500 13px Inter, Arial, sans-serif; opacity: .55; }
+    .micro { fill: #211d22; font: 600 12px Inter, Arial, sans-serif; opacity: .72; }
+    .muted { fill: #211d22; opacity: .16; }
+    .accent { fill: #F6BBFC; stroke: #211d22; stroke-width: 2; }
+    .chip { fill: #fff; stroke: #211d22; stroke-opacity: .35; stroke-width: 2; }
+  </style>
+
+  <text x="170" y="74" class="label">Decision Garden — early mobile wireframes</text>
+  <text x="170" y="104" class="small">Redrawn from paper sketches: profile, question detail, and settings flows.</text>
+
+  <!-- Profile screen -->
+  <g transform="translate(170 148)">
+    <text x="0" y="-28" class="label">Profile</text>
+    <rect class="phone" x="0" y="0" width="320" height="560" rx="34"/>
+    <rect class="soft" x="24" y="28" width="272" height="1"/>
+    <text x="32" y="58" class="tiny">15:20</text>
+    <path class="thin" d="M256 54h18m7 0h7"/>
+
+    <circle class="chip" cx="160" cy="126" r="44"/>
+    <path class="line" d="M143 135c4-13 14-20 27-20s22 7 27 20"/>
+    <circle class="line" cx="160" cy="106" r="12"/>
+    <text x="97" y="190" class="small">helped 28 people</text>
+    <g transform="translate(94 206)">
+      <path d="M10 0l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1 3-7z" fill="#211d22"/>
+      <path d="M42 0l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1 3-7z" fill="#211d22"/>
+      <path d="M74 0l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1 3-7z" fill="#211d22"/>
+      <path d="M106 0l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1 3-7z" fill="#211d22" opacity=".55"/>
+    </g>
+
+    <rect class="chip" x="48" y="258" width="224" height="48" rx="12"/>
+    <text x="88" y="288" class="small">My saved groups</text>
+    <rect class="chip" x="48" y="324" width="224" height="48" rx="12"/>
+    <text x="77" y="354" class="small">Archive with questions</text>
+
+    <line class="soft" x1="24" y1="480" x2="296" y2="480"/>
+    <path class="line" d="M68 522h30v-28H68v28zM68 494l15-13 15 13"/>
+    <circle class="accent" cx="160" cy="508" r="25"/>
+    <path class="line" d="M160 496v24M148 508h24"/>
+    <path class="line" d="M230 522c2-20 34-20 36 0M248 493a14 14 0 110 28 14 14 0 010-28z"/>
+  </g>
+
+  <!-- Question detail screen -->
+  <g transform="translate(640 148)">
+    <text x="0" y="-28" class="label">Question details</text>
+    <rect class="phone" x="0" y="0" width="320" height="560" rx="34"/>
+    <rect class="soft" x="24" y="28" width="272" height="1"/>
+    <text x="32" y="58" class="tiny">18:20</text>
+    <path class="line" d="M46 92l-18 18 18 18"/>
+    <rect class="chip" x="104" y="84" width="82" height="34" rx="8"/>
+    <text x="124" y="106" class="micro">saved</text>
+    <path class="thin" d="M254 98l22 22m0-22l-22 22"/>
+
+    <circle class="chip" cx="56" cy="160" r="12"/>
+    <line class="soft" x1="84" y1="154" x2="248" y2="154"/>
+    <line class="soft" x1="84" y1="178" x2="224" y2="178"/>
+    <text x="84" y="214" class="small">Which option feels better?</text>
+    <line class="soft" x1="84" y1="238" x2="262" y2="238"/>
+
+    <rect class="chip" x="54" y="276" width="86" height="86" rx="14"/>
+    <rect class="chip" x="180" y="276" width="86" height="86" rx="14"/>
+    <circle class="accent" cx="97" cy="382" r="8"/>
+    <circle class="chip" cx="223" cy="382" r="8"/>
+
+    <text x="52" y="428" class="small">Comments</text>
+    <rect class="chip" x="50" y="446" width="220" height="42" rx="10"/>
+    <line class="soft" x1="70" y1="466" x2="196" y2="466"/>
+    <rect class="chip" x="50" y="500" width="220" height="42" rx="10"/>
+    <line class="soft" x1="70" y1="520" x2="222" y2="520"/>
+
+    <line class="soft" x1="24" y1="480" x2="296" y2="480" opacity="0"/>
+    <path class="line" d="M42 528h25v-24H42v24zM42 504l12-11 13 11"/>
+    <circle class="accent" cx="160" cy="520" r="23"/>
+    <path class="line" d="M160 509v22M149 520h22"/>
+    <path class="line" d="M241 528c2-18 31-18 33 0M257 502a13 13 0 110 26 13 13 0 010-26z"/>
+  </g>
+
+  <!-- Settings screen -->
+  <g transform="translate(1110 148)">
+    <text x="0" y="-28" class="label">Settings</text>
+    <rect class="phone" x="0" y="0" width="320" height="560" rx="34"/>
+    <rect class="soft" x="24" y="28" width="272" height="1"/>
+    <text x="32" y="58" class="tiny">12:45</text>
+    <path class="line" d="M46 92l-18 18 18 18"/>
+    <text x="74" y="116" class="small">Settings</text>
+    <path class="thin" d="M256 94h18m7 0h7"/>
+
+    <rect class="chip" x="44" y="156" width="232" height="48" rx="12"/>
+    <text x="74" y="186" class="small">Set profile</text>
+
+    <text x="44" y="250" class="small">Anonymity default</text>
+    <rect class="chip" x="218" y="226" width="58" height="32" rx="16"/>
+    <circle cx="260" cy="242" r="12" fill="#211d22"/>
+    <text x="44" y="304" class="small">My default notifications</text>
+    <rect class="chip" x="218" y="280" width="58" height="32" rx="16"/>
+    <circle cx="234" cy="296" r="12" fill="#211d22" opacity=".32"/>
+
+    <line class="soft" x1="44" y1="348" x2="276" y2="348"/>
+    <rect class="chip" x="44" y="382" width="96" height="44" rx="10"/>
+    <text x="70" y="410" class="small">Log out</text>
+
+    <line class="soft" x1="24" y1="480" x2="296" y2="480"/>
+    <path class="line" d="M68 522h30v-28H68v28zM68 494l15-13 15 13"/>
+    <circle class="accent" cx="160" cy="508" r="25"/>
+    <path class="line" d="M160 496v24M148 508h24"/>
+    <path class="line" d="M230 522c2-20 34-20 36 0M248 493a14 14 0 110 28 14 14 0 010-28z"/>
+  </g>
+</svg>

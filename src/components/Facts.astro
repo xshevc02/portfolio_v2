@@ -1,0 +1,31 @@
+---
+interface Props {
+  items: { label: string; value: string }[];
+  /** Width of the label column. */
+  labelWidth?: string;
+  /** Values in IBM Plex Mono (stack table). */
+  mono?: boolean;
+  /** Solid top rule instead of a hairline. */
+  strong?: boolean;
+}
+const { items, labelWidth = '8.5rem', mono = false, strong = false } = Astro.props;
+---
+<dl class:list={['facts', { mono, strong }]} style={`--label-w: ${labelWidth}`}>
+  {items.map((item) => (
+    <div>
+      <dt class="label">{item.label}</dt>
+      <dd>{item.value}</dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .facts { margin: 0; display: grid; border-top: 1px solid var(--line); }
+  .facts.strong { border-top-color: var(--rule); }
+  div { display: grid; grid-template-columns: minmax(0, var(--label-w)) minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+  dt { font-size: .72rem; line-height: 1.6; }
+  :global(.print) dt { color: var(--fg-soft); }
+  dd { margin: 0; font-size: .95rem; line-height: 1.55; overflow-wrap: anywhere; }
+  .mono div { padding: .95rem 0; }
+  .mono dd { font: 400 .9rem/1.6 var(--font-mono); }
+</style>

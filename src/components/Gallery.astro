@@ -1,0 +1,89 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+
+interface Item { src: string; alt: string; label?: string; caption?: string }
+interface Props {
+  items: Item[];
+  /** cards: critique-log style, full-bleed with prev/next. photos: one slide at a time (Life). */
+  variant?: 'cards' | 'photos';
+  title?: string;
+}
+const { items, variant = 'cards', title } = Astro.props;
+---
+<div class:list={['gallery', `gallery--${variant}`]} data-gallery={variant === 'cards' ? 2 : 1}>
+  {variant === 'cards' && (
+    <div class="bar">
+      <p class="count">{title} · {items.length} notes</p>
+      <div class="buttons">
+        <button type="button" class="nav" data-gallery-prev aria-label="Previous"><Icon name="back" /></button>
+        <button type="button" class="nav nav--solid" data-gallery-next aria-label="Next"><Icon name="next" /></button>
+      </div>
+    </div>
+  )}
+  <div class="track" data-gallery-track tabindex="0" aria-label={title ?? 'Photo gallery'}>
+    {items.map((item, i) => (
+      variant === 'cards' ? (
+        <figure class="card">
+          <div class="frame"><img src={url(item.src)} alt={item.alt} loading="lazy" /></div>
+          <figcaption class="caption">
+            <span class="card-label"><span class="card-num">{i + 1}</span>{item.label}</span>
+            {item.caption}
+          </figcaption>
+        </figure>
+      ) : (
+        <img class="slide" src={url(item.src)} alt={item.alt} loading={i === 0 ? undefined : 'lazy'} />
+      )
+    ))}
+  </div>
+  {variant === 'photos' && (
+    <p class="hint"><span>{items.length} photos</span><span class="line"></span><button type="button" data-gallery-next>scroll →</button></p>
+  )}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((gallery) => {
+    const track = gallery.querySelector<HTMLElement>('[data-gallery-track]')!;
+    const perStep = Number(gallery.dataset.gallery) || 1;
+    const step = () => {
+      const first = track.firstElementChild as HTMLElement | null;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return ((first?.getBoundingClientRect().width ?? 320) + gap) * perStep;
+    };
+    const scroll = (dir: number) => {
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      if (dir > 0 && atEnd && perStep === 1) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+    };
+    gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => scroll(-1));
+    gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => scroll(1));
+  });
+</script>
+
+<style>
+  .track { display: flex; gap: clamp(1rem, 2vw, 1.5rem); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .track::-webkit-scrollbar { display: none; }
+  .track:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+  /* cards */
+  .gallery--cards .bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: clamp(2rem, 4vw, 3rem) var(--gutter) 1rem; }
+  .count { margin: 0; font: 400 .74rem/1 var(--font-mono); color: var(--accent); }
+  .buttons { display: flex; gap: .5rem; }
+  .nav { width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--rule); background: transparent; color: var(--fg); }
+  .nav--solid { background: var(--solid); color: var(--on-solid); }
+  .gallery--cards .track { scroll-padding: 0 var(--gutter); padding: 0 var(--gutter) .5rem; }
+  .card { margin: 0; flex: 0 0 clamp(16rem, 30vw, 24rem); scroll-snap-align: start; }
+  .frame { display: flex; align-items: center; justify-content: center; height: clamp(14rem, 22vw, 18rem); padding: 1rem; background: var(--matte); border: 1px solid var(--line); }
+  .frame img { max-width: 100%; max-height: 100%; display: block; }
+  .card .caption { display: block; margin-top: .8rem; }
+  .card-label { display: flex; gap: .6rem; margin-bottom: .2rem; font-weight: 400; color: var(--fg); text-transform: uppercase; letter-spacing: .06em; }
+  .card-num { color: var(--accent); }
+
+  /* photos */
+  .gallery--photos { display: flex; flex-direction: column; gap: 1.25rem; }
+  .gallery--photos .track { gap: .75rem; }
+  .slide { flex: 0 0 100%; width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start; }
+  .hint { margin: 0; display: flex; align-items: center; gap: .6rem; font: 300 .72rem/1 var(--font-mono); color: var(--accent); }
+  .hint .line { flex: 1; height: 1px; background: var(--line); }
+  .hint button { padding: 0; border: 0; background: none; color: inherit; font: inherit; }
+</style>

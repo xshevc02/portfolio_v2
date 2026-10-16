@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+
+interface Props { entry: CollectionEntry<'cases'>; flip?: boolean; first?: boolean }
+const { entry, flip = false, first = false } = Astro.props;
+const { data } = entry;
+const { home } = data;
+---
+<a class:list={['row', { first, flip }]} href={url(`/work/${entry.id}/`)}>
+  <div class="text">
+    <p class="num">{data.order}</p>
+    <div class="meta label"><span>{data.year}</span><span>{data.type}</span></div>
+    <h3 class="title head">{data.title} <Icon name="out" /></h3>
+    <p class="summary">{data.summary}</p>
+    {home.stats && (
+      <div class="stats">
+        {home.stats.map((s) => (
+          <div><p class="value head">{s.value}</p><p class="stat-text">{s.label}</p></div>
+        ))}
+      </div>
+    )}
+    <p class="mono-note part">My part — {data.myPart}</p>
+  </div>
+  {home.image && (
+    <figure class="media">
+      <img
+        src={url(home.image)}
+        alt={home.alt}
+        loading={first ? 'eager' : 'lazy'}
+        class:list={{ cropped: !home.uncropped }}
+        style={home.uncropped ? undefined : `object-position: ${home.position}`}
+      />
+      {home.caption && <figcaption class="caption">{home.caption}</figcaption>}
+    </figure>
+  )}
+</a>
+
+<style>
+  .row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    margin-top: clamp(2.5rem, 5vw, 4.5rem);
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--line);
+  }
+  .row.first { margin-top: clamp(3rem, 6vw, 5rem); border-top-color: var(--rule); }
+  .row > * { min-width: 0; }
+  .flip .media { order: -1; }
+  .text { display: flex; flex-direction: column; gap: 1.1rem; }
+  .text > * { margin: 0; }
+  .meta { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
+  .title { font-size: clamp(1.8rem, 3.4vw, 3rem); }
+  .first .title { font-size: clamp(2rem, 4.4vw, 4rem); }
+  .summary { max-width: 44ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--fg-body); }
+  .row:hover .summary { color: var(--fg-body); }
+  .part { max-width: 46ch; }
+  .stats { display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .stats p { margin: 0; }
+  .value { font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1; }
+  .stat-text { margin-top: .35rem !important; max-width: 22ch; font: 300 .74rem/1.6 var(--font-mono); color: var(--accent); }
+  .media { margin: 0; display: flex; flex-direction: column; gap: .6rem; }
+  img { width: 100%; height: auto; display: block; }
+  img.cropped { aspect-ratio: 16 / 10; object-fit: cover; }
+  .media .caption { font-size: .7rem; line-height: 1.5; }
+</style>
