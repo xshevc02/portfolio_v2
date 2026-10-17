@@ -27,6 +27,28 @@
   --grid-line: rgba(31,63,191,.07);
   --grid-line-on-print: rgba(255,255,255,.08);
 
+  /* /brain: dark navy space */
+  --brain-bg: radial-gradient(120% 90% at 50% 45%, #0d1a4a 0%, #081131 45%, #060b1f 100%);
+  --brain-deep: #060b1f;
+  --brain-text: #e9eeff;
+  --brain-text-soft: rgba(233,238,255,.82);
+  --brain-text-mute: rgba(233,238,255,.7);
+  --brain-text-faint: rgba(233,238,255,.6);
+  --brain-accent: #8ea4ff;          /* labels, numbers */
+  --brain-hover: #b9c6ff;           /* hover, intro line */
+  --brain-hint: rgba(185,198,255,.7);
+  --brain-stroke: rgba(185,198,255,.55);
+  --brain-chip: rgba(6,11,31,.6);
+  --brain-chip-sub: rgba(6,11,31,.7);
+  --brain-chip-hover: rgba(31,63,191,.55);
+  --brain-border: rgba(111,140,255,.45);
+  --brain-border-soft: rgba(111,140,255,.3);
+  --brain-panel: rgba(6,11,31,.84);
+  --brain-card: #eef2ff;
+  --brain-card-img: #c9d3ff;
+  --brain-card-shadow: 0 20px 44px rgba(0,0,0,.5);
+  --brain-card-shadow-hover: 0 26px 60px rgba(0,0,0,.6), 0 0 0 1px #b9c6ff;
+
   /* type */
   --font-head: 'Archivo', sans-serif;      /* always: font-stretch 78%, weight 800, uppercase */
   --font-body: 'IBM Plex Sans', sans-serif;
@@ -94,7 +116,8 @@ html, body {
   background-size: var(--grid) var(--grid);
 }
 body.print { color: var(--on-print); }
-html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 4.75rem; }  /* anchors land below the sticky header */
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 * { box-sizing: border-box; }
 img { max-width: 100%; }

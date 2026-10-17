@@ -1,0 +1,255 @@
+{
+  "_note": "Data for /brain. Copy is final (verbatim from design). pos = 3D hub position in brain space (x right, y up, z front). col = RGB 0-1 glow tint. Paths are site-root relative; prefix with Astro base if deployed under a subpath.",
+  "regions": [
+    {
+      "id": "work",
+      "num": "1",
+      "name": "Work",
+      "pos": [
+        0.55,
+        0.55,
+        1.35
+      ],
+      "col": [
+        0.72,
+        0.8,
+        1
+      ],
+      "kicker": "2024 — now",
+      "title": "User Experience Designer",
+      "meta": "Thermo Fisher Scientific · Brno",
+      "body": "Designing scientific web applications and the tools that control electron microscopes, with Product Owners, developers, Application Specialists and domain experts.",
+      "links": [
+        {
+          "label": "Experience",
+          "href": "/#experience"
+        },
+        {
+          "label": "Selected work",
+          "href": "/#work"
+        }
+      ],
+      "memories": []
+    },
+    {
+      "id": "study",
+      "num": "2",
+      "name": "VUT FIT",
+      "pos": [
+        -0.6,
+        1.05,
+        -0.15
+      ],
+      "col": [
+        0.55,
+        0.85,
+        1
+      ],
+      "kicker": "Graduated 2026",
+      "title": "B.S. Information Technology",
+      "meta": "Brno University of Technology · VUT FIT",
+      "body": "Bachelor thesis: User-friendliness of the Traffic Analysis App. Evaluated with grade A and nominated for the Dean’s Award.",
+      "image": "/images/thesis/final-solution-overview.png",
+      "imageAlt": "Analyticity traffic analytics interface after the redesign",
+      "links": [
+        {
+          "label": "Bachelor thesis · Analyticity",
+          "href": "/work/analyticity"
+        },
+        {
+          "label": "Education",
+          "href": "/#education"
+        }
+      ],
+      "memories": [
+        {
+          "image": "/images/thesis/legacy-accidents-dashboard.png",
+          "caption": "Before · legacy dashboard"
+        },
+        {
+          "image": "/images/thesis/dashboard-wireframe.png",
+          "caption": "Wireframe"
+        },
+        {
+          "image": "/images/thesis/testing-map-controls-iteration.png",
+          "caption": "Testing map controls"
+        },
+        {
+          "image": "/images/thesis/implemented-map.png",
+          "caption": "Built in React"
+        }
+      ]
+    },
+    {
+      "id": "kisk",
+      "num": "3",
+      "name": "KISK",
+      "pos": [
+        1.3,
+        -0.25,
+        0.1
+      ],
+      "col": [
+        0.62,
+        0.68,
+        1
+      ],
+      "kicker": "Expected 2028",
+      "title": "M.S. Information Services Design",
+      "meta": "Masaryk University · KISK FF",
+      "body": "Part-time, focused on information services, user needs and the design of digital information experiences.",
+      "links": [
+        {
+          "label": "Study reflections",
+          "href": "/kisk"
+        },
+        {
+          "label": "Education",
+          "href": "/#education"
+        }
+      ],
+      "memories": [
+        {
+          "image": null,
+          "caption": "KISK"
+        },
+        {
+          "image": null,
+          "caption": "KISK"
+        },
+        {
+          "image": null,
+          "caption": "KISK"
+        }
+      ]
+    },
+    {
+      "id": "life",
+      "num": "4",
+      "name": "Life",
+      "pos": [
+        -0.35,
+        -0.55,
+        -1.5
+      ],
+      "col": [
+        0.8,
+        0.9,
+        1
+      ],
+      "kicker": "Outside work",
+      "title": "Two things I keep coming back to.",
+      "meta": "Travel · RealUXCamp",
+      "body": "Rome, Batumi, Crete, Estonia, Riga and Budapest with the people who made each place feel unique. And RealUXCamp at Paběnický mlýn, a weekend of new ideas and new people.",
+      "image": "/images/hobbies/travel-gallery/travel-1.jpg",
+      "imageAlt": "Travel journal collage with postcards from Estonia, Latvia and Riga",
+      "links": [
+        {
+          "label": "Travel",
+          "href": "/#travel"
+        },
+        {
+          "label": "RealUXCamp",
+          "href": "/#realuxcamp"
+        }
+      ],
+      "memories": [
+        {
+          "image": "/images/hobbies/travel-gallery/travel-2.jpg",
+          "caption": "Budapest"
+        },
+        {
+          "image": "/images/hobbies/travel-gallery/travel-3.jpg",
+          "caption": "Rome"
+        },
+        {
+          "image": "/images/hobbies/community-gallery/community-4.jpg",
+          "caption": "RealUXCamp"
+        },
+        {
+          "image": "/images/hobbies/travel-gallery/travel-4.jpg",
+          "caption": "Greece"
+        }
+      ]
+    }
+  ],
+  "workCases": [
+    {
+      "num": "1.1",
+      "name": "Analyticity",
+      "kicker": "2026 · Data platform · UX + frontend",
+      "title": "Analyticity platform overhaul",
+      "meta": "Bachelor thesis · VUT FIT",
+      "body": "Traffic jams, accidents, hazards and road closures lived in separate fragmented views. I rebuilt them into one map-based workflow where a street, a period and a comparison are three clicks apart.",
+      "image": "/images/thesis/final-solution-overview.png",
+      "imageAlt": "Analyticity traffic analytics interface after the redesign",
+      "href": "/work/analyticity"
+    },
+    {
+      "num": "1.2",
+      "name": "Pockland",
+      "kicker": "2026 · Personal product · built and running",
+      "title": "Pockland",
+      "meta": "Product thinking, UI, AI-assisted prototyping, build",
+      "body": "A book tracker I took from a mobile-first prototype to a working responsive app: real accounts, synced data, and discovery through Open Library and Google Books.",
+      "image": "/images/pockland/live-preview.png",
+      "imageAlt": "Pockland book tracker live preview",
+      "href": "/work/pockland"
+    },
+    {
+      "num": "1.3",
+      "name": "Wake & Wine",
+      "kicker": "2025 · UX research · UI · full stack",
+      "title": "Wake & Wine",
+      "meta": "Interviews, drink-entry flow, React and FastAPI",
+      "body": "Habit trackers either moralise or make logging too slow to keep up. I designed a neutral one: pick a drink, see the glasses, watch the total — then read your month back as patterns and spending.",
+      "image": "/images/wake-wine/drink-entry-complete.png",
+      "imageAlt": "Wake and Wine completed drink entry screen",
+      "href": "/work/wake-and-wine"
+    },
+    {
+      "num": "1.4",
+      "name": "Thermo Fisher",
+      "kicker": "2024 — now · under NDA",
+      "title": "Instrument control at Thermo Fisher Scientific",
+      "meta": "Abstracted case",
+      "body": "My day job: the software scientists and engineers use to drive electron microscopes. I can’t publish the screens — proprietary parameters, algorithms and scientific data.",
+      "image": null,
+      "imageAlt": null,
+      "href": "/work/thermo-fisher"
+    },
+    {
+      "num": "1.5",
+      "name": "PeePoint",
+      "kicker": "2024 · Research → product spec",
+      "title": "PeePoint",
+      "meta": "Survey synthesis, personas, functional spec",
+      "body": "A survey turned a small inconvenience into a product direction: people plan trips on a laptop but need the saved places in their hand on the street.",
+      "image": "/images/peepoint/ai-prototype/ai-prototype-preview.png",
+      "imageAlt": "PeePoint screens reworked with AI",
+      "href": "/work/peepoint"
+    }
+  ],
+  "memorySlots": [
+    {
+      "x": -0.95,
+      "y": -0.62,
+      "rot": -5
+    },
+    {
+      "x": 0.38,
+      "y": -0.78,
+      "rot": 4
+    },
+    {
+      "x": -1.05,
+      "y": 0.32,
+      "rot": 3
+    },
+    {
+      "x": 0.3,
+      "y": 0.42,
+      "rot": -4
+    }
+  ]
+}

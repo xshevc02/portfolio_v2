@@ -1,0 +1,27 @@
+---
+import '../styles/system.css';
+import BrainOverlay from '../components/brain/BrainOverlay.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anna Shevchenko — 3D map</title>
+    <meta name="description" content="A 3D map of Anna Shevchenko’s work, studies and life outside them: select a region of the brain to look inside." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="brain-page">
+    <BrainOverlay />
+    <script>
+      import '../components/brain/brain.ts';
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html:has(.brain-page), .brain-page { height: 100%; overflow: hidden; background: var(--brain-deep); color: var(--brain-text); }
+  .brain-page ::selection { color: var(--brain-deep); background: var(--brain-hover); }
+</style>

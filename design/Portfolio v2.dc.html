@@ -21,6 +21,9 @@
   .u a:hover::after { transform: scaleX(1); transform-origin: left; }
   .om-track::-webkit-scrollbar { display: none; }
 </style>
+<script>
+(function(){var go=function(n){var id=decodeURIComponent(location.hash.slice(1));if(!id)return;var el=document.getElementById(id);if(el){var y=el.getBoundingClientRect().top+window.scrollY-72;window.scrollTo(0,y);}else if(n<40)setTimeout(function(){go(n+1)},100);};window.addEventListener('load',function(){setTimeout(function(){go(0)},150)});})();
+</script>
 </helmet>
 
 <header class="u" style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem clamp(1.25rem, 4vw, 4.5rem); border-bottom: 1px solid rgba(31,63,191,.30); background: rgba(245,247,249,.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
@@ -29,6 +32,7 @@
     <a href="#work">Work</a>
     <a href="#about">About</a>
     <a href="#life">Life</a>
+    <a href="Brain.dc.html">Explore in 3D</a>
     <a href="https://docs.google.com/document/d/1WiEn4m7vF1AwVd9WYD8QIVhUFJTEkMI9Howa8WtqWp8/edit?usp=sharing" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: .4rem; font-weight: 500;">CV
       <svg viewBox="0 0 18 18" aria-hidden="true" style="width: .9rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 14 14 4M6 4h8v8"></path></svg>
     </a>
@@ -73,7 +77,7 @@
   </div>
 </section>
 
-<section id="work" data-screen-label="Work" style="padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(4rem, 8vw, 7rem); border-top: 1px solid rgba(31,63,191,.30);">
+<section id="work" data-screen-label="Work" style="scroll-margin-top: 4.5rem; padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(4rem, 8vw, 7rem); border-top: 1px solid rgba(31,63,191,.30);">
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: end; gap: clamp(1.5rem, 4vw, 3rem);">
     <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #1f3fbf;">Work · newest first</p>
     <h2 style="margin: 0; max-width: 26ch; font-size: clamp(1.9rem, 3.4vw, 3.2rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Four projects I can talk about for an hour, and one I can’t show you.</h2>
@@ -152,7 +156,7 @@
 </section>
 
 
-<section id="about" data-screen-label="About" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
+<section id="about" data-screen-label="About" style="scroll-margin-top: 4.5rem; padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem); background-color: #1c3aa9; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 24px 24px; color: #f2f5ff;">
   <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">About me</p>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: start; gap: clamp(2rem, 6vw, 5rem); margin-top: clamp(2.5rem, 5vw, 4rem);">
     <h2 style="margin: 0; max-width: 18ch; font-size: clamp(2rem, 4.2vw, 3.8rem);  line-height: .9; letter-spacing: -.015em; text-wrap: pretty; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">The interface is the smallest part of the problem.</h2>
@@ -163,7 +167,7 @@
     </div>
   </div>
 
-  <div style="margin-top: clamp(3.5rem, 7vw, 6rem);">
+  <div id="experience" style="margin-top: clamp(3.5rem, 7vw, 6rem); scroll-margin-top: 5rem;">
     <p style="margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Experience</p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: clamp(1.25rem, 4vw, 3.5rem); padding-top: clamp(1.25rem, 2.5vw, 2rem); border-top: 1px solid rgba(242,245,255,.22);">
       <div style="min-width: 0;">
@@ -185,7 +189,7 @@
     </div>
   </div>
 
-  <div style="margin-top: clamp(3rem, 6vw, 5rem);">
+  <div id="education" style="margin-top: clamp(3rem, 6vw, 5rem); scroll-margin-top: 5rem;">
     <p style="margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(242,245,255,.6);">Education</p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: clamp(1.25rem, 4vw, 3.5rem); padding-top: clamp(1.25rem, 2.5vw, 2rem); border-top: 1px solid rgba(242,245,255,.22);">
       <div style="min-width: 0;">
@@ -233,14 +237,14 @@
   </div>
 </section>
 
-<section id="life" data-screen-label="Life" style="padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf;">
+<section id="life" data-screen-label="Life" style="scroll-margin-top: 4.5rem; padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf;">
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: end; gap: clamp(1.5rem, 4vw, 3rem);">
     <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #1f3fbf;">Outside work</p>
     <h2 style="margin: 0; max-width: 24ch; font-size: clamp(1.9rem, 3.4vw, 3.2rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Two things I keep coming back to.</h2>
   </div>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: clamp(2rem, 5vw, 4rem); margin-top: clamp(2.5rem, 5vw, 4rem);">
-    <article style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+    <article id="travel" style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem; scroll-margin-top: 5rem;">
       <div class="om-track" style="display: grid; grid-auto-columns: 100%; grid-auto-flow: column; gap: .75rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: inline mandatory; scrollbar-width: none;">
         <img src="public/images/hobbies/travel-gallery/travel-1.jpg" alt="Travel journal collage with postcards from Estonia, Latvia and Riga" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
         <img src="public/images/hobbies/travel-gallery/travel-2.jpg" alt="Travel journal collage with Budapest photos and museum tickets" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
@@ -255,7 +259,7 @@
       </div>
     </article>
 
-    <article style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem;">
+    <article id="realuxcamp" style="min-width: 0; display: flex; flex-direction: column; gap: 1.25rem; scroll-margin-top: 5rem;">
       <div class="om-track" style="display: grid; grid-auto-columns: 100%; grid-auto-flow: column; gap: .75rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: inline mandatory; scrollbar-width: none;">
         <img src="public/images/hobbies/community-gallery/community-1.jpg" alt="Community event presentation in a wooden room" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
         <img src="public/images/hobbies/community-gallery/community-6.jpg" alt="Event schedule board with handwritten workshop sessions" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; scroll-snap-align: start;" />
@@ -273,7 +277,7 @@
   </div>
 </section>
 
-<section id="contact" data-screen-label="Contact" style="display: flex; flex-direction: column; justify-content: center; padding: clamp(4.5rem, 10vw, 9rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf; color: #14161c;">
+<section id="contact" data-screen-label="Contact" style="scroll-margin-top: 4.5rem; display: flex; flex-direction: column; justify-content: center; padding: clamp(4.5rem, 10vw, 9rem) clamp(1.25rem, 4vw, 4.5rem); border-top: 1px solid #1f3fbf; color: #14161c;">
   <p style="margin: 0; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em;">Contact</p>
   <h2 style="margin: clamp(2rem, 5vw, 4rem) 0 0; max-width: 16ch; font-size: clamp(2.75rem, 8vw, 8rem);  line-height: .9; letter-spacing: -.015em; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; text-transform: uppercase;">Working on something complicated? <em style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;">Let’s talk.</em></h2>
   <p style="margin: clamp(1.75rem, 4vw, 3rem) 0 0; max-width: 44ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.65;">I’m in Brno, happy to work on site here, hybrid in Prague, or remote across Europe. Tell me what your users are stuck with.</p>

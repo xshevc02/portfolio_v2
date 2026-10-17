@@ -39,6 +39,7 @@ const skills = [
 
 const life = [
   {
+    id: 'travel',
     title: 'Travel',
     tags: [{ icon: 'pin', text: 'Around the world' }],
     text: 'Some trips stay with me because of the people I shared them with — my sister, close friends, and different companions who made each place feel unique 🌍. Rome, Batumi, Crete, Estonia, Riga, and Budapest all became special in their own way: shared meals, unknown streets, sea views, postcards, tiny tickets, and the joy of discovering something new together ✨.',
@@ -50,6 +51,7 @@ const life = [
     ],
   },
   {
+    id: 'realuxcamp',
     title: 'RealUXCamp',
     tags: [{ icon: 'calendar', text: '14–16 August' }, { icon: 'pin', text: 'Paběnický mlýn' }],
     text: 'RealUXCamp left me with that rare kind of energy when a weekend gives you both new ideas and new people ✨. The talks opened many topics I want to return to — AI in everyday design work, stakeholder collaboration, team experience from 2FRESH, and how people think about hiring. What inspired me most were the conversations around the talks: shared questions, spontaneous discussions, campfire moments, and the joy of being part of the Czech UX community 🔥.',
@@ -95,7 +97,7 @@ const life = [
       </div>
     </div>
 
-    <div class="block">
+    <div id="experience" class="block">
       <p class="label">Experience</p>
       <div class="entries auto-grid">
         <div>
@@ -112,7 +114,7 @@ const life = [
       </div>
     </div>
 
-    <div class="block">
+    <div id="education" class="block">
       <p class="label">Education</p>
       <div class="entries auto-grid">
         <div>
@@ -149,7 +151,7 @@ const life = [
     </div>
     <div class="life-grid auto-grid">
       {life.map((item) => (
-        <article class="stack">
+        <article id={item.id} class="stack">
           <Gallery variant="photos" items={[...item.photos]} />
           <div>
             <h3 class="head">{item.title}</h3>

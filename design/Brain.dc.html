@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html, body { margin: 0; height: 100%; overflow: hidden; background: #060b1f; color: #e9eeff; font-family: 'IBM Plex Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+a:hover { color: #b9c6ff; }
+button { font: inherit; color: inherit; cursor: pointer; }
+::selection { color: #060b1f; background: #b9c6ff; }
+</style>
+</helmet>
+<div data-screen-label="Brain" style="position: fixed; inset: 0; overflow: hidden; background: radial-gradient(120% 90% at 50% 45%, #0d1a4a 0%, #081131 45%, #060b1f 100%);">
+  <div ref="{{ hostRef }}" style="position: absolute; inset: 0; cursor: grab; touch-action: none;"></div>
+
+  <div style="position: absolute; inset: 0; pointer-events: none;">
+    <sc-for list="{{ regions }}" as="r" hint-placeholder-count="4">
+      <button data-hub="{{ r.id }}" onClick="{{ r.onSelect }}" onMouseEnter="{{ r.onEnter }}" onMouseLeave="{{ onLeave }}" style="position: absolute; left: 0; top: 0; opacity: 0; pointer-events: none; display: flex; align-items: center; gap: .6rem; padding: .5rem .75rem .5rem .6rem; background: rgba(6,11,31,.6); border: 1px solid rgba(111,140,255,.45); border-radius: 2px; font: 400 .72rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #e9eeff; white-space: nowrap; backdrop-filter: blur(4px); transition: border-color .2s, background .2s;" style-hover="border-color: #b9c6ff; background: rgba(31,63,191,.55);">
+        <span style="color: #8ea4ff;">{{ r.num }}</span>
+        <span>{{ r.name }}</span>
+      </button>
+    </sc-for>
+    <sc-for list="{{ subs }}" as="s" hint-placeholder-count="5">
+      <button data-sub="{{ s.key }}" onClick="{{ s.onSelect }}" style="position: absolute; left: 0; top: 0; opacity: 0; pointer-events: none; display: flex; align-items: center; gap: .5rem; padding: .4rem .6rem; background: rgba(6,11,31,.7); border: 1px solid rgba(111,140,255,.35); border-radius: 2px; font: 400 .66rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; color: #dfe6ff; white-space: nowrap; backdrop-filter: blur(4px); transition: border-color .2s, background .2s;" style-hover="border-color: #b9c6ff; background: rgba(31,63,191,.55);">
+        <span style="color: #8ea4ff;">1.{{ s.n }}</span>
+        <span>{{ s.name }}</span>
+      </button>
+    </sc-for>
+  </div>
+
+  <p data-bigname="" style="position: absolute; left: clamp(1.25rem, 4vw, 3rem); bottom: 3.75rem; margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; font-size: clamp(4.5rem, 12vw, 11rem); line-height: .8; letter-spacing: -.01em; text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px rgba(185,198,255,.55); pointer-events: none; opacity: {{ bigOpacity }}; transition: opacity .8s;">{{ bigName }}</p>
+
+  <div style="position: absolute; inset: 0; pointer-events: none;">
+    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;">
+      <sc-for list="{{ mems }}" as="m" hint-placeholder-count="0">
+        <line data-memline="" x1="0" y1="0" x2="0" y2="0" stroke="#8ea4ff" stroke-width="1" stroke-dasharray="3 5" opacity="0"></line>
+      </sc-for>
+    </svg>
+    <sc-for list="{{ mems }}" as="m" hint-placeholder-count="0">
+      <figure data-mem="" style="position: absolute; left: 0; top: 0; margin: 0; width: {{ memW }}px; padding: 7px 7px 0; background: #eef2ff; box-shadow: 0 20px 44px rgba(0,0,0,.5); opacity: 0; pointer-events: auto; transition: box-shadow .2s;" style-hover="box-shadow: 0 26px 60px rgba(0,0,0,.6), 0 0 0 1px #b9c6ff;">
+        <sc-if value="{{ m.src }}" hint-placeholder-val="{{ false }}">
+          <div role="img" aria-label="{{ m.cap }}" style="width: 100%; aspect-ratio: 4 / 3; background-color: #c9d3ff; background-image: {{ m.css }}; background-size: cover; background-position: center;"></div>
+        </sc-if>
+        <sc-if value="{{ m.slot }}" hint-placeholder-val="{{ false }}">
+          <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; background: #c9d3ff; color: #1c3aa9;">
+            <image-slot id="{{ m.slot }}" shape="rect" placeholder="Drop a KISK photo" style="position: absolute; inset: 0;"></image-slot>
+          </div>
+        </sc-if>
+        <figcaption style="padding: .55rem .15rem .65rem; font: 400 .64rem/1.3 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; color: #1c3aa9;">{{ m.cap }}</figcaption>
+      </figure>
+    </sc-for>
+  </div>
+
+  <header style="position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1.25rem, 4vw, 3rem); pointer-events: none;">
+    <div style="display: flex; flex-direction: column; gap: .8rem;">
+      <p style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: .9; letter-spacing: -.01em; text-transform: uppercase;">Anna Shevchenko</p>
+      <p style="margin: 0; max-width: 34ch; font: 300 .76rem/1.6 'IBM Plex Mono', monospace; color: #b9c6ff; text-wrap: pretty; opacity: {{ introOpacity }}; transition: opacity .4s;">A 3D map of my work, studies and life outside them. Select a region to look inside.</p>
+    </div>
+    <a href="Portfolio v2.dc.html" style="pointer-events: auto; flex-shrink: 0; display: inline-flex; align-items: center; gap: .5rem; padding-bottom: .3rem; border-bottom: 1px solid currentColor; font: 500 .74rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em;">← Portfolio</a>
+  </header>
+
+  <p style="position: absolute; left: clamp(1.25rem, 4vw, 3rem); bottom: clamp(1.25rem, 3vw, 2.25rem); margin: 0; font: 300 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(185,198,255,.7); pointer-events: none;">Drag to rotate · Select a region</p>
+
+  <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+    <aside style="position: absolute; top: {{ panelTop }}; right: 0; bottom: 0; width: {{ panelW }}; overflow-y: auto; display: flex; flex-direction: column; gap: 1.5rem; padding: clamp(1.5rem, 3vw, 2.75rem); background: rgba(6,11,31,.84); border-left: 1px solid rgba(111,140,255,.3); border-top: 1px solid rgba(111,140,255,.3); backdrop-filter: blur(10px);">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+        <p style="margin: 0; font: 400 .74rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: #8ea4ff;">{{ crumb }}</p>
+        <button onClick="{{ close }}" aria-label="Close" style="width: 2.5rem; height: 2.5rem; display: grid; place-items: center; background: none; border: 1px solid rgba(111,140,255,.45); border-radius: 2px; font: 400 1rem/1 'IBM Plex Mono', monospace;" style-hover="border-color: #b9c6ff;">×</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: .9rem;">
+        <p style="margin: 0; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: rgba(233,238,255,.7);">{{ cur.kicker }}</p>
+        <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 78%; font-weight: 800; font-size: clamp(2rem, 3.4vw, 3rem); line-height: .9; letter-spacing: -.015em; text-transform: uppercase; text-wrap: pretty;">{{ cur.title }}</h2>
+        <p style="margin: 0; font: 300 .78rem/1.6 'IBM Plex Mono', monospace; color: #8ea4ff;">{{ cur.meta }}</p>
+      </div>
+      <sc-if value="{{ cur.img }}" hint-placeholder-val="{{ false }}">
+        <div role="img" aria-label="{{ cur.imgAlt }}" style="width: 100%; aspect-ratio: 16 / 10; border: 1px solid rgba(111,140,255,.3); background-color: #0d1a4a; background-image: {{ cur.imgCss }}; background-size: cover; background-position: center top;"></div>
+      </sc-if>
+      <p style="margin: 0; font-size: 1.02rem; line-height: 1.7; color: rgba(233,238,255,.82); text-wrap: pretty;">{{ cur.body }}</p>
+      <sc-if value="{{ showSubList }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column;">
+          <p style="margin: 0 0 .5rem; font: 400 .72rem/1.5 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(233,238,255,.6);">Case studies</p>
+          <sc-for list="{{ subs }}" as="s" hint-placeholder-count="5">
+            <button onClick="{{ s.onSelect }}" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0; background: none; border: none; border-top: 1px solid rgba(111,140,255,.3); text-align: left; font: 500 .76rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;" style-hover="color: #b9c6ff;">
+              <span style="display: flex; gap: .9rem;"><span style="color: #8ea4ff;">1.{{ s.n }}</span><span>{{ s.name }}</span></span><span>→</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="display: flex; flex-direction: column;">
+        <sc-for list="{{ cur.links }}" as="l" hint-placeholder-count="1">
+          <a href="{{ l.href }}" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0; border-top: 1px solid rgba(111,140,255,.3); font: 500 .76rem/1.4 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em;">
+            <span>{{ l.label }}</span><span>→</span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="margin-top: auto; display: flex; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid rgba(111,140,255,.3);">
+        <button onClick="{{ prev }}" style="background: none; border: none; padding: .5rem 0; font: 400 .72rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(233,238,255,.7);" style-hover="color: #fff;">← {{ prevName }}</button>
+        <button onClick="{{ next }}" style="background: none; border: none; padding: .5rem 0; font: 400 .72rem/1 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .09em; color: rgba(233,238,255,.7);" style-hover="color: #fff;">{{ nextName }} →</button>
+      </div>
+    </aside>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SUBS = [
+  { name: 'Analyticity', kicker: '2026 · Data platform · UX + frontend', title: 'Analyticity platform overhaul', meta: 'Bachelor thesis · VUT FIT',
+    body: 'Traffic jams, accidents, hazards and road closures lived in separate fragmented views. I rebuilt them into one map-based workflow where a street, a period and a comparison are three clicks apart.',
+    img: 'public/images/thesis/final-solution-overview.png', imgAlt: 'Analyticity traffic analytics interface after the redesign', href: 'Case - Analyticity.dc.html' },
+  { name: 'Pockland', kicker: '2026 · Personal product · built and running', title: 'Pockland', meta: 'Product thinking, UI, AI-assisted prototyping, build',
+    body: 'A book tracker I took from a mobile-first prototype to a working responsive app: real accounts, synced data, and discovery through Open Library and Google Books.',
+    img: 'public/images/pockland/live-preview.png', imgAlt: 'Pockland book tracker live preview', href: 'Case - Pockland.dc.html' },
+  { name: 'Wake & Wine', kicker: '2025 · UX research · UI · full stack', title: 'Wake & Wine', meta: 'Interviews, drink-entry flow, React and FastAPI',
+    body: 'Habit trackers either moralise or make logging too slow to keep up. I designed a neutral one: pick a drink, see the glasses, watch the total — then read your month back as patterns and spending.',
+    img: 'public/images/wake-wine/drink-entry-complete.png', imgAlt: 'Wake and Wine completed drink entry screen', href: 'Case - Wake and Wine.dc.html' },
+  { name: 'Thermo Fisher', kicker: '2024 — now · under NDA', title: 'Instrument control at Thermo Fisher Scientific', meta: 'Abstracted case',
+    body: 'My day job: the software scientists and engineers use to drive electron microscopes. I can’t publish the screens — proprietary parameters, algorithms and scientific data.',
+    href: 'Case - Thermo Fisher.dc.html' },
+  { name: 'PeePoint', kicker: '2024 · Research → product spec', title: 'PeePoint', meta: 'Survey synthesis, personas, functional spec',
+    body: 'A survey turned a small inconvenience into a product direction: people plan trips on a laptop but need the saved places in their hand on the street.',
+    img: 'public/images/peepoint/ai-prototype/ai-prototype-preview.png', imgAlt: 'PeePoint screens reworked with AI', href: 'Case - PeePoint.dc.html' }
+];
+
+const MEMS = {
+  study: [
+    { src: 'public/images/thesis/legacy-accidents-dashboard.png', cap: 'Before · legacy dashboard' },
+    { src: 'public/images/thesis/dashboard-wireframe.png', cap: 'Wireframe' },
+    { src: 'public/images/thesis/testing-map-controls-iteration.png', cap: 'Testing map controls' },
+    { src: 'public/images/thesis/implemented-map.png', cap: 'Built in React' }
+  ],
+  kisk: [
+    { slot: 'kisk-mem-1', cap: 'KISK' },
+    { slot: 'kisk-mem-2', cap: 'KISK' },
+    { slot: 'kisk-mem-3', cap: 'KISK' }
+  ],
+  life: [
+    { src: 'public/images/hobbies/travel-gallery/travel-2.jpg', cap: 'Budapest' },
+    { src: 'public/images/hobbies/travel-gallery/travel-3.jpg', cap: 'Rome' },
+    { src: 'public/images/hobbies/community-gallery/community-4.jpg', cap: 'RealUXCamp' },
+    { src: 'public/images/hobbies/travel-gallery/travel-4.jpg', cap: 'Greece' }
+  ]
+};
+const MEM_SLOTS = [[-0.95, -0.62, -5], [0.38, -0.78, 4], [-1.05, 0.32, 3], [0.3, 0.42, -4]];
+
+const REGIONS = [
+  { id: 'work', num: '1', name: 'Work', pos: [0.55, 0.55, 1.35], col: [0.72, 0.8, 1],
+    kicker: '2024 — now', title: 'User Experience Designer', meta: 'Thermo Fisher Scientific · Brno',
+    body: 'Designing scientific web applications and the tools that control electron microscopes, with Product Owners, developers, Application Specialists and domain experts.',
+    links: [{ label: 'Experience', href: 'Portfolio v2.dc.html#experience' }, { label: 'Selected work', href: 'Portfolio v2.dc.html#work' }] },
+  { id: 'study', num: '2', name: 'VUT FIT', pos: [-0.6, 1.05, -0.15], col: [0.55, 0.85, 1],
+    kicker: 'Graduated 2026', title: 'B.S. Information Technology', meta: 'Brno University of Technology · VUT FIT',
+    body: 'Bachelor thesis: User-friendliness of the Traffic Analysis App. Evaluated with grade A and nominated for the Dean’s Award.',
+    img: 'public/images/thesis/final-solution-overview.png', imgAlt: 'Analyticity traffic analytics interface after the redesign',
+    links: [{ label: 'Bachelor thesis · Analyticity', href: 'Case - Analyticity.dc.html' }, { label: 'Education', href: 'Portfolio v2.dc.html#education' }] },
+  { id: 'kisk', num: '3', name: 'KISK', pos: [1.3, -0.25, 0.1], col: [0.62, 0.68, 1],
+    kicker: 'Expected 2028', title: 'M.S. Information Services Design', meta: 'Masaryk University · KISK FF',
+    body: 'Part-time, focused on information services, user needs and the design of digital information experiences.',
+    links: [{ label: 'Study reflections', href: 'KISK Reflections.dc.html' }, { label: 'Education', href: 'Portfolio v2.dc.html#education' }] },
+  { id: 'life', num: '4', name: 'Life', pos: [-0.35, -0.55, -1.5], col: [0.8, 0.9, 1],
+    kicker: 'Outside work', title: 'Two things I keep coming back to.', meta: 'Travel · RealUXCamp',
+    body: 'Rome, Batumi, Crete, Estonia, Riga and Budapest with the people who made each place feel unique. And RealUXCamp at Paběnický mlýn, a weekend of new ideas and new people.',
+    img: 'public/images/hobbies/travel-gallery/travel-1.jpg', imgAlt: 'Travel journal collage with postcards from Estonia, Latvia and Riga',
+    links: [{ label: 'Travel', href: 'Portfolio v2.dc.html#travel' }, { label: 'RealUXCamp', href: 'Portfolio v2.dc.html#realuxcamp' }] }
+];
+
+class Component extends DCLogic {
+  state = { sel: -1, sub: -1, hover: -1, mobile: typeof window !== 'undefined' && window.innerWidth < 720 };
+  hostRef = el => { this.host = el; };
+
+  componentDidMount() {
+    this._alive = true;
+    const go = () => { if (!this._alive) return; if (window.THREE && this.host) this.init(); else setTimeout(go, 60); };
+    go();
+    this._key = e => { if (e.key === 'Escape') { if (this.state.sub >= 0) this.selectSub(-1); else this.select(-1); } };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() {
+    this._alive = false;
+    cancelAnimationFrame(this._raf);
+    window.removeEventListener('keydown', this._key);
+    window.removeEventListener('resize', this._rs);
+    if (this.renderer) { this.renderer.dispose(); this.renderer.domElement.remove(); }
+  }
+
+  select(i) {
+    this.setState({ sel: i, sub: -1 });
+    const v = this.v; if (!v) return;
+    if (i < 0) { v.camT = [0, 0, v.camZ]; return; }
+    const [x, y, z] = REGIONS[i].pos;
+    let th = Math.atan2(-x, z);
+    th += Math.PI * 2 * Math.round((v.tRotY - th) / (Math.PI * 2));
+    const zp = -x * Math.sin(th) + z * Math.cos(th);
+    v.tRotY = th; v.tRotX = Math.atan2(y, zp);
+    v.camT = this.state.mobile ? [0, -0.95, i === 0 ? 6.2 : 5.4] : [1.05, 0, i === 0 ? 5.4 : 4.5];
+  }
+  selectSub(k) { if (this.state.sel !== 0) this.select(0); this.setState({ sub: k }); }
+  setHover(i) { if (this.v) this.v.hover = i; if (this.state.hover !== i) this.setState({ hover: i }); }
+
+  init() {
+    const T = THREE, host = this.host;
+    const W = () => host.clientWidth, H = () => host.clientHeight;
+    const mobile = W() < 720;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(W(), H());
+    renderer.domElement.style.display = 'block';
+    host.appendChild(renderer.domElement);
+    this.renderer = renderer;
+    const scene = new T.Scene();
+    scene.fog = new T.FogExp2(0x060b1f, 0.085);
+    const cam = new T.PerspectiveCamera(38, W() / H(), 0.1, 100);
+    const camZ = mobile ? 11 : 9;
+    cam.position.set(0, 0, reduce ? camZ : camZ + 5);
+    const g = new T.Group(); scene.add(g);
+
+    let seed = 11;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const dir = () => { let a, b, c, d; do { a = rnd() * 2 - 1; b = rnd() * 2 - 1; c = rnd() * 2 - 1; d = a * a + b * b + c * c; } while (d > 1 || d < 0.01); d = Math.sqrt(d); return [a / d, b / d, c / d]; };
+    const pt = () => {
+      const u = rnd();
+      if (u < 0.12) { const v = dir(), s = 0.75 + rnd() * 0.25; return [v[0] * 0.95 * s, -0.75 + v[1] * 0.36 * s, -1.05 + v[2] * 0.55 * s]; }
+      if (u < 0.15) { const t = rnd(); return [(rnd() - 0.5) * 0.28, -0.75 - t * 0.85, -0.5 + t * 0.12 + (rnd() - 0.5) * 0.2]; }
+      const side = rnd() < 0.5 ? -1 : 1, v = dir(), s = rnd() < 0.82 ? 0.92 + rnd() * 0.08 : 0.35 + rnd() * 0.55;
+      const f = 1 + 0.07 * Math.sin(v[0] * 9 + v[1] * 7) * Math.sin(v[2] * 6 + v[1] * 5);
+      let x = side * 0.55 + v[0] * 0.78 * s * f, y = v[1] * 1.0 * s * f + 0.12, z = v[2] * 1.6 * s * f;
+      if (side * x < 0.06) x = side * (0.06 + rnd() * 0.05);
+      if (y < -0.4) y = -0.4 + (y + 0.4) * 0.45;
+      if (z > 0.6) y -= (z - 0.6) * 0.12;
+      return [x, y, z];
+    };
+    const N = mobile ? 750 : 1150;
+    const P = [], S = [], D = [];
+    for (let i = 0; i < N; i++) { P.push(pt()); const d = dir(), r = 5 + rnd() * 7; S.push([d[0] * r, d[1] * r, d[2] * r]); D.push(rnd() * 1.1); }
+
+    const edges = [], adj = P.map(() => []), seen = new Set();
+    for (let i = 0; i < N; i++) {
+      const best = [];
+      for (let j = 0; j < N; j++) {
+        if (i === j) continue;
+        const dx = P[i][0] - P[j][0], dy = P[i][1] - P[j][1], dz = P[i][2] - P[j][2], d = dx * dx + dy * dy + dz * dz;
+        if (d <= 0.17) best.push([d, j]);
+      }
+      best.sort((a, b) => a[0] - b[0]);
+      for (const [, j] of best.slice(0, 3)) {
+        const k = i < j ? i + '-' + j : j + '-' + i;
+        if (seen.has(k)) continue; seen.add(k);
+        adj[i].push(edges.length); adj[j].push(edges.length); edges.push([i, j]);
+      }
+    }
+
+    const hubs = REGIONS.map(r => new T.Vector3(...r.pos));
+    const reg = new Int8Array(N), w = new Float32Array(N);
+    P.forEach((p, i) => {
+      let bi = -1, bd = 1e9;
+      hubs.forEach((h, k) => { const d = Math.hypot(p[0] - h.x, p[1] - h.y, p[2] - h.z); if (d < bd) { bd = d; bi = k; } });
+      reg[i] = bd < 1.1 ? bi : -1; w[i] = bd < 1.1 ? 1 - bd / 1.1 : 0;
+    });
+
+    const cv = document.createElement('canvas'); cv.width = cv.height = 64;
+    const cx = cv.getContext('2d'), gr = cx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(0.25, 'rgba(255,255,255,.7)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+    cx.fillStyle = gr; cx.fillRect(0, 0, 64, 64);
+    const tex = new T.CanvasTexture(cv);
+    const add = { transparent: true, depthWrite: false, blending: T.AdditiveBlending };
+
+    const pPos = new Float32Array(N * 3), pCol = new Float32Array(N * 3);
+    (reduce ? P : S).forEach((p, i) => pPos.set(p, i * 3));
+    const pGeo = new T.BufferGeometry();
+    pGeo.setAttribute('position', new T.BufferAttribute(pPos, 3));
+    pGeo.setAttribute('color', new T.BufferAttribute(pCol, 3));
+    const points = new T.Points(pGeo, new T.PointsMaterial({ size: 0.065, map: tex, vertexColors: true, ...add }));
+    g.add(points);
+
+    const E = edges.length, lPos = new Float32Array(E * 6), lCol = new Float32Array(E * 6);
+    const fillLines = src => edges.forEach(([a, b], k) => { lPos[k * 6] = src[a * 3]; lPos[k * 6 + 1] = src[a * 3 + 1]; lPos[k * 6 + 2] = src[a * 3 + 2]; lPos[k * 6 + 3] = src[b * 3]; lPos[k * 6 + 4] = src[b * 3 + 1]; lPos[k * 6 + 5] = src[b * 3 + 2]; });
+    fillLines(pPos);
+    const lGeo = new T.BufferGeometry();
+    lGeo.setAttribute('position', new T.BufferAttribute(lPos, 3));
+    lGeo.setAttribute('color', new T.BufferAttribute(lCol, 3));
+    const lineMat = new T.LineBasicMaterial({ vertexColors: true, opacity: reduce ? 0.55 : 0, ...add });
+    g.add(new T.LineSegments(lGeo, lineMat));
+
+    const hubSprites = hubs.map((h, k) => {
+      const s = new T.Sprite(new T.SpriteMaterial({ map: tex, color: new T.Color(...REGIONS[k].col), ...add }));
+      s.position.copy(h); s.scale.set(0.001, 0.001, 1); g.add(s); return s;
+    });
+
+    // Sub-nodes: ring of case studies around the Work hub
+    const wh = hubs[0], n0 = wh.clone().normalize();
+    const u0 = new T.Vector3().crossVectors(n0, new T.Vector3(0, 1, 0)).normalize();
+    const w0 = new T.Vector3().crossVectors(u0, n0).normalize();
+    const subPos = SUBS.map((_, k) => {
+      const a = Math.PI / 2 + (k / SUBS.length) * Math.PI * 2;
+      return wh.clone().addScaledVector(n0, 0.35).addScaledVector(u0, Math.cos(a) * 0.5).addScaledVector(w0, Math.sin(a) * 0.5);
+    });
+    const subSprites = subPos.map(p => { const s = new T.Sprite(new T.SpriteMaterial({ map: tex, color: 0xdfe7ff, opacity: 0, ...add })); s.position.copy(p); s.scale.set(0.2, 0.2, 1); g.add(s); return s; });
+    const sPos = new Float32Array(SUBS.length * 6);
+    subPos.forEach((p, k) => { sPos.set([wh.x, wh.y, wh.z], k * 6); sPos.set([p.x, p.y, p.z], k * 6 + 3); });
+    const sGeo = new T.BufferGeometry(); sGeo.setAttribute('position', new T.BufferAttribute(sPos, 3));
+    const subLineMat = new T.LineBasicMaterial({ color: 0x8ea4ff, opacity: 0, ...add });
+    g.add(new T.LineSegments(sGeo, subLineMat));
+
+    const M = mobile ? 140 : 260;
+    const pulses = [], uPos = new Float32Array(M * 3);
+    const uGeo = new T.BufferGeometry(); uGeo.setAttribute('position', new T.BufferAttribute(uPos, 3));
+    const pulseMat = new T.PointsMaterial({ size: 0.09, map: tex, color: 0xdfe7ff, opacity: reduce ? 1 : 0, ...add });
+    g.add(new T.Points(uGeo, pulseMat));
+    const regEdges = REGIONS.map((_, k) => edges.map((e, i) => (reg[e[0]] === k ? i : -1)).filter(i => i >= 0));
+    const v = this.v = { tRotY: 0.6, tRotX: 0.12, rotY: reduce ? 0.6 : -0.9, rotX: 0.12, camZ, camT: [0, 0, camZ], hover: -1, sel: -1, glow: [0, 0, 0, 0], subVis: 0 };
+    const spawn = p => {
+      const a = v.hover >= 0 ? v.hover : v.sel;
+      const pool = a >= 0 && rnd() < 0.6 ? regEdges[a] : null;
+      p.e = pool && pool.length ? pool[(rnd() * pool.length) | 0] : (rnd() * E) | 0;
+      p.from = rnd() < 0.5 ? 0 : 1; p.t = 0; p.sp = 0.012 + rnd() * 0.02; p.hops = 2 + ((rnd() * 6) | 0);
+    };
+    for (let i = 0; i < M; i++) { const p = {}; spawn(p); p.t = rnd(); pulses.push(p); }
+
+    const ray = new T.Raycaster(); ray.params.Points.threshold = 0.07;
+    const mouse = new T.Vector2(), tmp = new T.Vector3();
+    let drag = false, lx = 0, ly = 0, moved = 0, mx = -1, my = -1, introDone = reduce;
+    const proj = p => { tmp.copy(p).applyMatrix4(g.matrixWorld); const z = tmp.z; tmp.project(cam); return [(tmp.x + 1) / 2 * W(), (1 - tmp.y) / 2 * H(), z]; };
+    const pick = () => {
+      if (mx < 0 || !introDone) return { h: -1, s: -1 };
+      const r = host.getBoundingClientRect(), px = mx - r.left, py = my - r.top;
+      if (v.sel === 0) for (let k = 0; k < subPos.length; k++) { const [sx, sy] = proj(subPos[k]); if (Math.hypot(sx - px, sy - py) < 22) return { h: -1, s: k }; }
+      for (let k = 0; k < hubs.length; k++) { const [sx, sy] = proj(hubs[k]); if (Math.hypot(sx - px, sy - py) < 26) return { h: k, s: -1 }; }
+      mouse.set(px / W() * 2 - 1, -(py / H()) * 2 + 1);
+      ray.setFromCamera(mouse, cam);
+      const hit = ray.intersectObject(points)[0];
+      return { h: hit && reg[hit.index] >= 0 && w[hit.index] > 0.25 ? reg[hit.index] : -1, s: -1 };
+    };
+
+    host.addEventListener('pointerdown', e => { drag = true; lx = e.clientX; ly = e.clientY; moved = 0; host.setPointerCapture(e.pointerId); });
+    host.addEventListener('pointermove', e => {
+      mx = e.clientX; my = e.clientY;
+      if (!drag) return;
+      const dx = e.clientX - lx, dy = e.clientY - ly; lx = e.clientX; ly = e.clientY; moved += Math.abs(dx) + Math.abs(dy);
+      v.tRotY += dx * 0.006; v.tRotX = Math.max(-0.9, Math.min(0.9, v.tRotX + dy * 0.004));
+    });
+    host.addEventListener('pointerup', e => {
+      drag = false;
+      if (moved >= 6) return;
+      mx = e.clientX; my = e.clientY;
+      const { h, s } = pick();
+      if (s >= 0) this.selectSub(s);
+      else if (h >= 0) this.select(h);
+      else if (v.sel >= 0) this.select(-1);
+    });
+    host.addEventListener('pointerleave', () => { mx = -1; if (!drag) this.setHover(-1); });
+
+    this._rs = () => { renderer.setSize(W(), H()); cam.aspect = W() / H(); cam.updateProjectionMatrix(); this.setState({ mobile: W() < 720 }); };
+    window.addEventListener('resize', this._rs);
+
+    let labels = [], subLabels = [], frame = 0;
+    const t0 = performance.now(), base = [0.16, 0.24, 0.62];
+    const ease = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+    const loop = () => {
+      this._raf = requestAnimationFrame(loop);
+      frame++;
+      const time = (performance.now() - t0) / 1000;
+      const it = reduce ? 10 : time;
+      v.sel = this.state.sel;
+
+      if (!introDone) {
+        for (let i = 0; i < N; i++) {
+          const k = ease((it - 0.2 - D[i]) / 1.7), a = S[i], b = P[i];
+          pPos[i * 3] = a[0] + (b[0] - a[0]) * k; pPos[i * 3 + 1] = a[1] + (b[1] - a[1]) * k; pPos[i * 3 + 2] = a[2] + (b[2] - a[2]) * k;
+        }
+        fillLines(pPos);
+        pGeo.attributes.position.needsUpdate = true; lGeo.attributes.position.needsUpdate = true;
+        if (it > 3.1) introDone = true;
+      }
+      lineMat.opacity = 0.55 * ease((it - 1.6) / 1.2);
+      pulseMat.opacity = ease((it - 2.4) / 0.8);
+      const hubIn = ease((it - 2.2) / 0.8), labelIn = ease((it - 2.7) / 0.7);
+
+      if (!drag && frame % 3 === 0) {
+        const overLabel = mx >= 0 && (() => { const el = document.elementFromPoint(mx, my); return el && el.closest('[data-hub],[data-sub]'); })();
+        if (!overLabel) { const { h } = pick(); if (h !== v.hover) this.setHover(h); }
+      }
+      host.style.cursor = drag ? 'grabbing' : v.hover >= 0 ? 'pointer' : 'grab';
+      if (!drag && v.sel < 0 && v.hover < 0) v.tRotY += 0.0012;
+      v.rotY += (v.tRotY - v.rotY) * (introDone ? 0.07 : 0.025); v.rotX += (v.tRotX - v.rotX) * 0.07;
+      g.rotation.set(v.rotX, v.rotY, 0);
+      g.position.y = Math.sin(time * 0.6) * 0.04;
+      const ck = introDone ? 0.045 : 0.02;
+      for (let i = 0; i < 3; i++) cam.position.setComponent(i, cam.position.getComponent(i) + (v.camT[i] - cam.position.getComponent(i)) * ck);
+      for (let k = 0; k < 4; k++) { const on = k === v.sel ? 1 : k === v.hover ? 0.75 : 0; v.glow[k] += (on - v.glow[k]) * 0.08; }
+      v.subVis += ((v.sel === 0 ? 1 : 0) - v.subVis) * 0.06;
+
+      for (let i = 0; i < N; i++) {
+        const b = 0.55 + 0.12 * Math.sin(time * 1.3 + i);
+        let r = base[0] * b, gg = base[1] * b, bb = base[2] * b;
+        if (reg[i] >= 0) { const gl = v.glow[reg[i]] * w[i] * 1.1, c = REGIONS[reg[i]].col; r += c[0] * gl; gg += c[1] * gl; bb += c[2] * gl; }
+        if (v.sel >= 0 && reg[i] !== v.sel) { r *= 0.6; gg *= 0.6; bb *= 0.6; }
+        pCol[i * 3] = r; pCol[i * 3 + 1] = gg; pCol[i * 3 + 2] = bb;
+      }
+      for (let k = 0; k < E; k++) { const [a, b] = edges[k]; lCol.set(pCol.subarray(a * 3, a * 3 + 3), k * 6); lCol.set(pCol.subarray(b * 3, b * 3 + 3), k * 6 + 3); }
+      pGeo.attributes.color.needsUpdate = true; lGeo.attributes.color.needsUpdate = true;
+
+      for (let i = 0; i < M; i++) {
+        const p = pulses[i]; p.t += p.sp;
+        if (p.t >= 1) {
+          const end = edges[p.e][p.from ? 0 : 1];
+          if (--p.hops > 0 && adj[end].length) { p.e = adj[end][(rnd() * adj[end].length) | 0]; p.from = edges[p.e][0] === end ? 0 : 1; p.t = 0; } else spawn(p);
+        }
+        const [a, b] = edges[p.e], A = P[p.from ? b : a], B = P[p.from ? a : b];
+        uPos[i * 3] = A[0] + (B[0] - A[0]) * p.t; uPos[i * 3 + 1] = A[1] + (B[1] - A[1]) * p.t; uPos[i * 3 + 2] = A[2] + (B[2] - A[2]) * p.t;
+      }
+      uGeo.attributes.position.needsUpdate = true;
+      hubSprites.forEach((s, k) => { const sc = (0.36 + 0.06 * Math.sin(time * 2 + k) + (k === v.sel ? 0 : v.glow[k] * 0.3)) * (k === v.sel ? 0.45 : v.sel >= 0 ? 0.35 : 1) * hubIn + 0.001; s.scale.set(sc, sc, 1); });
+      subLineMat.opacity = v.subVis * 0.5;
+      subSprites.forEach((s, k) => { s.material.opacity = v.subVis; const sc = (k === this.state.sub ? 0.32 : 0.2) + 0.03 * Math.sin(time * 2.4 + k); s.scale.set(sc, sc, 1); });
+
+      renderer.render(scene, cam);
+      const root = this.host.parentNode;
+      if (labels.length !== REGIONS.length) labels = Array.from(root.querySelectorAll('[data-hub]'));
+      if (subLabels.length !== SUBS.length) subLabels = Array.from(root.querySelectorAll('[data-sub]'));
+      labels.forEach((l, k) => {
+        const [sx, sy, z] = proj(hubs[k]);
+        l.style.transform = `translate(${Math.round(sx + 16)}px, ${Math.round(sy - 16)}px)`;
+        l.style.opacity = labelIn * (v.sel >= 0 ? 0 : z > -0.4 ? 1 : 0.35);
+        l.style.pointerEvents = labelIn > 0.5 && v.sel < 0 ? 'auto' : 'none';
+      });
+      if (v.lastSel !== v.sel) { v.lastSel = v.sel; v.memT = time; }
+      const cards = root.querySelectorAll('[data-mem]'), lines = root.querySelectorAll('[data-memline]');
+      if (cards.length && v.sel > 0) {
+        const areaW = this.state.mobile ? W() : W() - Math.min(440, W() * 0.38);
+        const R = Math.min(areaW, H()) * 0.5;
+        const [hsx, hsy] = proj(hubs[v.sel]);
+        cards.forEach((c, k) => {
+          const sl = MEM_SLOTS[k % MEM_SLOTS.length], cw = c.offsetWidth, ch = c.offsetHeight;
+          const op = ease((time - v.memT - 0.7 - k * 0.15) / 0.7);
+          let x = hsx + sl[0] * R, y = hsy + sl[1] * R + Math.sin(time * 0.8 + k * 1.7) * 6 + (1 - op) * 24;
+          x = Math.max(12, Math.min(areaW - cw - 16, x));
+          const bn = root.querySelector('[data-bigname]');
+          const floor = bn && bn.offsetHeight ? bn.getBoundingClientRect().top - host.getBoundingClientRect().top - 16 : H() - 56;
+          y = Math.max(96, Math.min(floor - ch, y));
+          c.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px) rotate(${sl[2] + Math.sin(time * 0.5 + k) * 0.6}deg)`;
+          c.style.opacity = op;
+          const ln = lines[k];
+          if (ln) { ln.setAttribute('x1', hsx); ln.setAttribute('y1', hsy); ln.setAttribute('x2', x + cw / 2); ln.setAttribute('y2', y + ch / 2); ln.setAttribute('opacity', op * 0.55); }
+        });
+      }
+      const hx = proj(wh)[0];
+      subLabels.forEach((l, k) => {
+        const [sx, sy] = proj(subPos[k]);
+        const lw = l.offsetWidth, lh = l.offsetHeight;
+        const maxX = (this.state.mobile ? W() : W() - Math.min(440, W() * 0.38)) - lw - 12;
+        const maxY = (this.state.mobile ? H() * 0.45 : H()) - lh - 12;
+        let x = sx < hx - 4 ? sx - 12 - lw : sx + 12;
+        x = Math.max(12, Math.min(maxX, x));
+        const y = Math.max(12, Math.min(maxY, sy - 13));
+        l.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
+        l.style.opacity = v.subVis * (this.state.sub < 0 || this.state.sub === k ? 1 : 0.55);
+        l.style.borderColor = k === this.state.sub ? '#b9c6ff' : '';
+        l.style.pointerEvents = v.subVis > 0.5 ? 'auto' : 'none';
+      });
+    };
+    loop();
+  }
+
+  renderVals() {
+    const { sel, sub, mobile } = this.state, n = REGIONS.length, m = SUBS.length;
+    const inSub = sel === 0 && sub >= 0;
+    const src = inSub ? { ...SUBS[sub], links: [{ label: 'Read the case', href: SUBS[sub].href }] } : sel >= 0 ? REGIONS[sel] : REGIONS[0];
+    const region = sel >= 0 ? REGIONS[sel] : REGIONS[0];
+    const vw = typeof window !== 'undefined' ? window.innerWidth : 1440, vh = typeof window !== 'undefined' ? window.innerHeight : 900;
+    const areaW = vw - Math.min(440, vw * 0.38);
+    const memW = Math.round(Math.max(130, Math.min(230, areaW * 0.2, vh * 0.26)));
+    const memCount = vh < 640 || areaW * vh < 420000 ? 2 : vh < 820 ? 3 : 4;
+    return {
+      hostRef: this.hostRef,
+      regions: REGIONS.map((r, i) => ({ ...r, onSelect: () => this.select(i), onEnter: () => this.setHover(i) })),
+      subs: SUBS.map((s, k) => ({ key: 'sub' + k, n: String(k + 1), name: s.name, onSelect: () => this.selectSub(k) })),
+      onLeave: () => this.setHover(-1),
+      hasSel: sel >= 0,
+      introOpacity: sel >= 0 ? 0 : 1,
+      bigName: sel > 0 ? REGIONS[sel].name : '',
+      bigOpacity: sel > 0 ? 1 : 0,
+      mems: sel > 0 && !mobile ? (MEMS[REGIONS[sel].id] || []).slice(0, memCount).map(m => ({ ...m, src: m.src || '', slot: m.slot || '', css: m.src ? `url("${m.src}")` : 'none' })) : [],
+      memW,
+      showSubList: sel === 0 && sub < 0,
+      crumb: inSub ? `1.${sub + 1} · Work / ${SUBS[sub].name}` : `${region.num} · ${region.name}`,
+      cur: { ...src, img: src.img || '', imgCss: src.img ? `url("${src.img}")` : 'none' },
+      close: () => this.select(-1),
+      prev: inSub ? () => this.selectSub(-1) : () => this.select((sel - 1 + n) % n),
+      next: inSub ? () => this.selectSub((sub + 1) % m) : () => this.select((sel + 1) % n),
+      prevName: inSub ? 'Work' : REGIONS[(Math.max(sel, 0) - 1 + n) % n].name,
+      nextName: inSub ? SUBS[(sub + 1) % m].name : REGIONS[(Math.max(sel, 0) + 1) % n].name,
+      panelTop: mobile ? '45%' : '0',
+      panelW: mobile ? '100%' : 'min(440px, 38vw)'
+    };
+  }
+}
+</script>
+</body>
+</html>

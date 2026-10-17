@@ -7,6 +7,7 @@ Scope:
 - Homepage: hero, numbers, five-project Work list, About, Life, Contact
 - Five case-study pages: Analyticity, Pockland, Wake & Wine, Thermo Fisher (NDA, abstracted), PeePoint
 - KISK study-reflections page, bilingual EN/CZ
+- **/brain**: an immersive 3D page (three.js neural-network brain). It's linked from the header as "Explore in 3D" and has its own full spec in **`BRAIN.md`**
 
 ## About the design files
 The files in `design/` are **design references built in HTML**: prototypes showing the intended look, copy and behaviour. They are **not production code**, so don't copy their markup. Every style is inline, by design of the prototyping tool. The task is to **recreate them in a clean Astro project** using the architecture below.
@@ -27,7 +28,7 @@ src/
   styles/system.css
   layouts/Base.astro            # <head>, fonts, Header, Footer
   components/
-    Header.astro                # full name (left) + nav (Work, About, Life, CV ↗) / case variant (All work ←, Next case)
+    Header.astro                # full name (left) + nav (Work, About, Life, Explore in 3D, CV ↗) / case variant (All work ←, Next case)
     Footer.astro
     HeroHome.astro
     NumbersRow.astro            # 2+ years / 7+ sessions / 6+ teams
@@ -51,6 +52,9 @@ src/
     index.astro
     work/[slug].astro
     kisk/index.astro            # renders by ?lang or toggle, see Interactions
+    brain.astro                 # 3D page, see BRAIN.md (only page that ships three.js)
+  components/brain/             # BrainOverlay.astro + brain.ts
+  data/brain.json               # from content/brain.json
 public/images/                  # copied from old repo (same subpaths)
 .github/workflows/deploy.yml    # withastro/action → GitHub Pages
 ```
@@ -95,6 +99,7 @@ public/images/                  # copied from old repo (same subpaths)
   - experience and education;
   - the KISK education entry has a link "Study reflections ↗" to `/kisk`.
 - **Life**: two horizontal galleries with location/date labels.
+- **Anchors** (targets of /brain links): `#work #about #experience #education #life #travel #realuxcamp #contact`, each with `scroll-margin-top` for the sticky header.
 - **Contact**: large h2 and email copy.
 - **Footer**: light, cobalt text, cobalt top rule.
 
@@ -163,7 +168,10 @@ All images come from the old repo `xshevc02/portfolio/public/images/`: thesis, p
 - `design/Case - Analyticity.dc.html`, `Case - Pockland.dc.html`, `Case - Wake and Wine.dc.html`, `Case - Thermo Fisher.dc.html`, `Case - PeePoint.dc.html`
 - `design/KISK Reflections.dc.html`: KISK page; EN/CZ copy is in its logic class
 - `design/Visual Directions.dc.html`: exploration history; the chosen direction is **6a + photo 10a**. For context only.
+- `design/Brain.dc.html`: the 3D page reference (needs `image-slot.js` beside it; KISK photo slots are prototype-only)
 - `design/support.js`: runtime needed to open the references
+- `BRAIN.md`: full spec for /brain
+- `content/brain.json`: regions, case nodes, memories and slot layout for /brain, with links mapped to Astro routes
 - `system.css`: design tokens and base classes
 - `content/kisk/intro.cs.md`, `intro.en.md`: final copy
 - `content/kisk/subjects/_template.md`: subject file format
@@ -174,5 +182,6 @@ All images come from the old repo `xshevc02/portfolio/public/images/`: thesis, p
 2. Build the homepage and its components.
 3. Set up the case content collection and `work/[slug]`, starting with Analyticity, then the rest.
 4. Build the KISK page with the content collection and both languages.
-5. Add the GitHub Pages workflow. Set `site` and `base` in `astro.config` to match the new repo name, or a custom domain.
-6. Test at 360 / 768 / 1280 / 1600px.
+5. Build /brain per `BRAIN.md`, after the homepage anchors exist.
+6. Add the GitHub Pages workflow. Set `site` and `base` in `astro.config` to match the new repo name, or a custom domain.
+7. Test at 360 / 768 / 1280 / 1600px.
